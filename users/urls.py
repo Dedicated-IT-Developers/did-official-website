@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf.urls import handler404
 from . import views
 
-handler404 = 'user.views.custom_404_view'
+handler404 = 'users.views.custom_404_view'
 
 urlpatterns = [
     # path('signup/', views.signup.as_view(), name='signup'),
