@@ -1,0 +1,695 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+  {% block headaddons %}
+    <style>
+        .writing-mode-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        .active {
+            color: white !important;
+            font-weight: bold;
+            border-bottom: 2px solid red;
+        }
+
+        .annotation-line::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 1px;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .annotation-line-left::before {
+            right: 100%;
+            top: 50%;
+        }
+
+        .annotation-line-right::before {
+            left: 100%;
+            top: 50%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .hover-scale {
+            transition: transform 0.2s;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.1);
+        }
+
+        .bg-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-effect::before,
+        .bg-effect::after,
+        .bg-effect .gradient-1,
+        .bg-effect .gradient-2 {
+            content: '';
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.3;
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .bg-effect::before {
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            top: -50%;
+            left: -50%;
+        }
+
+        .bg-effect::after {
+            background: radial-gradient(circle, rgba(255,0,0,0.4) 0%, rgba(255,0,0,0) 70%);
+            bottom: -50%;
+            right: -50%;
+        }
+
+        .bg-effect .gradient-1 {
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            top: 0;
+            left: 25%;
+        }
+
+        .bg-effect .gradient-2 {
+            background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, rgba(255,0,0,0) 70%);
+            bottom: 0;
+            right: 25%;
+        }
+
+        .did-text-effect {
+            -webkit-text-stroke: 3px white;
+            -webkit-text-fill-color: transparent;
+            transform: perspective(600px) rotateX(30deg);
+            opacity: 0.15;
+        }
+
+        .flip-text {
+            display: inline-block;
+            transform: scaleX(-1);
+        }
+
+        .carousel-container {
+            perspective: 1500px;
+            transform-style: preserve-3d;
+            position: relative;
+            margin: 0 auto;
+            contain: layout size;
+            width: 100%;
+            max-width: 850px;
+            height: 360px;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            opacity: 0;
+            overflow: hidden;
+            will-change: transform, opacity;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0) translateZ(100px) scale(1.1);
+            z-index: 2;
+        }
+
+        .carousel-item.prev {
+            opacity: 0.6;
+            transform: translateX(-30%) translateZ(0) scale(0.85);
+            z-index: 1;
+        }
+
+        .carousel-item.next {
+            opacity: 0.6;
+            transform: translateX(30%) translateZ(0) scale(0.85);
+            z-index: 1;
+        }
+
+        .carousel-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 400px;
+            z-index: 60;
+            pointer-events: all;
+        }
+
+        .carousel-nav .flex-col {
+            gap: 4px;
+        }
+
+        .carousel-nav .thumbnail {
+            position: absolute;
+            right: 0;
+            width: 65px;
+            height: 65px;
+            transition: all 0.3s ease-out;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-nav .thumbnail:hover {
+            transform: scale(1.1) translateX(-10px);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail.active {
+            transform: scale(1.3);
+            border: 3px solid red;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+        }
+
+        @media (max-width: 1024px) {
+            .carousel-container {
+                height: 300px;
+                max-width: 90%;
+            }
+            
+            .carousel-item.active {
+                transform: translateX(0) translateZ(50px) scale(1.05);
+            }
+
+            .did-text-effect {
+                font-size: 15rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 80px; 
+                max-width: 95%;
+                margin-top: 60px; 
+                margin-bottom: 160px;
+            }
+            
+            .carousel-item.active {
+                transform: translateX(0) translateZ(20px) scale(1.02);
+            }
+            
+            .carousel-item.prev {
+                transform: translateX(-15%) translateZ(0) scale(0.95);
+            }
+            
+            .carousel-item.next {
+                transform: translateX(15%) translateZ(0) scale(0.95);
+            }
+
+            .carousel-nav {
+                position: fixed;
+                top: 80px; 
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                transform: none;
+                z-index: 30;
+                padding: 10px 0;
+                background: rgba(0, 0, 0, 0.5);
+                -webkit-backdrop-filter: blur(8px);
+                backdrop-filter: blur(8px);
+            }
+
+            .carousel-nav .flex-col {
+                flex-direction: row;
+                gap: 12px;
+                padding: 0 20px;
+            }
+
+            .carousel-nav .thumbnail {
+                position: relative;
+                width: 35px;  
+                height: 35px;  
+            }
+
+            .writing-mode-vertical {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-container {
+                height: 60px; 
+                max-width: 100%;
+                margin-top: 50px;
+                margin-bottom: 180px;
+            }
+            
+            .carousel-item.active {
+                transform: translateX(0) translateZ(20px) scale(1.02);
+            }
+            
+            .carousel-item.prev {
+                transform: translateX(-15%) translateZ(0) scale(0.95);
+            }
+            
+            .carousel-item.next {
+                transform: translateX(15%) translateZ(0) scale(0.95);
+            }
+
+            .carousel-nav .thumbnail {
+                width: 25px;  
+                height: 25px; 
+            }
+
+            #prev-btn, #next-btn {
+                padding: 15px;
+                font-size: 1.5rem;
+            }
+
+            .did-text-effect {
+                font-size: 6rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .carousel-container {
+                height: 50px;  
+                margin-top: 45px;
+                margin-bottom: 200px; 
+            }
+            
+            .carousel-item.prev,
+            .carousel-item.next {
+                opacity: 0.4;
+            }
+        }
+
+        @media (hover: none) {
+            .carousel-nav .thumbnail {
+                transition: transform 0.2s ease;
+            }
+            
+            .carousel-nav .thumbnail:active {
+                transform: scale(1.2);
+            }
+            
+            #mobile-menu-btn,
+            #close-sidebar {
+                padding: 12px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        .animate-slide {
+            display: flex;
+            animation: slide 10s linear infinite;
+        }
+        @media (min-width: 768px) {
+            .animate-slide {
+                animation: none; /* Disable animation on md+ devices */
+            }
+        }
+    </style>
+  {% endblock headaddons %}
+
+{% block content %}
+
+<div class="fixed left-8 top-1/2 -translate-y-1/2 z-40">
+  <div class="flex flex-col gap-20 animate-fade-in">
+      <div class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest">
+          &copy; 2025
+      </div>
+      <div class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8">
+          <span>Dedicated</span>
+          <span>IT</span>
+          <span>Developers</span>
+      </div>
+  </div>
+</div>
+
+<div class="h-screen relative flex items-center justify-center bg-effect">
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+    <div class="gradient-1"></div>
+    <div class="gradient-2"></div>
+
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-[20rem] font-bold text-transparent flex gap-4 did-text-effect">
+            <span class="flip-text">D</span>iD
+        </div>
+    </div>
+
+    
+    <div class="relative w-full max-w-5xl mx-auto px-4">
+    <div class="relative animate-fade-in">
+        <div class="relative w-[800px] h-[450px] mx-auto carousel-container overflow-visible">
+            <!-- Carousel items will be dynamically inserted here -->
+        </div>
+    
+        <!-- Next at Previous   -->
+        <button id="prev-btn"
+            class="absolute top-1/2 left-4 md:left-6 transform -translate-y-1/2 
+                    text-white p-4 md:p-5 text-2xl rounded-full 
+                shadow-lg hover:text-red-500 hover:scale-110 transition"
+            aria-label="Previous slide">
+            &#10094; 
+        </button>
+
+        <button id="next-btn"
+            class="absolute top-1/2 right-4 md:right-6 transform -translate-y-1/2 
+                    text-white p-4 md:p-5 text-2xl rounded-full 
+                shadow-lg hover:text-red-500 hover:scale-110 transition"
+            aria-label="Next slide">
+            &#10095; 
+        </button>
+
+    </div>
+    </div>
+
+    <div class="carousel-nav">
+        <div class="flex flex-col gap-8">
+
+            {% for slider in sliders %}
+                <div class="thumbnail" data-index="0">
+                    <img src="{{ slider.slider_image.url|safe }}" alt="Slider {{ slider.id|safe }}" class="w-full h-full object-cover">
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+<div class="fixed bottom-0 w-full bg-black/50 backdrop-blur-sm border-t border-white/10 overflow-hidden">
+    <div class="w-full whitespace-nowrap">
+        <div x-data="{ move: true }" x-init="setInterval(() => move = !move, 10_000)" 
+            class="flex space-x-8 md:justify-center md:animate-none animate-slide">
+            
+            <!-- Honesty -->
+            <div class="flex-shrink-0 flex flex-col items-center text-center min-w-[200px] md:min-w-[300px]">
+                <div class="text-red-600 text-xs md:text-sm mb-1">Core Value</div>
+                <div class="text-lg md:text-2xl font-light">Honesty</div>
+                <div class="text-xs md:text-sm text-white/80">Transparency and open communication.</div>
+            </div>
+
+            <!-- Loyalty -->
+            <div class="flex-shrink-0 flex flex-col items-center text-center min-w-[200px] md:min-w-[300px]">
+                <div class="text-red-600 text-xs md:text-sm mb-1">Core Value</div>
+                <div class="text-lg md:text-2xl font-light">Loyalty</div>
+                <div class="text-xs md:text-sm text-white/80">Commitment to the team and its mission.</div>
+            </div>
+
+            <!-- Pride -->
+            <div class="flex-shrink-0 flex flex-col items-center text-center min-w-[200px] md:min-w-[300px]">
+                <div class="text-red-600 text-xs md:text-sm mb-1">Core Value</div>
+                <div class="text-lg md:text-2xl font-light">Pride</div>
+                <div class="text-xs md:text-sm text-white/80">Growth through challenges and learning.</div>
+            </div>
+
+            <!-- Duplicate for smooth infinite scrolling (Only on mobile) -->
+            <div class="flex-shrink-0 flex flex-col items-center text-center min-w-[200px] md:hidden">
+                <div class="text-red-600 text-xs md:text-sm mb-1">Core Value</div>
+                <div class="text-lg md:text-2xl font-light">Honesty</div>
+                <div class="text-xs md:text-sm text-white/80">Transparency and open communication.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function updateArrowColors() {
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const currentSlide = document.querySelector('.carousel-item.active img');
+            
+            if (!currentSlide) return;
+            
+            canvas.width = currentSlide.width;
+            canvas.height = currentSlide.height;
+            
+            ctx.drawImage(currentSlide, 0, 0, canvas.width, canvas.height);
+            
+            function isLightColor(x, y) {
+                const pixel = ctx.getImageData(x, y, 1, 1).data;
+                const brightness = (pixel[0] * 299 + pixel[1] * 587 + pixel[2] * 114) / 1000;
+                return brightness > 128;
+            }
+            
+            const leftX = canvas.width * 0.1;  
+            const centerY = canvas.height * 0.5;  
+            const isLeftAreaLight = isLightColor(leftX, centerY);
+            
+
+            const rightX = canvas.width * 0.9; 
+            const isRightAreaLight = isLightColor(rightX, centerY);
+            
+            prevBtn.style.color = isLeftAreaLight ? '#000000' : '#ffffff';
+            nextBtn.style.color = isRightAreaLight ? '#000000' : '#ffffff';
+        }
+        const images = [
+            {% for slider in sliders %}
+                "{{ slider.slider_image.url }}",
+            {% endfor %}
+        ];
+
+        let currentIndex = 0;
+        const container = document.querySelector('.carousel-container');
+        let startX = null;
+
+        function setupCarousel() {
+            container.innerHTML = '';
+            images.forEach((src, index) => {
+                const div = document.createElement('div');
+                div.className = `carousel-item ${
+                    index === currentIndex ? 'active' : 
+                    index === (currentIndex + 1) % images.length ? 'next' : 'prev'
+                }`;
+                
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Slide ${index + 1}`;
+                img.className = 'w-full h-full object-cover transition-opacity duration-500 rounded-lg';
+                
+                div.appendChild(img);
+                container.appendChild(div);
+            });
+        }
+
+        function updateCarousel() {
+            document.querySelectorAll('.carousel-item').forEach((item, index) => {
+                if (index === currentIndex) {
+                    item.className = 'carousel-item active';
+                } else if (index === (currentIndex + 1) % images.length) {
+                    item.className = 'carousel-item next';
+                } else {
+                    item.className = 'carousel-item prev';
+                }
+            });
+            
+            setTimeout(updateArrowColors, 100); 
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+            updateActiveStates();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+            updateActiveStates();
+        }
+
+        setupCarousel();
+
+        let interval = setInterval(nextImage, 5000);
+
+        document.getElementById("next-btn").addEventListener("click", () => {
+            nextImage();
+            clearInterval(interval);
+            interval = setInterval(nextImage, 5000);
+        });
+
+        document.getElementById("prev-btn").addEventListener("click", () => {
+            prevImage();
+            clearInterval(interval);
+            interval = setInterval(nextImage, 5000);
+        });
+
+        function updateThumbnailPositions() {
+          const thumbnails = document.querySelectorAll('.thumbnail');
+          const isSmallOrMedium = window.innerWidth < 768;
+          
+          if (!isSmallOrMedium) {
+            thumbnails.forEach((thumbnail, index) => {
+              const totalHeight = 280;
+              const radius = 120;
+              const progress = index / (thumbnails.length - 1);
+              const angle = (progress - 0.5) * Math.PI;
+              
+              const x = Math.cos(angle) * radius * -1.2;
+              const y = Math.sin(angle) * totalHeight * 0.5 + totalHeight / 2;
+              
+              thumbnail.style.transform = `translate(${x - 10}px, ${y}px)`;
+              
+              if (thumbnail.classList.contains('active')) {
+                thumbnail.style.transform += ' scale(1.3)';
+              }
+            });
+          } else {
+            thumbnails.forEach(thumbnail => {
+              thumbnail.style.transform = thumbnail.classList.contains('active') ? 'scale(1.3)' : 'none';
+            });
+          }
+        }
+
+        window.addEventListener('resize', updateThumbnailPositions);
+
+        updateThumbnailPositions();
+
+        document.querySelectorAll(".thumbnail").forEach((thumbnail) => {
+          thumbnail.addEventListener("click", function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            currentIndex = index;
+            updateCarousel();
+            
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            updateThumbnailPositions();
+            
+            clearInterval(interval);
+            interval = setInterval(nextImage, 5000);
+          });
+        });
+
+        function updateActiveStates() {
+          document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+            if (index === currentIndex) {
+              thumbnail.classList.add('active');
+            } else {
+              thumbnail.classList.remove('active');
+            }
+          });
+          updateThumbnailPositions();
+        }
+
+        const menuBtn = document.getElementById("mobile-menu-btn");
+        const sidebar = document.getElementById("mobile-sidebar");
+        const closeBtn = document.getElementById("close-sidebar");
+        const overlay = document.getElementById("overlay");
+
+        menuBtn.addEventListener("click", function () {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        });
+
+        closeBtn.addEventListener("click", function () {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        });
+
+        overlay.addEventListener("click", function () {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        });
+        
+        document.querySelectorAll('.carousel-item img').forEach(img => {
+            img.addEventListener('load', updateArrowColors);
+        });
+
+        document.getElementById("prev-btn").style.transition = "color 0.3s ease";
+        document.getElementById("next-btn").style.transition = "color 0.3s ease";
+
+        function handleTouchStart(e) {
+          const touch = e.touches[0];
+          startX = touch.clientX;
+        }
+
+        function handleTouchMove(e) {
+          if (!startX) return;
+          
+          const touch = e.touches[0];
+          const diff = startX - touch.clientX;
+          
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              nextImage();
+            } else {
+              prevImage();
+            }
+            startX = null;
+          }
+        }
+
+        document.querySelector('.carousel-container').addEventListener('touchstart', handleTouchStart);
+        document.querySelector('.carousel-container').addEventListener('touchmove', handleTouchMove);
+
+        const resizeObserver = new ResizeObserver(entries => {
+          updateThumbnailPositions();
+          updateCarousel();
+        });
+
+        resizeObserver.observe(document.querySelector('.carousel-container'));
+
+        function debounce(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        }
+
+        window.addEventListener('resize', debounce(() => {
+          updateThumbnailPositions();
+        }, 250));
+    });
+</script>
+
+{% endblock content %}

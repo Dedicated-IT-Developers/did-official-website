@@ -1,0 +1,27 @@
+Superadmin
+127.0.0.1:8000/admin
+username:didadmin
+password:didadmin
+Role:
+- add/update all info of DiD Website
+- add user/member's account
+
+
+
+User/Member's Account
+127.0.0.1:8000/user/login
+127.0.0.1:8000/user/verify
+Role
+- update portfolio
+Todo
+- Login Form Design
+- Update Form after Logged (First Time update: Added to Team table/model) | Table/model affected: Team, PersonalProject
+
+
+
+
+Landing Page
+Todo
+- About (make dynamic)
+- Teams (Portfolio: Add links for Personal Project)
+- Join Us (make dynamic)

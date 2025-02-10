@@ -1,0 +1,515 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+  {% block headaddons %}
+
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+      }
+      .bg-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      .bg-effect::before,
+      .bg-effect::after,
+      .bg-effect .gradient-1,
+      .bg-effect .gradient-2 {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.3;
+        filter: blur(30px);
+        pointer-events: none;
+      }
+      .bg-effect::before {
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.4) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        top: -50%;
+        left: -50%;
+      }
+      .bg-effect::after {
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 0, 0.4) 0%,
+          rgba(255, 0, 0, 0) 70%
+        );
+        bottom: -50%;
+        right: -50%;
+      }
+      .bg-effect .gradient-1 {
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        top: 0;
+        left: 25%;
+      }
+      .bg-effect .gradient-2 {
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 0, 0.3) 0%,
+          rgba(255, 0, 0, 0) 70%
+        );
+        bottom: 0;
+        right: 25%;
+      }
+      .active {
+        color: white !important;
+        font-weight: bold;
+        border-bottom: 2px solid red;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+      }
+
+      .carousel-slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-slide.active {
+        display: block;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      .carousel-thumbnail {
+        width: 60px;
+        height: 40px;
+        margin: 5px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+        object-fit: cover;
+      }
+
+      .carousel-thumbnail:hover,
+      .carousel-thumbnail.active {
+        opacity: 1;
+      }
+      .carousel-prev,
+      .carousel-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      .carousel-prev {
+        left: 10px;
+      }
+      .carousel-next {
+        right: 10px;
+      }
+      @media (max-width: 640px) {
+        .carousel-thumbnail {
+          width: 40px;
+          height: 30px;
+        }
+        .carousel-prev,
+        .carousel-next {
+          padding: 5px;
+          font-size: 14px;
+        }
+      }
+      .flip-text {
+            display: inline-block;
+            transform: scaleX(-1);
+      }
+    </style>
+
+  {% endblock headaddons %}
+
+  {% block content %}  
+
+    <div class="fixed left-8 top-1/2 z-50 -translate-y-1/2 hidden lg:block">
+      <div class="flex flex-col gap-20 animate-fade-in">
+        <div class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest">
+          &copy; 2025
+        </div>
+        <div class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8">
+          <span>Dedicated</span>
+          <span>IT</span>
+          <span>Developers</span>
+        </div>
+      </div>
+    </div>
+
+    <main
+      class="pt-16 pb-12 px-4 sm:px-6 md:px-8 min-h-screen bg-black relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black via-red-500/30 to-white/20 opacity-40"
+      ></div>
+      <h1
+        id="project-title"
+        class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mt-4 sm:mt-16 mb-8 sm:mb-12 animate-fade-in title-underline"
+      ></h1>
+
+      <div
+        id="project-content"
+        class="max-w-7xl mx-auto flex flex-col gap-6 sm:gap-8"
+      >
+        <section id="image-gallery" class="mb-8 sm:mb-16">
+          <div class="carousel-container">
+            <div class="carousel-slides"></div>
+            <a href="#" class="carousel-prev">&lt;</a>
+            <a href="#" class="carousel-next">&gt;</a>
+          </div>
+
+          <div class="carousel-nav mt-2 sm:mt-4"></div>
+        </section>
+
+        <div class="space-y-8 md:space-y-12">
+          <section
+            id="brief-info"
+            class="relative bg-black/30 backdrop-blur-xl border border-red-500/30 shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-red-500/30"
+          >
+            <div class="p-6 sm:p-8">
+              <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide drop-shadow-lg mb-4"
+              >
+                About the Project
+              </h2>
+              <p
+                id="project-description"
+                class="text-base sm:text-lg text-gray-300 leading-relaxed"
+              ></p>
+            </div>
+            <div
+              class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 hover:border-red-500/60"
+            ></div>
+          </section>
+
+          <section
+            id="technology-used"
+            class="relative bg-black/30 backdrop-blur-xl border border-red-500/30 shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-red-500/30"
+          >
+            <div class="p-6 sm:p-8">
+              <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide drop-shadow-lg mb-4"
+              >
+                Technology Used
+              </h2>
+              <div id="technologies" class="flex flex-wrap gap-3 mt-4"></div>
+            </div>
+            <div
+              class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 hover:border-red-500/60"
+            ></div>
+          </section>
+
+          <section
+            id="features"
+            class="relative bg-black/30 backdrop-blur-xl border border-red-500/30 shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-red-500/30"
+          >
+            <div class="p-6 sm:p-8">
+              <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide drop-shadow-lg mb-4"
+              >
+                Features
+              </h2>
+              <ul
+                id="feature-list"
+                class="space-y-3 text-base sm:text-lg text-gray-300"
+              ></ul>
+            </div>
+            <div
+              class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 hover:border-red-500/60"
+            ></div>
+          </section>
+
+          <section
+            id="developers"
+            class="relative bg-black/30 backdrop-blur-xl border border-red-500/30 shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-red-500/30"
+          >
+            <div class="p-6 sm:p-8">
+              <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide drop-shadow-lg mb-4"
+              >
+                Developers
+              </h2>
+              <p
+                id="team-members"
+                class="text-base sm:text-lg text-gray-300 mb-6"
+              ></p>
+              <a
+                href="team.html"
+                class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 text-base sm:text-lg font-semibold"
+                >View Team</a
+              >
+            </div>
+            <div
+              class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 hover:border-red-500/60"
+            ></div>
+          </section>
+        </div>
+
+        <div class="text-center mt-6 sm:mt-8 z-30">
+          <a
+            href="/projects"
+            class="bg-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-red-600 transition-colors inline-block text-sm sm:text-base"
+            >Back to Projects</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("nav a");
+
+        links.forEach((link) => {
+          link.addEventListener("click", function () {
+            links.forEach((l) => l.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        const currentPath = window.location.pathname;
+        links.forEach((link) => {
+          if (link.href.includes(currentPath)) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const sidebar = document.getElementById("mobile-sidebar");
+      const closeBtn = document.getElementById("close-sidebar");
+      const overlay = document.getElementById("overlay");
+
+      menuBtn.addEventListener("click", function () {
+        sidebar.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      overlay.addEventListener("click", function () {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+
+        if (window.scrollY > 50) {
+          navbar.classList.add(
+            "bg-black",
+            "bg-opacity-20",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        } else {
+          navbar.classList.remove(
+            "bg-black",
+            "bg-opacity-20",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        //const projectId = parseInt(urlParams.get("id"));
+        const projectId = parseInt({{ project.id }});
+        
+        if (projectId) {
+          const projectsData = JSON.parse(localStorage.getItem("projectsData"));
+          const project = projectsData.find((p) => p.id === projectId);
+          if (project) {
+            displayProjectDetails(project);
+          } else {
+            console.error("Project not found");
+          }
+        } else {
+          console.error("No project ID provided");
+        }
+      });
+
+      function initializeGalleryCarousel(images) {
+        const container = document.querySelector(".carousel-slides");
+        const thumbnailContainer = document.querySelector(".carousel-nav");
+        let currentIndex = 0;
+
+        container.innerHTML = "";
+        images.forEach((src, index) => {
+          const slide = document.createElement("div");
+          slide.className = `carousel-slide ${index === 0 ? "active" : ""}`;
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `Slide ${index + 1}`;
+          img.onload = () => {
+            if (index === 0) {
+              const aspectRatio = img.naturalWidth / img.naturalHeight;
+              container.parentElement.style.aspectRatio = `${aspectRatio}`;
+            }
+          };
+          slide.appendChild(img);
+          container.appendChild(slide);
+        });
+
+        thumbnailContainer.innerHTML = "";
+        images.forEach((src, index) => {
+          const thumbnail = document.createElement("img");
+          thumbnail.src = src;
+          thumbnail.alt = `Thumbnail ${index + 1}`;
+          thumbnail.className = `carousel-thumbnail ${
+            index === 0 ? "active" : ""
+          }`;
+          thumbnail.addEventListener("click", () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+          thumbnailContainer.appendChild(thumbnail);
+        });
+
+        function updateCarousel() {
+          const slides = document.querySelectorAll(".carousel-slide");
+          const thumbnails = document.querySelectorAll(".carousel-thumbnail");
+
+          slides.forEach((slide, index) => {
+            slide.classList.toggle("active", index === currentIndex);
+          });
+
+          thumbnails.forEach((thumbnail, index) => {
+            thumbnail.classList.toggle("active", index === currentIndex);
+          });
+        }
+
+        document
+          .querySelector(".carousel-prev")
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+          });
+
+        document
+          .querySelector(".carousel-next")
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+          });
+
+        let interval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % images.length;
+          updateCarousel();
+        }, 5000);
+
+        container.addEventListener("mouseenter", () => clearInterval(interval));
+        container.addEventListener("mouseleave", () => {
+          interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+          }, 5000);
+        });
+
+        let startX = null;
+        container.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        container.addEventListener("touchmove", (e) => {
+          if (!startX) return;
+
+          const diff = startX - e.touches[0].clientX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              currentIndex = (currentIndex + 1) % images.length;
+            } else {
+              currentIndex = (currentIndex - 1 + images.length) % images.length;
+            }
+            updateCarousel();
+            startX = null;
+          }
+        });
+
+        updateCarousel();
+      }
+
+      function displayProjectDetails(project) {
+        document.getElementById("project-title").textContent = project.title;
+        document.getElementById("project-description").textContent =
+          project.description;
+
+        const techContainer = document.getElementById("technologies");
+        techContainer.innerHTML = "";
+        project.technologies.forEach((tech) => {
+          const techSpan = document.createElement("span");
+          techSpan.className = "bg-red-500/20 text-red-400 px-2 py-1 rounded";
+          techSpan.textContent = tech;
+          techContainer.appendChild(techSpan);
+        });
+
+        const featureList = document.getElementById("feature-list");
+        featureList.innerHTML = "";
+        project.features.forEach((feature) => {
+          const li = document.createElement("li");
+          li.className = "flex items-start";
+          li.innerHTML = `
+                        <svg class="w-5 h-5 text-red-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>${feature}</span>
+                    `;
+          featureList.appendChild(li);
+        });
+
+        document.getElementById("team-members").textContent =
+          project.teamMembers.join(", ");
+
+        if (project.images && project.images.length > 0) {
+          initializeGalleryCarousel(project.images);
+        }
+      }
+    </script>
+
+    
+{% endblock content %}

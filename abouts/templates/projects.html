@@ -1,0 +1,322 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+  {% block headaddons %}
+
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+      }
+      .active {
+        color: white !important;
+        font-weight: bold;
+        border-bottom: 2px solid red;
+      }
+
+      .annotation-line::before {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 1px;
+        background: rgba(255, 255, 255, 1);
+      }
+
+      .annotation-line-left::before {
+        right: 100%;
+        top: 50%;
+      }
+
+      .annotation-line-right::before {
+        left: 100%;
+        top: 50%;
+      }
+
+      .hover-scale {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+      .flip-text {
+            display: inline-block;
+            transform: scaleX(-1);
+      }
+    </style>
+
+  {% endblock headaddons %}
+
+  {% block content %}   
+
+    <div class="fixed left-8 top-1/2 -translate-y-1/2 lg:z-40">
+      <div class="flex flex-col gap-20 animate-fade-in">
+        <div
+          class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest"
+        >
+          &copy; 2026
+        </div>
+        <div
+          class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8"
+        >
+          <span>Dedicated</span>
+          <span>IT</span>
+          <span>Developers</span>
+        </div>
+      </div>
+    </div>
+
+    <main class="pt-24 pb-20 px-4 md:px-8 min-h-screen bg-black relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-red-500/30 to-white/20 opacity-40"></div>
+      <h1 class="text-4xl font-bold text-center mt-8 mb-12 animate-fade-in">
+        Our Projects
+      </h1>
+
+      <div class="flex justify-center mb-8">
+        <button id="grid-view-btn"
+          class="flex items-center gap-2 px-5 py-3 rounded-l-2xl border border-red-500/50 bg-black/30 backdrop-blur-xl text-white shadow-md transition-all duration-300 hover:bg-red-500/20 hover:shadow-red-500/30" >
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h6M4 10h6m-6 4h6M4 18h6m8-12h6M14 6h6m-6 4h6m-6 4h6m-6 4h6"
+            />
+          </svg>
+          Grid View
+        </button>
+        <button id="list-view-btn"
+          class="flex items-center gap-2 px-5 py-3 rounded-r-2xl border border-red-500/50 bg-black/30 backdrop-blur-xl text-white shadow-md transition-all duration-300 hover:bg-red-500/20 hover:shadow-red-500/30" >
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 10h16m-16 4h16m-16 4h16"
+            />
+          </svg>
+          List View
+        </button>
+      </div>
+
+      <div id="projects-container"
+        class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-4 sm:p-8">
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("nav a");
+
+        links.forEach((link) => {
+          link.addEventListener("click", function () {
+            links.forEach((l) => l.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        const currentPath = window.location.pathname;
+        links.forEach((link) => {
+          if (link.href.includes(currentPath)) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const sidebar = document.getElementById("mobile-sidebar");
+      const closeBtn = document.getElementById("close-sidebar");
+      const overlay = document.getElementById("overlay");
+
+      menuBtn.addEventListener("click", function () {
+        sidebar.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      overlay.addEventListener("click", function () {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+
+        if (window.scrollY > 50) {
+          navbar.classList.add(
+            "bg-black",
+            "bg-opacity-20",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        } else {
+          navbar.classList.remove(
+            "bg-black",
+            "bg-opacity-20",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        }
+      });
+
+      const projects = [
+
+        {% for project in projects %}
+
+        {
+          id: 1,
+          title: "{{ project.project_name }}",
+          subtitle: "{{ project.project_type }}",
+          images: [
+            {% for image in project.images.all %}
+            "{{ image.image.url }}",
+            {% empty %}
+            "../images/1.jpg",
+            {% endfor %}
+          ],
+          description:
+            "{{ project.description }}",
+          //technologies: [{{ project.tech_stack|safe }}],
+          technologies: {{ project.tech_stack|safe }},
+          features: {{ project.features|safe }},
+          teamMembers: [
+            {% for developer in project.projectdeveloper_set.all %}
+            "{{ developer.team.name }} - {{ developer.role }}", 
+            {% endfor %}
+          ],
+        },
+
+        {% endfor %}
+        
+      ];
+
+      localStorage.setItem("projectsData", JSON.stringify(projects));
+
+      function createGridCard(project) {
+        const mainImage =
+          project.images && project.images.length > 0
+            ? project.images[0]
+            : "path/to/default-image.jpg";
+
+        return `
+      <a href="/view_projects/${project.id}" class="project-card relative bg-black/30 backdrop-blur-xl border border-red-500/30 shadow-lg rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.05] hover:shadow-red-500/30">
+        <div class="relative w-full h-56 sm:h-64 md:h-72">
+          <img src="${mainImage}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+        </div>
+        <div class="absolute bottom-0 w-full p-4 sm:p-6 bg-black/60 backdrop-blur-lg border-t-2 border-red-500/50 rounded-b-2xl transition-all duration-300">
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-wide drop-shadow-lg">${project.title}</h3>
+          <p class="text-sm sm:text-base md:text-lg font-medium text-red-400 drop-shadow-md">${project.subtitle}</p>
+        </div>
+        <div class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 group-hover:border-red-500/60"></div>
+      </a>
+    `;
+      }
+
+      function createListItem(project) {
+        const mainImage =
+          project.images && project.images.length > 0
+            ? project.images[0]
+            : "path/to/default-image.jpg";
+
+        return `
+      <a href="/view_projects/${
+        project.id
+      }" class="project-list-item flex items-center bg-black/30 backdrop-blur-xl border border-red-500/30 shadow-lg rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-red-500/30 mb-4">
+        <img src="${mainImage}" alt="${
+          project.title
+        }" class="w-24 h-24 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-white">${project.title}</h3>
+          <p class="text-sm text-red-400">${project.subtitle}</p>
+          <p class="text-gray-400 mt-2">${project.description.substring(
+            0,
+            100
+          )}...</p>
+        </div>
+      </a>
+    `;
+      }
+
+      function renderProjects(viewType) {
+        const projectsContainer = document.getElementById("projects-container");
+        projectsContainer.innerHTML = "";
+        const projectsHTML = projects
+          .map((project) =>
+            viewType === "grid"
+              ? createGridCard(project)
+              : createListItem(project)
+          )
+          .join("");
+
+        if (viewType === "grid") {
+          projectsContainer.className =
+            "container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-4 sm:p-8";
+        } else {
+          projectsContainer.className =
+            "container mx-auto space-y-4 p-4 sm:p-8";
+        }
+
+        projectsContainer.innerHTML = projectsHTML;
+      }
+
+      const gridViewBtn = document.getElementById("grid-view-btn");
+      const listViewBtn = document.getElementById("list-view-btn");
+
+      function setActiveView(activeBtn, inactiveBtn, viewType) {
+        if (!activeBtn || !inactiveBtn) {
+          console.error("Button elements not found");
+          return;
+        }
+
+        activeBtn.classList.add("bg-red-500");
+        activeBtn.classList.remove("bg-black/30");
+        inactiveBtn.classList.add("bg-black/30");
+        inactiveBtn.classList.remove("bg-red-500");
+        renderProjects(viewType);
+      }
+
+      gridViewBtn.addEventListener("click", () =>
+        setActiveView(gridViewBtn, listViewBtn, "grid")
+      );
+      listViewBtn.addEventListener("click", () =>
+        setActiveView(listViewBtn, gridViewBtn, "list")
+      );
+
+      setActiveView(gridViewBtn, listViewBtn, "grid");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderProjects("grid");
+      });
+    </script>
+
+{% endblock content %}

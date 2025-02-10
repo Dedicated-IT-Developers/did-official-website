@@ -1,0 +1,720 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+  {% block headaddons %}
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+      }
+
+      .annotation-line::before {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 1px;
+        background: rgba(255, 255, 255, 1);
+      }
+
+      .annotation-line-left::before {
+        right: 100%;
+        top: 50%;
+      }
+
+      .annotation-line-right::before {
+        left: 100%;
+        top: 50%;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .hover-scale {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+      }
+
+      .bg-effect {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bg-effect::before,
+      .bg-effect::after {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.3;
+        filter: blur(30px);
+        pointer-events: none;
+      }
+
+      .bg-effect::before {
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.4) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        top: -50%;
+        left: -50%;
+      }
+
+      .bg-effect::after {
+        background: radial-gradient(
+          circle,
+          rgba(255, 0, 0, 0.4) 0%,
+          rgba(255, 0, 0, 0) 70%
+        );
+        bottom: -50%;
+        right: -50%;
+      }
+
+      nav .active {
+        color: white !important;
+        font-weight: bold;
+        border-bottom: 2px solid red;
+        position: relative;
+      }
+
+      nav .active::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ef4444;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      nav .active:hover::after {
+        transform: scaleX(1);
+      }
+
+      .circular-nav {
+        position: fixed;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        height: 400px;
+        z-index: 60;
+        pointer-events: all;
+      }
+
+      .circular-nav .thumbnail {
+        position: absolute;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        transition: all 0.3s ease-out;
+      }
+
+      .circular-nav .thumbnail:hover {
+        transform: scale(1.1) translateX(-10px);
+      }
+
+      .thumbnail img {
+        text-decoration: none;
+        border: none;
+      }
+
+      .thumbnail.active img {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+        border: 3px solid red;
+      }
+
+      .thumbnail.active {
+        transform: scale(1.3);
+        transition: all 0.3s ease-in-out;
+      }
+
+      @media (max-width: 768px) {
+        .circular-nav {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90%;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .circular-nav::before {
+          display: none;
+        }
+
+        .circular-nav .thumbnail {
+          position: static;
+          width: 60px;
+          height: 60px;
+          flex-shrink: 0;
+        }
+
+        .thumbnail img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+
+      @keyframes extractContentDesktop {
+        0% {
+          clip-path: circle(0% at 100% 50%);
+          transform: translateX(150px);
+          opacity: 0;
+        }
+        100% {
+          clip-path: circle(150% at 100% 50%);
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+
+      @keyframes extractContentMobile {
+        0% {
+          clip-path: circle(0% at 50% 100%);
+          transform: translateY(150px);
+          opacity: 0;
+        }
+        100% {
+          clip-path: circle(150% at 50% 100%);
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+
+      .animate-extractContentDesktop {
+        animation: extractContentDesktop 0.5s ease-out forwards;
+      }
+
+      .animate-extractContentMobile {
+        animation: extractContentMobile 0.5s ease-out forwards;
+      }
+
+      .team-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 0, 0, 0.1),
+          transparent
+        );
+        transition: transform 0.6s ease;
+        transform: skewX(-20deg);
+      }
+
+      .team-card:hover::before {
+        transform: translateX(100%) skewX(-20deg);
+      }
+
+      .card-content {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(31, 41, 55, 0.95),
+          rgba(17, 24, 39, 0.98)
+        );
+      }
+
+      .card-content::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          135deg,
+          transparent 50%,
+          rgb(185, 28, 28) 50%
+        );
+      }
+
+      @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+        .bg-effect::before,
+        .bg-effect::after {
+          -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+        }
+      }
+
+      #mobile-sidebar {
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      #mobile-sidebar::-webkit-scrollbar {
+        display: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (hover: none) and (pointer: coarse) {
+        #mobile-sidebar {
+          overflow-y: auto;
+        }
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .bg-gradient-to-r {
+        background-size: 200% auto;
+        animation: gradientFlow 3s ease infinite;
+      }
+
+      .group:hover .group-hover\:scale-105 {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 640px) {
+        .text-6xl {
+          font-size: 3rem;
+        }
+
+        .grid {
+          gap: 1rem;
+        }
+      }
+
+      @keyframes shimmer {
+        100% {
+          transform: translateX(200%);
+        }
+      }
+
+      @keyframes borderGlow {
+        0%,
+        100% {
+          border-color: rgba(239, 68, 68, 0.2);
+        }
+        50% {
+          border-color: rgba(239, 68, 68, 0.4);
+        }
+      }
+
+      .group:hover .animate-border-glow {
+        animation: borderGlow 2s ease-in-out infinite;
+      }
+
+      .group {
+        position: relative;
+      }
+
+      .flip-text {
+            display: inline-block;
+            transform: scaleX(-1);
+      }
+    </style>
+  {% endblock headaddons %}
+
+  {% block content %}   
+  
+    <div class="fixed left-8 top-1/2 z-50 -translate-y-1/2 hidden lg:block">
+      <div class="flex flex-col gap-20 animate-fade-in">
+        <div class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest">
+          &copy; 2025
+        </div>
+        <div class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8">
+          <span>Dedicated</span>
+          <span>IT</span>
+          <span>Developers</span>
+        </div>
+      </div>
+    </div>
+
+    <main class="pt-24 pb-20 px-4 md:px-8 min-h-screen bg-black relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black via-red-500/30 to-white/10 opacity-40"
+      ></div>
+      <h1
+        class="text-4xl font-bold text-center mt-8 mb-12 animate-fade-in text-white"
+      >
+        About Us
+      </h1>
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 max-w-4xl mx-auto">
+          <div class="relative inline-block">
+            <div
+              class="absolute -inset-1 bg-red-500/30 blur-xl rounded-full"
+            ></div>
+            <h2 class="text-3xl font-bold mb-8 relative text-white">
+              <i class="fas fa-users text-red-500 mr-3"></i>Who We Are
+            </h2>
+          </div>
+          <p class="text-gray-300 text-lg leading-loose tracking-wide py-4">
+            Dedicated IT Developers (DiD) is a dynamic community of IT students
+            driven by innovation, collaboration, and excellence. Guided by our
+            esteemed IT faculty mentors, we strive to bridge the gap between
+            academic learning and real-world application.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+          <div class="group h-full">
+            <div
+              class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col"
+            >
+              <div class="flex items-center mb-6">
+                <i class="fas fa-bullseye text-3xl text-red-500 mr-4"></i>
+                <h2 class="text-2xl font-bold text-white">Our Mission</h2>
+              </div>
+              <p class="text-gray-300 leading-relaxed flex-1">
+                We empower aspiring IT professionals to develop impactful
+                solutions for our university and beyond. By fostering an
+                environment of learning, creativity, and teamwork, we equip our
+                members with the skills and experience necessary to thrive in
+                the ever-evolving tech landscape.
+              </p>
+              <div
+                class="w-16 h-1 bg-white/20 mt-6 group-hover:bg-white/40 transition-colors duration-300"
+              ></div>
+            </div>
+          </div>
+          <div class="group h-full">
+            <div
+              class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col"
+            >
+              <div class="flex items-center mb-6">
+                <i class="fas fa-eye text-3xl text-red-500 mr-4"></i>
+                <h2 class="text-2xl font-bold text-white">Our Vision</h2>
+              </div>
+              <p class="text-gray-300 leading-relaxed flex-1">
+                To create a collaborative ecosystem where technology meets
+                innovation, shaping future leaders in the IT industry who will
+                drive positive change through technological advancement and
+                ethical development practices.
+              </p>
+              <div
+                class="w-16 h-1 bg-white/20 mt-6 group-hover:bg-white/40 transition-colors duration-300"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-20">
+          <div class="text-center mb-12">
+            <div class="relative inline-block">
+              <div
+                class="absolute -inset-1 bg-red-500/30 blur-xl rounded-full"
+              ></div>
+              <h2 class="text-3xl font-bold relative text-white">
+                <i class="fas fa-heart text-red-500 mr-3"></i>Our Core Values
+              </h2>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="group h-full">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col"
+              >
+                <h3
+                  class="text-xl font-bold text-red-500 mb-4 flex items-center"
+                >
+                  <i class="fas fa-handshake mr-3"></i>Honesty
+                </h3>
+                <p class="text-gray-300 flex-1">
+                  Transparency and clear communication strengthen teamwork and
+                  problem-solving. We believe in taking responsibility for our
+                  work, embracing challenges, and fostering trust.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+            <div class="group h-full">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col"
+              >
+                <h3
+                  class="text-xl font-bold text-red-500 mb-4 flex items-center"
+                >
+                  <i class="fas fa-shield-alt mr-3"></i>Loyalty
+                </h3>
+                <p class="text-gray-300 flex-1">
+                  Commitment to the team and its vision ensures resilience and
+                  unity. We stand by each other, support our peers, and uphold
+                  the integrity of our organization.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+            <div class="group h-full">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col"
+              >
+                <h3
+                  class="text-xl font-bold text-red-500 mb-4 flex items-center"
+                >
+                  <i class="fas fa-crown mr-3"></i>Pride
+                </h3>
+                <p class="text-gray-300 flex-1">
+                  Growth comes from learning, improving, and embracing mistakes
+                  as stepping stones to success. We take pride not just in our
+                  achievements but in the journey of continuous development.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-20">
+          <div class="text-center mb-12">
+            <div class="relative inline-block">
+              <div
+                class="absolute -inset-1 bg-red-500/30 blur-xl rounded-full"
+              ></div>
+              <h2 class="text-3xl font-bold relative text-white">
+                <i class="fas fa-laptop-code text-red-500 mr-3"></i>What We Do
+              </h2>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="group">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20"
+              >
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white">
+                  <i class="fas fa-code text-red-500 mr-3"></i>Hands-On Projects
+                </h3>
+                <p class="text-gray-300">
+                  Work on real-world IT solutions that enhance both technical
+                  and problem-solving skills through practical application and
+                  innovative thinking.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+            <div class="group">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20"
+              >
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white">
+                  <i class="fas fa-users text-red-500 mr-3"></i>Collaborative
+                  Learning
+                </h3>
+                <p class="text-gray-300">
+                  Engage in peer-to-peer mentorship and faculty-guided workshops
+                  that foster knowledge sharing and skill development.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+            <div class="group">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20"
+              >
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white">
+                  <i class="fas fa-balance-scale text-red-500 mr-3"></i>Ethical
+                  Development
+                </h3>
+                <p class="text-gray-300">
+                  Uphold the highest standards in IT practices, ensuring
+                  responsible and impactful innovation that benefits society.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+            <div class="group">
+              <div
+                class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20"
+              >
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white">
+                  <i class="fas fa-network-wired text-red-500 mr-3"></i
+                  >Community Building
+                </h3>
+                <p class="text-gray-300">
+                  Network with like-minded individuals, participate in team
+                  activities, and grow alongside a supportive tech community.
+                </p>
+                <div
+                  class="w-12 h-0.5 bg-white/20 mt-4 group-hover:bg-white/40 transition-colors duration-300"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center mt-16">
+          <div class="relative inline-block mb-12">
+            <div
+              class="absolute -inset-1 bg-red-500/30 blur-xl rounded-full"
+            ></div>
+            <h2 class="text-3xl font-bold relative text-white">
+              <i class="fas fa-rocket text-red-500 mr-3"></i>Why Join Us?
+            </h2>
+          </div>
+          <div
+            class="bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl relative overflow-hidden group-hover:from-red-950/40 group-hover:via-black/90 group-hover:to-red-950/40 transition-all duration-700 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-red-500/10 before:to-transparent before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 hover:transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/20 group"
+          >
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+              Being part of DiD means gaining hands-on experience, accessing
+              exclusive learning resources, and building meaningful connections
+              within the IT industry. Whether you're a student looking to
+              enhance your skills or an aspiring developer seeking mentorship,
+              DiD is the place to cultivate your potential.
+            </p>
+            <p
+              class="text-red-500 text-lg font-semibold group-hover:scale-105 transition-transform duration-300"
+            >
+              Join us as we create technology that makes a difference—one
+              innovation at a time.
+            </p>
+            <div
+              class="w-24 h-1 bg-white/20 mx-auto mt-6 group-hover:bg-white/40 transition-colors duration-300"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("nav a");
+
+        links.forEach((link) => {
+          link.addEventListener("click", function () {
+            links.forEach((l) => l.classList.remove("active"));
+            this.classList.add("active");
+          });
+        });
+
+        const currentPath = window.location.pathname;
+        links.forEach((link) => {
+          if (link.href.includes(currentPath)) {
+            link.classList.add("active");
+            link.querySelector("::after").style.transform = "scaleX(1)";
+          }
+        });
+      });
+
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      const sidebar = document.getElementById("mobile-sidebar");
+      const closeBtn = document.getElementById("close-sidebar");
+      const overlay = document.getElementById("overlay");
+
+      menuBtn.addEventListener("click", function () {
+        sidebar.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      overlay.addEventListener("click", function () {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      });
+
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+
+        if (window.scrollY > 50) {
+          navbar.classList.add(
+            "bg-black",
+            "bg-opacity-20",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        } else {
+          navbar.classList.remove(
+            "bg-black",
+            "bg-opacity-20",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const portfolioSection = document.getElementById("portfolio-section");
+          const sidebar = document.getElementById("mobile-sidebar");
+          const overlay = document.getElementById("overlay");
+
+          if (
+            portfolioSection &&
+            !portfolioSection.classList.contains("hidden")
+          ) {
+            portfolioSection.classList.add("hidden");
+            portfolioSection.classList.remove("flex");
+          }
+
+          if (sidebar && !sidebar.classList.contains("-translate-x-full")) {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+          }
+        }
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        const containers = document.querySelectorAll(".group > div");
+        containers.forEach((container) => {
+          const rect = container.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          container.style.setProperty("--mouse-x", `${x}px`);
+          container.style.setProperty("--mouse-y", `${y}px`);
+        });
+      });
+    </script>
+
+    {% endblock content %}
+

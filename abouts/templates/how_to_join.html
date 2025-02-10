@@ -1,0 +1,932 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+  {% block headaddons %}
+    <style>
+      .did-text-effect {
+        -webkit-text-stroke: 3px white;
+        -webkit-text-fill-color: transparent;
+        transform: perspective(600px) rotateX(30deg);
+        opacity: 0.15;
+      }
+
+      .flip-text {
+        display: inline-block;
+        transform: scaleX(-1);
+      }
+
+      .writing-mode-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      }
+
+      .annotation-line::before {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 1px;
+      background: rgba(255, 255, 255, 1);
+      }
+
+      .annotation-line-left::before {
+      right: 100%;
+      top: 50%;
+      }
+
+      .annotation-line-right::before {
+      left: 100%;
+      top: 50%;
+      }
+
+      @keyframes fadeIn {
+      from {
+      opacity: 0;
+      }
+      to {
+      opacity: 1;
+      }
+      }
+
+      .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+      }
+
+      .hover-scale {
+      transition: transform 0.2s;
+      }
+
+      .hover-scale:hover {
+      transform: scale(1.1);
+      }
+
+      .bg-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      }
+
+      .bg-effect::before,
+      .bg-effect::after,
+      .bg-effect .gradient-1,
+      .bg-effect .gradient-2 {
+      content: "";
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.3;
+      filter: blur(30px);
+      pointer-events: none;
+      }
+
+      .bg-effect::before {
+      background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 70%
+      );
+      top: -50%;
+      left: -50%;
+      }
+
+      .bg-effect::after {
+      background: radial-gradient(
+      circle,
+      rgba(255, 0, 0, 0.4) 0%,
+      rgba(255, 0, 0, 0) 70%
+      );
+      bottom: -50%;
+      right: -50%;
+      }
+
+      .bg-effect .gradient-1 {
+      background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 70%
+      );
+      top: 0;
+      left: 25%;
+      }
+
+      .bg-effect .gradient-2 {
+      background: radial-gradient(
+      circle,
+      rgba(255, 0, 0, 0.3) 0%,
+      rgba(255, 0, 0, 0) 70%
+      );
+      bottom: 0;
+      right: 25%;
+      }
+      .active {
+      color: white !important;
+      font-weight: bold;
+      border-bottom: 2px solid red;
+      }
+
+      .circular-nav {
+      position: fixed;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 400px;
+      z-index: 60;
+      pointer-events: all;
+      }
+
+      .circular-nav::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 150px;
+      height: 300px;
+      background: radial-gradient(
+      ellipse at right,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 70%
+      );
+      transform: translateY(-50%);
+      z-index: -1;
+      }
+
+      .circular-nav .thumbnail {
+      position: absolute;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      transition: all 0.3s ease-out;
+      }
+
+      .circular-nav .thumbnail:hover {
+      transform: scale(1.1) translateX(-10px);
+      }
+
+      .thumbnail img {
+      border: 2px solid rgb(185, 28, 28);
+      border-radius: 50%;
+      }
+
+      @keyframes blink {
+      from,
+      to {
+      opacity: 1;
+      }
+      50% {
+      opacity: 0;
+      }
+      }
+
+      .cursor {
+      display: inline-block;
+      animation: blink 0.75s step-end infinite;
+      color: red;
+      }
+
+      .qualification-section {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      }
+
+      .qualification-section.show {
+      opacity: 1;
+      }
+
+      .qualification-section h1 {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      }
+
+      .qualification-section.show h1 {
+      opacity: 1;
+      transform: translateY(0);
+      }
+
+      .qualification-section ul li {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: all 0.5s ease;
+      }
+
+      .qualification-section ul li:nth-child(even) {
+      transform: translateX(100%);
+      }
+
+      .qualification-section.show ul li.show-item {
+      opacity: 1;
+      transform: translateX(0);
+      }
+
+      .membership-section {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      }
+
+      .membership-section.show {
+      opacity: 1;
+      }
+
+      .membership-section img {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.5s ease 0.3s;
+      }
+
+      .membership-section.show img {
+      opacity: 1;
+      transform: translateX(0);
+      }
+
+      .membership-section form {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.5s ease 0.6s;
+      }
+
+      .membership-section.show form {
+      opacity: 1;
+      transform: translateX(0);
+      }
+
+      .shirt-section {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      }
+
+      .shirt-section.show {
+      opacity: 1;
+      }
+
+      .shirt-section form {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.5s ease 0.3s;
+      }
+
+      .shirt-section.show form {
+      opacity: 1;
+      transform: translateX(0);
+      }
+
+      .shirt-section .image-container img {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.5s ease 0.6s; 
+      }
+
+      .shirt-section.show .image-container img {
+      opacity: 1;
+      transform: translateX(0);
+      }
+
+      .contact-footer {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .contact-footer.show {
+        opacity: 1;
+      }
+
+      .contact-footer form {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.5s ease 0.3s;
+      }
+
+      .contact-footer.show form {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .contact-footer .contact-info {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.5s ease 0.6s;
+      }
+
+      .contact-footer.show .contact-info {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) rotate(45deg);
+      }
+      40% {
+      transform: translateY(-30px) rotate(45deg);
+      }
+      60% {
+      transform: translateY(-15px) rotate(45deg);
+      }
+      }
+
+      .animate-bounce {
+      animation: bounce 2s infinite;
+      }
+
+      #scroll-indicator {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+      }
+
+      #scroll-indicator.hidden {
+      opacity: 0;
+      }
+
+      .dot-pattern {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(239, 68, 68, 0.2);
+      border-radius: 50%;
+      animation: float 3s infinite ease-in-out;
+      }
+
+      @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      }
+
+      .section-title {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background-color: rgb(239, 68, 68);
+      color: white;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      }
+
+      .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: rgb(239, 68, 68);
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      }
+    </style>
+  {% endblock headaddons %}
+
+  {% block content %} 
+
+
+    <div class="fixed left-8 top-1/2 -translate-y-1/2 lg:z-40">
+      <div class="flex flex-col gap-20 animate-fade-in">
+        <div
+          class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest">
+          &copy; 2025
+        </div>
+        <div
+          class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8">
+          <span>Dedicated</span>
+          <span>IT</span>
+          <span>Developers</span>
+        </div>
+      </div>
+    </div>
+
+    <main
+    class="pt-24 pb-20 px-4 md:px-8 min-h-screen bg-black relative overflow-hidden">
+    <div class="absolute inset-0 flex items-start mt-[28em] md:mt-[20em] justify-center">
+        <div class="text-[10rem] md:text-[20rem] font-bold text-transparent flex gap-4 did-text-effect">
+            <span class="flip-text">D</span>iD
+        </div>
+    </div>
+  
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-800/40 via-red-500/30 to-white/10 opacity-60"></div>
+
+
+      <section
+        class="w-full mx-auto flex items-center justify-center min-h-screen px-4"
+      >
+        <div class="flex justify-center items-center w-full">
+          <div
+            class="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/6 p-4 sm:p-8 md:p-10"
+          >
+            <div class="flex justify-center items-center">
+              <div
+                id="typing-container"
+                class="text-center text-white text-lg lg:text-4xl xl:text-4xl xl:w-full"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="scroll-indicator" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-white">
+        <i class="fas fa-chevron-down text-lg animate-bounce"></i>
+        <i class="fas fa-chevron-down text-lg animate-bounce delay-200"></i>
+        <i class="fas fa-chevron-down text-lg animate-bounce delay-400"></i>
+      </div>
+
+      <section class="qualification-section w-full py-16 px-4 md:px-8">
+        <div class="p-8 md:p-12 max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <h1 class="section-title text-xl md:text-2xl font-bold">
+              Qualifications
+            </h1>
+          </div>
+      
+          <ul class="space-y-4 text-gray-800">
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-code text-xl"></i>
+              </div>
+              <span class="font-medium">Skilled and passionate about programming.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-check-circle text-xl"></i>
+              </div>
+              <span class="font-medium">Responsible, with a strong sense of accountability.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-user-shield text-xl"></i>
+              </div>
+              <span class="font-medium">Possesses good moral character and integrity.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-brain text-xl"></i>
+              </div>
+              <span class="font-medium">Willing to learn and adapt to new technologies and challenges.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-users text-xl"></i>
+              </div>
+              <span class="font-medium">Able to work effectively in a team and collaborate with others.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-hand-holding-heart text-xl"></i>
+              </div>
+              <span class="font-medium">Dedicated to contributing time and effort to projects that benefit the university.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-share text-xl"></i>
+              </div>
+              <span class="font-medium">Open to sharing knowledge and mentoring peers.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-book-open text-xl"></i>
+              </div>
+              <span class="font-medium">Enthusiastic about continuous personal and professional development.</span>
+            </li>
+          
+            <li class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md transition-transform hover:scale-102">
+              <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                <i class="fas fa-balance-scale text-xl"></i>
+              </div>
+              <span class="font-medium">Committed to upholding the ethical standards of the organization and its members.</span>
+            </li>
+          </ul>
+          
+          
+      
+          <div class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 hover:border-red-500/60"></div>
+      
+        </div>
+        <div class="dot-pattern" style="top: 20%; left: 10%;"></div>
+        <div class="dot-pattern" style="top: 40%; right: 15%;"></div>
+        <div class="dot-pattern" style="bottom: 30%; left: 20%;"></div>
+      </section>
+
+      <section class="shirt-section w-full py-16 px-4 md:px-8">
+        <div class="p-8 md:p-12 max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <h1 class="section-title text-xl md:text-2xl font-bold">
+              Get Your Organizational Shirt
+            </h1>
+          </div>
+      
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-102">
+              <div class="flex justify-center items-center space-x-4">
+                <img
+                  src="/media/images/shirt-front.png"
+                  alt="Shirt Front"
+                  class="h-48 md:h-64 object-contain transition-all duration-300 hover:scale-105 z-40"
+                />
+                <img
+                  src="/media/images/shirt-back.png"
+                  alt="Shirt Back"
+                  class="h-48 md:h-64 object-contain transition-all duration-300 hover:scale-105 z-40"
+                />
+              </div>
+              <p class="text-center mt-4 text-gray-600 font-medium">
+                High-quality fabric with custom design
+              </p>
+            </div>
+      
+            <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-102">
+              <form action="#" method="POST" class="space-y-4">
+                <div class="space-y-2">
+                  <label for="full-name" class="block text-gray-700 font-semibold">Full Name</label>
+                  <input
+                    type="text"
+                    id="full-name"
+                    name="full-name"
+                    required
+                    class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                    placeholder="Enter your full name"
+                  disabled/>
+                </div>
+      
+                <div class="space-y-2">
+                  <label for="shirt-size" class="block text-gray-700 font-semibold">Shirt Size</label>
+                  <select
+                    id="shirt-size"
+                    name="shirt-size"
+                    required
+                    class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                  >
+                    <option value="" disabled selected>Select your shirt size</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                  </select>
+                </div>
+      
+                <div class="text-center mt-6 text-black">
+                  <hr>
+                  Send your Name, Size, and become a member.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      
+        <div class="dot-pattern" style="top: 20%; left: 10%;"></div>
+        <div class="dot-pattern" style="top: 40%; right: 15%;"></div>
+        <div class="dot-pattern" style="bottom: 30%; left: 20%;"></div>
+      </section>
+
+      <footer class="contact-footer w-full py-16 px-4 md:px-8">
+        <div class="p-8 md:p-12 max-w-6xl mx-auto bg-white rounded-lg shadow-md">
+            <div class="text-center mb-12">
+                <h1 class="text-xl md:text-2xl font-bold text-gray-800">
+                    Contact Us
+                </h1>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg p-6 transition-transform hover:scale-102">
+                    <form action="#" method="POST" class="space-y-4">
+                        <div class="space-y-2">
+                            <label for="name" class="block text-gray-700 font-semibold">Your Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                                placeholder="Enter your name"
+                            />
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="email" class="block text-gray-700 font-semibold">Your Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                                placeholder="Enter your email"
+                            />
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="message" class="block text-gray-700 font-semibold">Your Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                required
+                                class="w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent"
+                                placeholder="Enter your message"
+                            ></textarea>
+                        </div>
+
+                        <div class="text-center">
+                            {% comment %} <button
+                                type="submit"
+                                class="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-all duration-300 hover:scale-105 shadow-md"
+                            >
+                                Send Message
+                            </button> {% endcomment %}
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 transition-transform hover:scale-102">
+                  {% for contact in contacts %}
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md transition-transform hover:scale-102">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <span class="font-medium text-black">{{ contact.address }}</span>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md transition-transform hover:scale-102">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <span class="font-medium text-black">{{ contact.number }}</span>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md transition-transform hover:scale-102">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <span class="font-medium text-black">{{ contact.email }}</span>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md transition-transform hover:scale-102">
+                            <div class="w-12 h-12 flex items-center justify-center bg-red-500 rounded-full text-white shrink-0">
+                                <i class="fas fa-globe text-xl"></i>
+                            </div>
+                            <span class="font-medium text-black">{{ contact.website }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="dot-pattern" style="top: 20%; left: 10%;"></div>
+        <div class="dot-pattern" style="top: 40%; right: 15%;"></div>
+        <div class="dot-pattern" style="bottom: 30%; left: 20%;"></div>
+      </footer>
+    </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach((link) => {
+      link.addEventListener("click", function () {
+        links.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    const currentPath = window.location.pathname;
+    links.forEach((link) => {
+      if (link.href.includes(currentPath)) {
+        link.classList.add("active");
+      }
+    });
+    });
+
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const sidebar = document.getElementById("mobile-sidebar");
+    const closeBtn = document.getElementById("close-sidebar");
+    const overlay = document.getElementById("overlay");
+
+    menuBtn.addEventListener("click", function () {
+    sidebar.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", function () {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+    });
+
+    overlay.addEventListener("click", function () {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+    });
+
+    window.addEventListener("scroll", function () {
+    const navbar = document.getElementById("navbar");
+
+    if (window.scrollY > 50) {
+      navbar.classList.add(
+        "bg-black",
+        "bg-opacity-20",
+        "backdrop-blur-md",
+        "shadow-lg"
+      );
+    } else {
+      navbar.classList.remove(
+        "bg-black",
+        "bg-opacity-20",
+        "backdrop-blur-md",
+        "shadow-lg"
+      );
+    }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const texts = [
+      "Are you a passionate coder?",
+      "Do you want to contribute your skills and knowledge while working on real-world projects?",
+      "This is your chance to be part of an elite group of IT professionals and developers at our university!",
+    ];
+
+    let container = document.getElementById("typing-container");
+    let index = 0;
+
+    function typeText(line, callback) {
+      let p = document.createElement("p");
+      p.classList.add(
+        "text-white",
+        "font-bold",
+        "typing-container",
+        "text-center"
+      );
+      container.appendChild(p);
+
+      let i = 0;
+      function typeChar() {
+        if (i < line.length) {
+          p.innerHTML =
+            line.substring(0, i + 1) + `<span class="cursor">|</span>`; 
+          i++;
+          setTimeout(typeChar, 50);
+        } else {
+          p.innerHTML = line + `<span class="cursor">|</span>`;
+          setTimeout(() => {
+            callback();
+          }, 1000);
+        }
+      }
+      typeChar();
+    }
+
+    function typeNext() {
+      container.innerHTML = ""; 
+      const parts = texts[index].split("\n");
+      let partIndex = 0;
+
+      function typePart() {
+        if (partIndex < parts.length) {
+          typeText(parts[partIndex], () => {
+            partIndex++;
+            setTimeout(typePart, 1000);
+          });
+        } else {
+          setTimeout(() => {
+            index = (index + 1) % texts.length;
+            setTimeout(typeNext, 1500);
+          }, 1000);
+        }
+      }
+
+      typePart();
+    }
+
+    typeNext();
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".qualification-section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+
+            const h1 = entry.target.querySelector("h1");
+            setTimeout(() => (h1.style.opacity = 1), 300);
+
+            const listItems = entry.target.querySelectorAll("li");
+            listItems.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add("show-item");
+              }, 500 + index * 100);
+            });
+          } else {
+            entry.target.classList.remove("show");
+
+            const h1 = entry.target.querySelector("h1");
+            h1.style.opacity = 0;
+
+            const listItems = entry.target.querySelectorAll("li");
+            listItems.forEach((item) => {
+              item.classList.remove("show-item");
+            });
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    if (section) {
+      observer.observe(section);
+    }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".shirt-section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    if (section) {
+      observer.observe(section);
+    }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const footer = document.querySelector(".contact-footer");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    if (footer) {
+      observer.observe(footer);
+    }
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const scrollIndicator = document.getElementById('scroll-indicator');
+
+    function handleScroll() {
+        if (window.scrollY === 0) {
+            scrollIndicator.classList.remove('hidden');
+        } else {
+            scrollIndicator.classList.add('hidden');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
+    });
+
+
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleScroll() {
+        var footer = document.querySelector('.contact-footer');
+        if (isElementInViewport(footer)) {
+            footer.classList.add('show');
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+  </script>
+
+    
+    {% endblock content %}
+

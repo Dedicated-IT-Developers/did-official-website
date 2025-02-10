@@ -1,0 +1,41 @@
+<nav id="navbar" class="fixed top-0 w-full z-50 px-8 py-4 sm:py-8 transition-all duration-300" >
+    <div class="flex justify-between items-center w-full">
+      <div
+        class="text-5xl md:text-6xl font-bold text-red-500 animate-pulse-slow order-1 md:absolute md:left-1/2 md:-translate-x-1/2"
+      >
+        <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
+      </div>
+
+      <div class="flex items-center gap-4 order-2">
+      </div>
+
+      <div class="hidden lg:flex space-x-8 order-3">
+        <a href="/" class="text-md text-gray-400 hover:text-white {% if request.path == '/' %}active{% endif %}"
+          >Home</a
+        >
+        <a href="/about" class="text-md text-gray-400 hover:text-white {% if request.path == '/about/' %}active{% endif %}"
+          >About</a
+        >
+        <a href="/projects" class="text-md text-gray-400 hover:text-white {% if request.path == '/projects/' %}active{% endif %}"
+          >Projects</a
+        >
+      </div>
+
+      <div class="hidden lg:flex space-x-8 order-4">
+        <a
+          href="/team"
+          class="text-md text-gray-400 hover:text-white {% if request.path == '/team/' %}active{% endif %}"
+          >Team</a
+        >
+        <a href="/join" class="text-md text-gray-400 hover:text-white {% if request.path == '/join/' %}active{% endif %}"
+          >How to Join?</a
+        >
+      </div>
+
+      <div class="flex items-center gap-4 order-5">
+        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+</nav>
