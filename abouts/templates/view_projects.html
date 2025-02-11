@@ -497,8 +497,8 @@
           featureList.appendChild(li);
         });
 
-        document.getElementById("team-members").textContent =
-          project.teamMembers.join(" | ");
+        document.getElementById("team-members").innerHTML =
+          "&rarr; " + project.teamMembers.join(" <br> &rarr; ") + " <br> &rarr; Test, Update, and Maintained by all DiD Members & Experts";
 
         if (project.images && project.images.length > 0) {
           initializeGalleryCarousel(project.images);
