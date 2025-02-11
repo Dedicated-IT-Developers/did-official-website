@@ -273,11 +273,6 @@
                 id="team-members"
                 class="text-base sm:text-lg text-gray-300 mb-6"
               ></p>
-              <a
-                href="team.html"
-                class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 text-base sm:text-lg font-semibold"
-                >View Team</a
-              >
             </div>
             <div
               class="absolute inset-0 border border-transparent rounded-2xl transition-all duration-300 hover:border-red-500/60"
@@ -503,7 +498,7 @@
         });
 
         document.getElementById("team-members").textContent =
-          project.teamMembers.join(", ");
+          project.teamMembers.join(" | ");
 
         if (project.images && project.images.length > 0) {
           initializeGalleryCarousel(project.images);

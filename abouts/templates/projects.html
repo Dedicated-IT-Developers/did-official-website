@@ -210,7 +210,7 @@
           features: {{ project.features|safe }},
           teamMembers: [
             {% for developer in project.projectdeveloper_set.all %}
-            "{{ developer.team.name }} - {{ developer.role }}", 
+            "{{ developer.team.name }}  ( {{ developer.role }} )", 
             {% endfor %}
           ],
         },
