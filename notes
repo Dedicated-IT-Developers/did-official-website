@@ -1,10 +1,16 @@
+1. Create Virtual environment (e.g: env_did)
+2. Activate Virtual environment
+3. pip install -r requirements.txt
+4. run
+
+
 Superadmin
 127.0.0.1:8000/admin
 username:didadmin
 password:didadmin
 Role:
-- add/update all info of DiD Website
-- add user/member's account
+- add/update all info of DiD Website except Teams, and Personal_project
+- add user/member's account (users table only)
 
 
 
