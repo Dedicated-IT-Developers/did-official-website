@@ -42,6 +42,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,21 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'abouts.apps.AboutsConfig',
 ]
+
+JAZZMIN_SETTINGS = {
+    "site_title": "DiD Admin Panel",
+    "site_header": "DiD Admin",
+    "welcome_sign": "Welcome to DiD Admin",
+    "show_ui_builder": False,  # Hide UI builder
+    "icons": {
+        "auth.User": "fas fa-users",
+        "auth.Group": "fas fa-users-cog",
+        # Add custom icons for models if needed
+    },
+    "order_with_respect_to": ["auth", "abouts"],  # Order of sidebar apps
+    "show_sidebar": True,  # Ensure sidebar is visible
+    "navigation_expanded": True,  # Keep sidebar open
+}
 
 # -------------------
 # Custom User Model

@@ -193,7 +193,7 @@
         {% for project in projects %}
 
         {
-          id: 1,
+          id: {{ project.id }},
           title: "{{ project.project_name }}",
           subtitle: "{{ project.project_type }}",
           images: [
