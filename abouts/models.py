@@ -25,6 +25,11 @@ class Team(models.Model):
     photo = models.ImageField(upload_to='team_photos/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
+    def get_photo_url(self):
+        if self.photo:
+            return self.photo.url
+        return "/media/default.jpg"  # Default image path
 
     def __str__(self):
         return self.name

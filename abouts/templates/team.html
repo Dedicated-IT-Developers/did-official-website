@@ -394,7 +394,7 @@
             {% endfor %}
           ], 
           skills: {{ team.skills|safe }},
-          image: "{{ team.photo.url }}",
+          image: "{{ team.get_photo_url }}",
         },
         {% endfor %}
       ];
