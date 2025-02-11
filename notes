@@ -1,7 +1,8 @@
 1. Create Virtual environment (e.g: env_did)
 2. Activate Virtual environment
 3. pip install -r requirements.txt
-4. run
+4. rename .env-rename to .env
+5. run
 
 
 Superadmin
