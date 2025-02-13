@@ -1,41 +1,82 @@
-<nav id="navbar" class="fixed top-0 w-full z-50 px-8 py-4 sm:py-8 transition-all duration-300" >
-    <div class="flex justify-between items-center w-full">
-      <div
-        class="text-5xl md:text-6xl font-bold text-red-500 animate-pulse-slow order-1 md:absolute md:left-1/2 md:-translate-x-1/2"
-      >
-        <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
+<nav id="navbar" class="fixed top-0 w-full z-50 px-8 py-4 sm:py-8 transition-all duration-300">
+  <div class="flex justify-between items-center w-full">
+      <div class="text-5xl md:text-6xl font-bold text-red-500 animate-pulse-slow order-1 md:absolute md:left-1/2 md:-translate-x-1/2">
+          <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
       </div>
 
       <div class="flex items-center gap-4 order-2">
       </div>
 
       <div class="hidden lg:flex space-x-8 order-3">
-        <a href="/" class="text-md text-gray-400 hover:text-white {% if request.path == '/' %}active{% endif %}"
-          >Home</a
-        >
-        <a href="/about" class="text-md text-gray-400 hover:text-white {% if request.path == '/about/' %}active{% endif %}"
-          >About</a
-        >
-        <a href="/projects" class="text-md text-gray-400 hover:text-white {% if request.path == '/projects/' %}active{% endif %}"
-          >Projects</a
-        >
+          <a href="/" class="nav-link text-md hover:text-white {% if request.path == '/' %}active{% endif %}">Home</a>
+          <a href="/about" class="nav-link text-md hover:text-white {% if request.path == '/about/' %}active{% endif %}">About</a>
+          <a href="/projects" class="nav-link text-md hover:text-white {% if request.path == '/projects/' %}active{% endif %}">Projects</a>
       </div>
 
       <div class="hidden lg:flex space-x-8 order-4">
-        <a
-          href="/team"
-          class="text-md text-gray-400 hover:text-white {% if request.path == '/team/' %}active{% endif %}"
-          >Team</a
-        >
-        <a href="/join" class="text-md text-gray-400 hover:text-white {% if request.path == '/join/' %}active{% endif %}"
-          >How to Join?</a
-        >
+          <a href="/team" class="nav-link text-md hover:text-white {% if request.path == '/team/' %}active{% endif %}">Team</a>
+          <a href="/join" class="nav-link text-md hover:text-white {% if request.path == '/join/' %}active{% endif %}">How to Join?</a>
       </div>
 
       <div class="flex items-center gap-4 order-5">
-        <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
-          <i class="fas fa-bars"></i>
-        </button>
+          <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+              <i class="fas fa-bars"></i>
+          </button>
       </div>
-    </div>
+  </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.getElementById('navbar');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const logo = navbar.querySelector('.text-red-500');
+
+      function updateNavbarColors() {
+          const rect = navbar.getBoundingClientRect();
+          const navbarCenter = rect.top + rect.height / 2;
+
+          // Create a temporary canvas to analyze the background
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          
+          // Draw the current view to the canvas
+          ctx.drawImage(window.document.documentElement, 0, 0, canvas.width, canvas.height);
+
+          // Get the color of the pixel at the center of the navbar
+          const pixelData = ctx.getImageData(rect.left + rect.width / 2, navbarCenter, 1, 1).data;
+          
+          // Calculate the brightness of the background
+          const brightness = (pixelData[0] * 299 + pixelData[1] * 587 + pixelData[2] * 114) / 1000;
+
+          // Determine if the background is light or dark
+          const isLight = brightness > 128;
+
+          // Update text color based on background brightness
+          navLinks.forEach(link => {
+              link.style.color = isLight ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.7)';
+          });
+
+          // Update logo color if needed
+          logo.style.color = isLight ? '#FF0000' : '#FF6666';
+
+          // Add or remove a background to the navbar if needed
+          if (isLight) {
+              navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+          } else {
+              navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+          }
+      }
+
+      // Initial update
+      updateNavbarColors();
+
+      // Update on scroll
+      window.addEventListener('scroll', updateNavbarColors);
+
+      // Update on window resize
+      window.addEventListener('resize', updateNavbarColors);
+  });
+</script>
