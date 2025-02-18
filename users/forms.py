@@ -8,7 +8,7 @@ class VerifyForm(forms.Form):
     
     email = forms.EmailField(
         widget=forms.EmailInput(
-                attrs={'class': 'form-control', 'placeholder':"Email"}
+                attrs={'class': 'w-full bg-[#2A2A2A] text-white pl-12 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-800 placeholder-gray-500', 'placeholder':"Email"}
             )
     )
     
@@ -71,6 +71,6 @@ class LoginForm(forms.Form):
 class PasswordResetForm(forms.Form):
     email = forms.EmailField(
         widget=forms.EmailInput(
-                attrs={'class': 'form-control', 'placeholder':"Email"}
+                attrs={'class': 'w-full bg-[#2A2A2A] text-white pl-12 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-800 placeholder-gray-500', 'placeholder':"Email"}
             )
     )
