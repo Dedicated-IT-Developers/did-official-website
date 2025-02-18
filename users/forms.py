@@ -8,7 +8,7 @@ class VerifyForm(forms.Form):
     
     email = forms.EmailField(
         widget=forms.EmailInput(
-                attrs={'class': 'form-control', 'placeholder':"Email"}
+                attrs={'class': 'w-full bg-[#2A2A2A] text-white pl-12 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-800 placeholder-gray-500', 'placeholder':"Email"}
             )
     )
     
@@ -56,7 +56,7 @@ class LoginForm(forms.Form):
         min_length=1,
         max_length=25,
         widget=forms.TextInput(
-                attrs={'class': 'form-control', 'placeholder':"Username"}
+                attrs={'class': 'w-full bg-[#2A2A2A] text-white pl-12 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-800 placeholder-gray-500', 'placeholder':"Username"}
             )
         )
     password = forms.CharField(
@@ -64,13 +64,13 @@ class LoginForm(forms.Form):
         min_length=8,
         max_length=30,
         widget=forms.PasswordInput(
-                attrs={ 'class': 'form-control', 'placeholder':"Password"}
+                attrs={ 'class': 'w-full bg-[#2A2A2A] text-white pl-12 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-800 placeholder-gray-500', 'placeholder':"Password"}
             )
         )
     
 class PasswordResetForm(forms.Form):
     email = forms.EmailField(
         widget=forms.EmailInput(
-                attrs={'class': 'form-control', 'placeholder':"Email"}
+                attrs={'class': 'w-full bg-[#2A2A2A] text-white pl-12 pr-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-800 placeholder-gray-500', 'placeholder':"Email"}
             )
     )
