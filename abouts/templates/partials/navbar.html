@@ -42,27 +42,20 @@
           canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
           
-          // Draw the current view to the canvas
           ctx.drawImage(window.document.documentElement, 0, 0, canvas.width, canvas.height);
 
-          // Get the color of the pixel at the center of the navbar
           const pixelData = ctx.getImageData(rect.left + rect.width / 2, navbarCenter, 1, 1).data;
           
-          // Calculate the brightness of the background
           const brightness = (pixelData[0] * 299 + pixelData[1] * 587 + pixelData[2] * 114) / 1000;
 
-          // Determine if the background is light or dark
           const isLight = brightness > 128;
 
-          // Update text color based on background brightness
           navLinks.forEach(link => {
               link.style.color = isLight ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.7)';
           });
 
-          // Update logo color if needed
           logo.style.color = isLight ? '#FF0000' : '#FF6666';
 
-          // Add or remove a background to the navbar if needed
           if (isLight) {
               navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
           } else {
@@ -70,13 +63,8 @@
           }
       }
 
-      // Initial update
       updateNavbarColors();
-
-      // Update on scroll
       window.addEventListener('scroll', updateNavbarColors);
-
-      // Update on window resize
       window.addEventListener('resize', updateNavbarColors);
   });
 </script>
