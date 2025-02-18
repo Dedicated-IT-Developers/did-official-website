@@ -408,11 +408,11 @@
     Sign in to your account
   </h1>
 
-  <section class="relative z-10">
+  <section class="relative z-10 ">
     <div
-      class="w-full max-w-md p-8 rounded-3xl bg-[#1A1A1A]/90 mx-auto border border-red-500/20 shadow-2xl shadow-red-500/10"
+      class="relative w-full overflow-hidden max-w-md p-8 rounded-3xl bg-[#1A1A1A]/90 mx-auto border border-red-500/20 shadow-2xl shadow-red-500/10 bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl transition-all duration-700 before:translate-x-[-200%] before:animate-[shimmer_3s_infinite] after:absolute after:inset-0 after:bg-[radial-gradient(circle_400px_at_var(--mouse-x,0)_var(--mouse-y,0),rgba(255,0,0,0.1),transparent_40%)] after:pointer-events-none border border-red-500/20 rounded-2xl hover:border-red-500/40 hover:shadow-2xl hover:shadow-red-500/20"
     >
-      <div class="card-body login-card-body space-y-6">
+      <div class="space-y-6">
         <div class="flex justify-center mb-4">
           <div class="mb-8 text-center">
             <h2 class="text-4xl font-bold text-red-500">
@@ -447,7 +447,7 @@
             <div class="relative">
               {{ form.username }}
               <div
-                class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500"
+                class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
               >
                 <span class="fas fa-envelope"></span>
               </div>
@@ -456,7 +456,7 @@
             <div class="relative">
               {{ form.password }}
               <div
-                class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500"
+                class="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
               >
                 <span class="fas fa-lock"></span>
               </div>
