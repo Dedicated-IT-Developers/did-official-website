@@ -344,7 +344,7 @@
         }
         @media (min-width: 768px) {
             .animate-slide {
-                animation: none; /* Disable animation on md+ devices */
+                animation: none; 
             }
         }
     </style>
@@ -514,6 +514,20 @@
                 div.appendChild(img);
                 container.appendChild(div);
             });
+
+            // Set up thumbnail click events
+            document.querySelectorAll(".thumbnail").forEach((thumbnail, index) => {
+                thumbnail.setAttribute('data-index', index);
+                thumbnail.addEventListener("click", function() {
+                    const clickedIndex = parseInt(this.getAttribute('data-index'));
+                    currentIndex = clickedIndex;
+                    updateCarousel();
+                    updateActiveStates();
+                    
+                    clearInterval(interval);
+                    interval = setInterval(nextImage, 5000);
+                });
+            });
         }
 
         function updateCarousel() {
@@ -606,14 +620,14 @@
         });
 
         function updateActiveStates() {
-          document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
-            if (index === currentIndex) {
-              thumbnail.classList.add('active');
-            } else {
-              thumbnail.classList.remove('active');
-            }
-          });
-          updateThumbnailPositions();
+            document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+                if (index === currentIndex) {
+                    thumbnail.classList.add('active');
+                } else {
+                    thumbnail.classList.remove('active');
+                }
+            });
+            updateThumbnailPositions();
         }
 
         const menuBtn = document.getElementById("mobile-menu-btn");

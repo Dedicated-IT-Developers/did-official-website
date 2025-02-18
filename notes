@@ -9,7 +9,7 @@ Superadmin
 127.0.0.1:8000/admin
 username:didadmin
 password:didadmin
-Role:
+Role:env
 - add/update all info of DiD Website except Teams, and Personal_project
 - add user/member's account (users table only)
 
@@ -26,7 +26,7 @@ Todo
 
 
 
-
+    
 Landing Page
 Todo
 - About (make dynamic)

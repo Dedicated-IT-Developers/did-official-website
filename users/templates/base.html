@@ -1,0 +1,47 @@
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    {% block headaddons %}
+
+    {% endblock headaddons %}
+
+</head>
+{% endblock header %}
+
+<body class="bg-black text-white min-h-screen overflow-x-hidden">
+
+    {% block navbar %}
+
+        {% include "partials/navbar.html" %}
+
+    {% endblock navbar %}
+
+
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    {% block navbarmobile %}
+
+        {% include "partials/navbar-mobile.html" %}
+
+    {% endblock navbarmobile %}
+
+    {% block content %}
+
+
+    {% endblock content %}
+
+
+
+    {% block jsaddons %}
+    {% endblock jsaddons %}
+
+</body>
+</html>
+
