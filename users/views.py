@@ -17,6 +17,8 @@ from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.sites.shortcuts import get_current_site
 
+from django.contrib.auth.decorators import login_required
+
 
 # ----------------------
 # LOGGER SAMPLE
@@ -146,7 +148,7 @@ class sigin(LoginView):
                     #     return redirect('user_page')  # Redirect to user page
                     
                     login(request, user)
-                    return redirect('index')
+                    return redirect('/user/profile')
                 else:
                     # Email is not verified
                     messages.error(request, "Your email is not verified. Please check your inbox.")
@@ -158,7 +160,7 @@ class sigin(LoginView):
 def signout(request):
     logout(request)
     messages.success(request, "You were logged out.")
-    return redirect('login')
+    return redirect('/')
 
 class ForgotPasswordView(View):
     template_name = 'password_reset.html'
@@ -207,5 +209,7 @@ class ResetPasswordView(PasswordResetConfirmView):
 def custom_404_view(request, exception=None):
     return render(request, '404.html', status=404)
 
+
+@login_required
 def profile(request):
     return render(request, "profile.html")
