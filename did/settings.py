@@ -175,7 +175,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ----------------------
 LOGIN_URL = '/user/login/'      # Redirect unauthenticated users to this URL
 LOGIN_REDIRECT_URL = '/'        # Redirect to the homepage after login
-LOGOUT_REDIRECT_URL = '/login'
+LOGOUT_REDIRECT_URL = '/'
 
 # ----------------------
 # File upload config
