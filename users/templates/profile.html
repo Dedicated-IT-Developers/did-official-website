@@ -1,3 +1,650 @@
-Welcome Members!
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Members</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .h { height: 47rem; }
+        .fsh { height: 30rem; }
+        .bg-effect {
+            position: relative;
+            overflow: hidden;
+        }
 
-- Update Form after Logged (First Time update: Added to Team table/model) | Table/model affected: Team, PersonalProject
+        .bg-effect::before,
+        .bg-effect::after {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.3;
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .bg-effect::before {
+            background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0) 70%
+            );
+            top: -50%;
+            left: -50%;
+        }
+
+        .bg-effect::after {
+            background: radial-gradient(
+            circle,
+            rgba(255, 0, 0, 0.4) 0%,
+            rgba(255, 0, 0, 0) 70%
+            );
+            bottom: -50%;
+            right: -50%;
+        }
+
+        .writing-mode-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        .annotation-line::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 1px;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .annotation-line-left::before {
+            right: 100%;
+            top: 50%;
+        }
+
+        .annotation-line-right::before {
+            left: 100%;
+            top: 50%;
+        }
+
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .bg-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-effect::before,
+        .bg-effect::after {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.3;
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .bg-effect::before {
+            background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0) 70%
+            );
+            top: -50%;
+            left: -50%;
+        }
+
+        .bg-effect::after {
+            background: radial-gradient(
+            circle,
+            rgba(255, 0, 0, 0.4) 0%,
+            rgba(255, 0, 0, 0) 70%
+            );
+            bottom: -50%;
+            right: -50%;
+        }
+    </style>
+</head>
+<body class="bg-black min-h-screen overflow-y-hidden">
+
+    <main class="w-full px-4 md:px-8 min-h-screen bg-black relative overflow-hidden flex justify-center items-center">
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-red-500/30 to-white/20 opacity-40"></div>
+
+        <div class="w-full max-w-6xl h p-10 bg-gray-500 bg-opacity-50 border border-red-400 rounded-2xl shadow-md z-20">
+            <h2 class="text-3xl font-bold text-center text-white">Welcome Members!</h2>
+            <p class="mt-2 text-sm text-center text-white">Update your information to be added to the team.</p>
+            
+            <form class="h-full flex justify-start items-center py-10 flex-col space-y-10">
+                <div class="flex space-x-16">
+                    <div class="h-full text-white">
+
+                        <div class="flex flex-col items-center ">
+                            <div id="drop-area" class="w-48 h-48 border-2 my-4 border-gray-300 border-4 border-dashed bg-transparent border-red-500 rounded-full flex items-center justify-center cursor-pointer overflow-hidden bg-gray-100 relative">
+                                <input type="file" class="hidden" id="teamImage" accept="image/*">
+                                <img id="preview" class="absolute inset-0 w-full h-full object-cover rounded-full hidden" alt="Preview">
+                                <label for="teamImage" class="text-red-400 cursor-pointer" id="upload-label">Drag or Click</label>
+                                <button type="button" id="remove-btn" class="hidden absolute top-1 right-1 text-white bg-red-500 rounded-full p-1 w-6 h-6 flex items-center justify-center" aria-label="Remove Image">×</button>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 py-2">
+                            <div>
+                                <label class="block text-sm font-medium text-white">Name</label>
+                                <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent focus:border-0" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-white">Position</label>
+                                <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent focus:border-0" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-white">Team Objective</label>
+                            <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent focus:border-0" required></textarea>
+                        </div>
+
+                        <div class="py-2">
+                            <label class="block text-sm font-medium text-white">Skills</label>
+                            <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                <div id="skills-container" class="flex flex-wrap gap-2"></div>
+                                <input type="text" id="skills-input" class="w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a skill and press comma"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fsh overflow-auto p-4 space-y-4 text-white">
+                        <fieldset class="p-6 border rounded-lg space-y-6" id="projects-fieldset">
+                            <legend class="text-sm font-medium text-white">My Projects</legend>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="Project Name" class="w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent focus:border-0" >
+                                <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                    <div class="tech-stack-container flex flex-wrap gap-2"></div>
+                                    <input type="text" class="tech-stack-input w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a tech stack and press comma"/>
+                                </div>
+                            </div>
+                            <textarea placeholder="Project Description" class="w-full px-3 py-2 border rounded-lg focus:border-red-400 bg-transparent focus:border-0" ></textarea>
+                            <div class="w-full px-3 py-2 border rounded-lg">
+                                <div class="features-container flex flex-wrap gap-2"></div>
+                                <input type="text" class="features-input w-full border-none focus:outline-none focus:ring-0 bg-transparent" placeholder="Type a feature and press comma"/>
+                            </div>
+                        </fieldset>
+
+                        <div class="flex justify-end">
+                            <button type="button" id="duplicate-btn" class="mt-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600">
+                                Add Project
+                            </button>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+                <div>
+                    <button type="submit" class="w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-lg">Update Information</button>
+                </div>
+            </form>
+        </div>
+
+      </div>
+    </main>
+
+    
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const inputFile = document.getElementById('teamImage');
+        const uploadLabel = document.getElementById('upload-label');
+        const preview = document.getElementById('preview');
+        const removeBtn = document.getElementById('remove-btn');
+
+        function displayImage(file) {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    preview.src = reader.result;
+                    preview.classList.remove('hidden');
+                    uploadLabel.classList.add('hidden');
+                    removeBtn.classList.remove('hidden');
+                };
+            }
+        }
+
+        function removeImage() {
+            preview.src = '';
+            preview.classList.add('hidden');
+            uploadLabel.classList.remove('hidden');
+            removeBtn.classList.add('hidden');
+            inputFile.value = '';
+        }
+
+        removeBtn.addEventListener('click', removeImage);
+
+        ['dragover', 'dragleave'].forEach(event => {
+            dropArea.addEventListener(event, (e) => {
+                e.preventDefault();
+                dropArea.classList.toggle('border-blue-500', event === 'dragover');
+            });
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('border-blue-500');
+            const file = e.dataTransfer.files[0];
+            displayImage(file);
+        });
+
+        inputFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            displayImage(file);
+        });
+
+        function enableTagInput(inputElement, containerElement) {
+            inputElement.addEventListener('keyup', (e) => {
+                if (e.key === ',' && inputElement.value.trim()) {
+                    const tagText = inputElement.value.replace(',', '').trim();
+                    if (tagText) {
+                        const tag = document.createElement('div');
+                        tag.className = 'bg-red-500 text-white px-2 py-1 rounded flex items-center';
+                        tag.innerHTML = `${tagText} <button class="ml-2 text-white font-bold" onclick="this.parentElement.remove()">&times;</button>`;
+                        containerElement.appendChild(tag);
+                        inputElement.value = '';
+                    }
+                }
+            });
+        }
+
+        enableTagInput(
+            document.getElementById('skills-input'),
+            document.getElementById('skills-container')
+        );
+
+        enableTagInput(
+            document.querySelector('.tech-stack-input'),
+            document.querySelector('.tech-stack-container')
+        );
+
+        enableTagInput(
+            document.querySelector('.features-input'),
+            document.querySelector('.features-container')
+        );
+
+        document.getElementById('duplicate-btn').addEventListener('click', () => {
+            const original = document.getElementById('projects-fieldset');
+            const clone = original.cloneNode(true);
+            
+            clone.querySelectorAll('input, textarea').forEach(input => input.value = '');
+            clone.removeAttribute('id');
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'mt-4 w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600';
+            deleteBtn.textContent = 'Remove';
+            deleteBtn.onclick = () => clone.remove();
+            
+            const techInput = clone.querySelector('.tech-stack-input');
+            const techContainer = clone.querySelector('.tech-stack-container');
+            const featureInput = clone.querySelector('.features-input');
+            const featureContainer = clone.querySelector('.features-container');
+            
+            enableTagInput(techInput, techContainer);
+            enableTagInput(featureInput, featureContainer);
+            
+            clone.appendChild(deleteBtn);
+            original.parentNode.insertBefore(clone, original.nextSibling);
+        });
+    </script>
+</body>
+</html> -->
+
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block headaddons %}
+    <style>
+        /* .h { height: 47rem; }
+        .fsh { height: 30rem; }
+         */
+        .bg-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-effect::before,
+        .bg-effect::after {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.3;
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .bg-effect::before {
+            background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0) 70%
+            );
+            top: -50%;
+            left: -50%;
+        }
+
+        .bg-effect::after {
+            background: radial-gradient(
+            circle,
+            rgba(255, 0, 0, 0.4) 0%,
+            rgba(255, 0, 0, 0) 70%
+            );
+            bottom: -50%;
+            right: -50%;
+        }
+
+        .writing-mode-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        .annotation-line::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 1px;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .annotation-line-left::before {
+            right: 100%;
+            top: 50%;
+        }
+
+        .annotation-line-right::before {
+            left: 100%;
+            top: 50%;
+        }
+
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .bg-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-effect::before,
+        .bg-effect::after {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.3;
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .bg-effect::before {
+            background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0) 70%
+            );
+            top: -50%;
+            left: -50%;
+        }
+
+        .bg-effect::after {
+            background: radial-gradient(
+            circle,
+            rgba(255, 0, 0, 0.4) 0%,
+            rgba(255, 0, 0, 0) 70%
+            );
+            bottom: -50%;
+            right: -50%;
+        }
+    </style>
+{% endblock headaddons %}
+
+{% block content %}
+
+<div class="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden md:block">
+    <div class="flex flex-col gap-20 animate-fade-in">
+        <div class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest">
+            &copy; 2025
+        </div>
+        <div class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8">
+            <span>Dedicated</span>
+            <span>IT</span>
+            <span>Developers</span>
+        </div>
+    </div>
+</div>
+
+<main class="w-full px-4 md:px-8 min-h-screen bg-black relative overflow-hidden flex justify-center items-center">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-red-500/30 to-white/20 opacity-40"></div>
+
+    <div class="w-full max-w-6xl min-h-[600px] mt-[100px] mb-[30px] p-4 md:p-10 bg-gray-500 bg-opacity-50 border border-red-400 rounded-2xl shadow-md z-20">
+        <h2 class="text-2xl md:text-3xl font-bold text-center text-white">Welcome Members!</h2>
+        <p class="mt-2 text-xs md:text-sm text-center text-white">Update your information to be added to the team.</p>
+        
+        <form class="h-full flex justify-start items-center py-4 md:py-10 flex-col space-y-6 md:space-y-10">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <!-- Left Column -->
+                <div class="text-white space-y-4 md:space-y-6">
+                    <div class="flex flex-col items-center">
+                        <div id="drop-area" class="w-32 h-32 md:w-48 md:h-48 border-2 my-4 border-dashed bg-transparent border-red-500 rounded-full flex items-center justify-center cursor-pointer overflow-hidden bg-gray-100 relative">
+                            <input type="file" class="hidden" id="teamImage" accept="image/*">
+                            <img id="preview" class="absolute inset-0 w-full h-full object-cover rounded-full hidden" alt="Preview">
+                            <label for="teamImage" class="text-red-400 text-sm md:text-base cursor-pointer" id="upload-label">Drag or Click</label>
+                            <button type="button" id="remove-btn" class="hidden absolute top-1 right-1 text-white bg-red-500 rounded-full p-1 w-6 h-6 flex items-center justify-center" aria-label="Remove Image">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-white">Name</label>
+                            <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-white">Position</label>
+                            <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-white">Team Objective</label>
+                        <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent" rows="3"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-white">Skills</label>
+                        <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <div id="skills-container" class="flex flex-wrap gap-2"></div>
+                            <input type="text" id="skills-input" class="w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a skill and press comma"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="text-white space-y-4 md:space-y-6">
+                    <div class="max-h-[530px] overflow-y-auto p-4 space-y-4">
+                        <fieldset class="p-4 md:p-6 border rounded-lg space-y-4 md:space-y-6" id="projects-fieldset">
+                            <legend class="text-sm font-medium text-white">My Projects</legend>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Project Name" class="w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent">
+                                <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                    <div class="tech-stack-container flex flex-wrap gap-2"></div>
+                                    <input type="text" class="tech-stack-input w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a tech stack and press comma"/>
+                                </div>
+                            </div>
+                            <textarea placeholder="Project Description" class="w-full px-3 py-2 border rounded-lg focus:border-red-400 bg-transparent" rows="3"></textarea>
+                            <div class="w-full px-3 py-2 border rounded-lg">
+                                <div class="features-container flex flex-wrap gap-2"></div>
+                                <input type="text" class="features-input w-full border-none focus:outline-none focus:ring-0 bg-transparent" placeholder="Type a feature and press comma"/>
+                            </div>
+                        </fieldset>
+
+                        <div class="flex justify-end">
+                            <button type="button" id="duplicate-btn" class="mt-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-sm md:text-base">
+                                Add Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2">
+                <button type="submit" class="w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-base md:text-lg">Update Information</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const inputFile = document.getElementById('teamImage');
+        const uploadLabel = document.getElementById('upload-label');
+        const preview = document.getElementById('preview');
+        const removeBtn = document.getElementById('remove-btn');
+
+        function displayImage(file) {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    preview.src = reader.result;
+                    preview.classList.remove('hidden');
+                    uploadLabel.classList.add('hidden');
+                    removeBtn.classList.remove('hidden');
+                };
+            }
+        }
+
+        function removeImage() {
+            preview.src = '';
+            preview.classList.add('hidden');
+            uploadLabel.classList.remove('hidden');
+            removeBtn.classList.add('hidden');
+            inputFile.value = '';
+        }
+
+        removeBtn.addEventListener('click', removeImage);
+
+        ['dragover', 'dragleave'].forEach(event => {
+            dropArea.addEventListener(event, (e) => {
+                e.preventDefault();
+                dropArea.classList.toggle('border-blue-500', event === 'dragover');
+            });
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('border-blue-500');
+            const file = e.dataTransfer.files[0];
+            displayImage(file);
+        });
+
+        inputFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            displayImage(file);
+        });
+
+        function enableTagInput(inputElement, containerElement) {
+            inputElement.addEventListener('keyup', (e) => {
+                if (e.key === ',' && inputElement.value.trim()) {
+                    const tagText = inputElement.value.replace(',', '').trim();
+                    if (tagText) {
+                        const tag = document.createElement('div');
+                        tag.className = 'bg-red-500 text-white px-2 py-1 rounded flex items-center';
+                        tag.innerHTML = `${tagText} <button class="ml-2 text-white font-bold" onclick="this.parentElement.remove()">&times;</button>`;
+                        containerElement.appendChild(tag);
+                        inputElement.value = '';
+                    }
+                }
+            });
+        }
+
+        enableTagInput(
+            document.getElementById('skills-input'),
+            document.getElementById('skills-container')
+        );
+
+        enableTagInput(
+            document.querySelector('.tech-stack-input'),
+            document.querySelector('.tech-stack-container')
+        );
+
+        enableTagInput(
+            document.querySelector('.features-input'),
+            document.querySelector('.features-container')
+        );
+
+        document.getElementById('duplicate-btn').addEventListener('click', () => {
+            const original = document.getElementById('projects-fieldset');
+            const clone = original.cloneNode(true);
+            
+            clone.querySelectorAll('input, textarea').forEach(input => input.value = '');
+            clone.removeAttribute('id');
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'mt-4 w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600';
+            deleteBtn.textContent = 'Remove';
+            deleteBtn.onclick = () => clone.remove();
+            
+            const techInput = clone.querySelector('.tech-stack-input');
+            const techContainer = clone.querySelector('.tech-stack-container');
+            const featureInput = clone.querySelector('.features-input');
+            const featureContainer = clone.querySelector('.features-container');
+            
+            enableTagInput(techInput, techContainer);
+            enableTagInput(featureInput, featureContainer);
+            
+            clone.appendChild(deleteBtn);
+            original.parentNode.insertBefore(clone, original.nextSibling);
+        });
+    </script>
+
+{% endblock content %}
