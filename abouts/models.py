@@ -23,6 +23,7 @@ class Team(models.Model):
     objectives = models.TextField()
     skills = models.JSONField(default=list)  # List of skills
     photo = models.ImageField(upload_to='team_photos/', blank=True, null=True)
+    website = models.URLField(max_length=200, verbose_name="Website Link", blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
@@ -37,6 +38,7 @@ class Team(models.Model):
 class PersonalProject(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='personal_projects')
     project_name = models.CharField(max_length=255)
+    project_link = models.URLField(max_length=200, verbose_name="Website Link", blank=True, null=True)
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # Technologies used
     features = models.JSONField(default=list)  # Features of the project
