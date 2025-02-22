@@ -1,9 +1,37 @@
+import json
+
 # from django.contrib.auth.models import User
 from .models import CustomUser
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
+from abouts.models import Team
+
+class TeamForm(forms.ModelForm):
+    
+    skills = forms.CharField(widget=forms.HiddenInput(), required=False)
+    
+    class Meta:
+        model = Team
+        fields = ["photo", "name", "position", "objectives", "skills", "website"]
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent"}),
+            "position": forms.TextInput(attrs={"class": "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent"}),
+            "objectives": forms.Textarea(attrs={"class": "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent", "rows": 3}),
+            # "skills": forms.Textarea(attrs={"class": "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent", "rows": 3}),
+            "website": forms.URLInput(attrs={"class": "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent"}),
+        }
+        
+        def clean_skills(self):
+            skills = self.cleaned_data.get('skills', '[]')  # Default to empty list
+            try:
+                skills_list = json.loads(skills)  # Convert JSON string to list
+                return list(set(skill.strip() for skill in skills_list if skill.strip()))  # Remove duplicates
+            except json.JSONDecodeError:
+                return []
+        
+        
 class VerifyForm(forms.Form):
     
     email = forms.EmailField(

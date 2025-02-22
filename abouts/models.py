@@ -17,9 +17,18 @@ class SliderPoster(models.Model):
         return f"Slider {self.id} - {self.status}" 
 
 class Team(models.Model):
+    
+    ROLE_CHOICES = [
+        ('member', 'Member'),
+        ('alumni', 'Alumni'),
+        ('expert', 'Expert'),
+        ('founder', 'Founder')
+    ]
+    
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='member')
     objectives = models.TextField()
     skills = models.JSONField(default=list)  # List of skills
     photo = models.ImageField(upload_to='team_photos/', blank=True, null=True)
@@ -42,6 +51,7 @@ class PersonalProject(models.Model):
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # Technologies used
     features = models.JSONField(default=list)  # Features of the project
+    link = models.URLField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -54,6 +64,7 @@ class Project(models.Model):
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # List of techs used
     features = models.JSONField(default=list)  # 
+    link = models.URLField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

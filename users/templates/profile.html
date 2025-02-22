@@ -466,81 +466,336 @@
     <div class="absolute inset-0 bg-gradient-to-b from-black via-red-500/30 to-white/20 opacity-40"></div>
 
     <div class="w-full max-w-6xl min-h-[600px] mt-[100px] mb-[30px] p-4 md:p-10 bg-gradient-to-br from-black via-red-950/20 to-black backdrop-blur-xl border border-red-400 rounded-2xl shadow-md z-20">
+
+
+        <div class="flex flex-col items-center">
+            <div id="drop-area" class="w-32 h-32 md:w-48 md:h-48 border-2 my-4 border-dashed bg-transparent border-red-500 rounded-full flex items-center justify-center cursor-pointer overflow-hidden bg-gray-100 relative">
+                {% if team.photo %}
+                    <img id="preview" src="{{ team.get_photo_url }}" class="absolute inset-0 w-full h-full object-cover rounded-full" alt="Profile Photo">
+                {% endif %}
+            </div>
+        </div>
+
         <h2 class="text-2xl md:text-3xl font-bold text-center text-white">Welcome Members!</h2>
-        <p class="mt-2 text-xs md:text-sm text-center text-white">Update your information to be added to the team.</p>
+        <p class="mt-2 text-xs md:text-sm text-center text-white">Update your Portfolio.</p>
         
-        <form class="h-full flex justify-start items-center py-4 md:py-10 flex-col space-y-6 md:space-y-10">
+        
             <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <!-- Left Column -->
-                <div class="text-white space-y-4 md:space-y-6">
-                    <div class="flex flex-col items-center">
-                        <div id="drop-area" class="w-32 h-32 md:w-48 md:h-48 border-2 my-4 border-dashed bg-transparent border-red-500 rounded-full flex items-center justify-center cursor-pointer overflow-hidden bg-gray-100 relative">
-                            <input type="file" class="hidden" id="teamImage" accept="image/*">
-                            <img id="preview" class="absolute inset-0 w-full h-full object-cover rounded-full hidden" alt="Preview">
-                            <label for="teamImage" class="text-red-400 text-sm md:text-base cursor-pointer" id="upload-label">Drag or Click</label>
-                            <button type="button" id="remove-btn" class="hidden absolute top-1 right-1 text-white bg-red-500 rounded-full p-1 w-6 h-6 flex items-center justify-center" aria-label="Remove Image">×</button>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-white">Name</label>
-                            <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-white">Position</label>
-                            <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-white">Team Objective</label>
-                        <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent" rows="3"></textarea>
-                    </div>
 
-                    <div>
-                        <label class="block text-sm font-medium text-white">Skills</label>
-                        <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-                            <div id="skills-container" class="flex flex-wrap gap-2"></div>
-                            <input type="text" id="skills-input" class="w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a skill and press comma"/>
-                        </div>
-                    </div>
-                </div>
+                <form method="POST" class="h-full flex justify-start items-center py-4 md:py-10 flex-col space-y-6 md:space-y-10" enctype="multipart/form-data">
 
-                <!-- Right Column -->
-                <div class="text-white space-y-4 md:space-y-6">
-                    <div class="max-h-[530px] overflow-y-auto p-4 space-y-4">
-                        <fieldset class="p-4 md:p-6 border rounded-lg space-y-4 md:space-y-6" id="projects-fieldset">
-                            <legend class="text-sm font-medium text-white">My Projects</legend>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Project Name" class="w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent">
-                                <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-                                    <div class="tech-stack-container flex flex-wrap gap-2"></div>
-                                    <input type="text" class="tech-stack-input w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a tech stack and press comma"/>
+                    {% csrf_token %}
+
+                    <!-- Left Column -->
+                    <div class="text-white space-y-4 md:space-y-6">
+
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-white">Name</label>
+                                {% comment %} <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent"> {% endcomment %}
+                                {{ form.name }}
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-white">Position</label>
+                                {% comment %} <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent"> {% endcomment %}
+                                {{ form.position }}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-white">Team Objective</label>
+                            {% comment %} <textarea class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent" rows="3"></textarea> {% endcomment %}
+                            {{ form.objectives }}
+                        </div>
+
+                        <div>
+                            {% comment %} <label class="block text-sm font-medium text-white">Skills</label>
+                            <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                <div id="skills-container" class="flex flex-wrap gap-2"></div>
+                                <input type="text" id="skills-input" class="w-full border-none focus:ring-0 focus:outline-none bg-transparent" value="" placeholder="Type a skill and press comma"/>
+                            </div> {% endcomment %}
+
+                            {% comment %} <select id="skills" name="skills" multiple="multiple" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 bg-transparent">
+                                {% for skill in team.skills %}
+                                    <option value="{{ skill }}" selected>{{ skill }}</option>
+                                {% endfor %}
+                            </select> {% endcomment %}
+
+                            <div x-data="tagInput()" class="w-full">
+                                <label class="block text-sm font-medium text-white">Skills</label>
+                                <div class="border border-gray-300 rounded-md p-2 flex flex-wrap gap-2 bg-gray-900">
+                                    <!-- Render tags -->
+                                    <template x-for="(tag, index) in tags" :key="index">
+                                        <span class="bg-red-600 text-white text-sm px-3 py-1 rounded-full flex items-center space-x-2">
+                                            <span x-text="tag"></span>
+                                            <button type="button" class="ml-2 focus:outline-none" @click="removeTag(index)">
+                                                ✕
+                                            </button>
+                                        </span>
+                                    </template>
+                                    
+                                    <!-- Input field for entering new tags -->
+                                    <input type="text" 
+                                    x-model="newTag" 
+                                    @keydown.enter.prevent="addTag()"
+                                    @keydown.space.prevent="addTag()"
+                                    @keydown.comma.prevent="addTag()" 
+                                    placeholder="Type a skill and press comma"
+                                    class="bg-transparent outline-none text-white flex-grow px-2" />
+
                                 </div>
+                            
+                                <!-- Hidden input to send the skills data -->
+                                <input type="hidden" name="skills" :value="JSON.stringify(tags)" />
                             </div>
-                            <textarea placeholder="Project Description" class="w-full px-3 py-2 border rounded-lg focus:border-red-400 bg-transparent" rows="3"></textarea>
-                            <div class="w-full px-3 py-2 border rounded-lg">
-                                <div class="features-container flex flex-wrap gap-2"></div>
-                                <input type="text" class="features-input w-full border-none focus:outline-none focus:ring-0 bg-transparent" placeholder="Type a feature and press comma"/>
-                            </div>
-                        </fieldset>
+                            
 
-                        <div class="flex justify-end">
-                            <button type="button" id="duplicate-btn" class="mt-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-sm md:text-base">
-                                Add Project
-                            </button>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-white">Website</label>
+                            {{ form.website }}
+                        </div>
+
+                        <!--div class="flex flex-col items-center">
+                            <div id="drop-area" class="w-32 h-32 md:w-48 md:h-48 border-2 my-4 border-dashed bg-transparent border-red-500 rounded-full flex items-center justify-center cursor-pointer overflow-hidden bg-gray-100 relative">
+                                <input type="file" class="hidden" id="teamImage" accept="image/*">
+                                <img id="preview" class="absolute inset-0 w-full h-full object-cover rounded-full hidden" alt="Preview">
+                                <label for="teamImage" class="text-red-400 text-sm md:text-base cursor-pointer" id="upload-label">Drag or Click</label>
+                                <button type="button" id="remove-btn" class="hidden absolute top-1 right-1 text-white bg-red-500 rounded-full p-1 w-6 h-6 flex items-center justify-center" aria-label="Remove Image">×</button>
+                            </div>
+                        </div-->
+
+                        <!-- Profile Photo Upload -->
+                        <div class="flex flex-col items-left">
+                            <div id="drop-area" class="w-32 h-32 md:w-15 md:h-15 border-2 my-4 border-dashed bg-transparent border-red-500 rounded-full flex items-center justify-center cursor-pointer overflow-hidden bg-gray-100 relative">
+                                <input type="file" name="photo" class="hidden" id="teamImage" accept="image/*">
+                                <img id="preview" class="absolute inset-0 w-full h-full object-cover rounded-full hidden" alt="Preview">
+                                <label for="teamImage" class="text-red-400 text-sm md:text-base cursor-pointer" id="upload-label">Drag or Click to Update Photo</label>
+                                <button type="button" id="remove-btn" class="hidden absolute top-1 right-1 text-white bg-red-500 rounded-full p-1 w-6 h-6 flex items-center justify-center" aria-label="Remove Image">x</button>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/2">
+                            <button type="submit" class="w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-base md:text-lg">Update Information</button>
+                        </div>
+
+                    </div>
+
+                
+                </form>
+
+                <form action="" method="POST" class="h-full flex justify-start items-center py-4 md:py-10 flex-col space-y-6 md:space-y-10" enctype="multipart/form-data">
+                    
+                    {% csrf_token %}
+
+                    <!-- Right Column -->
+                    <div class="text-white space-y-4 md:space-y-6">
+                        <div class="max-h-[530px] overflow-y-auto p-4 space-y-4">
+
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-gray-800 text-white rounded-lg shadow-md">
+                                    <thead>
+                                        <tr class="bg-gray-900">
+                                            <th class="py-2 px-4">Project Name</th>
+                                            <th class="py-2 px-4">Description</th>
+                                            <th class="py-2 px-4">Tech Stack</th>
+                                            <th class="py-2 px-4">Features</th>
+                                            <th class="py-2 px-4">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="projects-table">
+                                        
+                                        {% for project in personal_projects %}
+                                        <tr>
+                                            <td>
+                                                {{ project.project_name }}
+                                            </td>
+                                            <td>
+                                                {{ project.description }}
+                                            </td>
+                                            <td>
+                                                {{ project.tech_stack }}
+                                            </td>
+                                            <td>
+                                                {{ project.features }}
+                                            </td>
+                                            <td>
+                                                <a href="#"> edit</a>
+                                                <a href="#"> remove</a>
+                                            </td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <fieldset class="p-4 md:p-6 border rounded-lg space-y-4 md:space-y-6" id="projects-fieldset">
+                                <legend class="text-sm font-medium text-white">My Projects</legend>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                                    <input type="text" placeholder="Project Name" class="w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent">
+
+                                    <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                        <div class="tech-stack-container flex flex-wrap gap-2"></div>
+
+                                        {% comment %} <input type="text" class="tech-stack-input w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a tech stack and press comma"/> {% endcomment %}
+
+                                        <div x-data="tagInputts()" class="w-full">
+                                            {% comment %} <label class="block text-sm font-medium text-white">Tech Stack</label> {% endcomment %}
+                                            <div class="border border-gray-300 rounded-md p-2 flex flex-wrap gap-2 bg-gray-900">
+                                                <!-- Render tags -->
+                                                <template x-for="(tag, index) in tags" :key="index">
+                                                    <span class="bg-red-600 text-white text-sm px-3 py-1 rounded-full flex items-center space-x-2">
+                                                        <span x-text="tag"></span>
+                                                        <button type="button" class="ml-2 focus:outline-none" @click="removeTagts(index)">
+                                                            ✕
+                                                        </button>
+                                                    </span>
+                                                </template>
+                                                
+                                                <!-- Input field for entering new tags -->
+                                                <input type="text" 
+                                                x-model="newTag" 
+                                                @keydown.enter.prevent="addTagts()"
+                                                @keydown.space.prevent="addTagts()"
+                                                @keydown.comma.prevent="addTagts()" 
+                                                placeholder="Type a tech stack and press comma"
+                                                class="bg-transparent outline-none text-white flex-grow px-2" />
+                
+                                            </div>
+                                        
+                                            <!-- Hidden input to send the skills data -->
+                                            <input type="hidden" name="techstack" :value="JSON.stringify(tagsts)" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <textarea placeholder="Project Description" class="w-full px-3 py-2 border rounded-lg focus:border-red-400 bg-transparent" rows="3"></textarea>
+
+                                <div class="w-full px-3 py-2 border rounded-lg">
+
+                                    <div class="features-container flex flex-wrap gap-2"></div>
+                                    {% comment %} <input type="text" class="features-input w-full border-none focus:outline-none focus:ring-0 bg-transparent" placeholder="Type a feature and press comma"/> {% endcomment %}
+
+                                    <div x-data="tagInputfeat()" class="w-full">
+                                        {% comment %} <label class="block text-sm font-medium text-white">Tech Stack</label> {% endcomment %}
+                                        <div class="border border-gray-300 rounded-md p-2 flex flex-wrap gap-2 bg-gray-900">
+                                            <!-- Render tags -->
+                                            <template x-for="(tag, index) in tags" :key="index">
+                                                <span class="bg-red-600 text-white text-sm px-3 py-1 rounded-full flex items-center space-x-2">
+                                                    <span x-text="tag"></span>
+                                                    <button type="button" class="ml-2 focus:outline-none" @click="removeTagfeat(index)">
+                                                        ✕
+                                                    </button>
+                                                </span>
+                                            </template>
+                                            
+                                            <!-- Input field for entering new tags -->
+                                            <input type="text" 
+                                            x-model="newTag" 
+                                            @keydown.enter.prevent="addTagfeat()"
+                                            @keydown.space.prevent="addTagfeat()"
+                                            @keydown.comma.prevent="addTagfeat()" 
+                                            placeholder="Type a feature and press comma"
+                                            class="bg-transparent outline-none text-white flex-grow px-2" />
+            
+                                        </div>
+                                    
+                                        <!-- Hidden input to send the skills data -->
+                                        <input type="hidden" name="features" :value="JSON.stringify(tagsfeat)" />
+                                    </div>
+                                    
+                                </div>
+                            </fieldset>
+
+                            <div class="flex justify-end">
+                                <button type="button" id="duplicate-btn" class="mt-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-sm md:text-base">
+                                    Add Project
+                                </button>
+                            </div>
+
+
                         </div>
                     </div>
-                </div>
+
+                </form>
+
             </div>
             
-            <div class="w-full md:w-1/2">
-                <button type="submit" class="w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-base md:text-lg">Update Information</button>
-            </div>
-        </form>
+            
     </div>
 </main>
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <script>
+        function tagInput() {
+            return {
+                newTag: '',
+                tags: JSON.parse('{{ team.skills|default:"[]"|safe }}'),  // Load existing skills
+        
+                addTag() {
+                    let skill = this.newTag.trim();
+                    if (skill !== '' && !this.tags.includes(skill)) {
+                        this.tags.push(skill);  // Add skill to list
+                        this.newTag = '';  // Clear input
+                    }
+                },
+                removeTag(index) {
+                    this.tags.splice(index, 1);
+                }
+            };
+        }
+    </script>
+
+    <script>
+        function tagInputts() {
+            return {
+                newTag: '',
+                tags: [],  // Load existing teckstack
+        
+                addTagts() {
+                    let teckstack = this.newTag.trim();
+                    if (teckstack !== '' && !this.tags.includes(teckstack)) {
+                        this.tags.push(teckstack);  // Add teckstack to list
+                        this.newTag = '';  // Clear input
+                    }
+                },
+                removeTagts(index) {
+                    this.tags.splice(index, 1);
+                }
+            };
+        }
+    </script>
+
+    <script>
+        function tagInputfeat() {
+            return {
+                newTag: '',
+                tags: [],  // Load existing features
+        
+                addTagfeat() {
+                    let features = this.newTag.trim();
+                    if (features !== '' && !this.tags.includes(features)) {
+                        this.tags.push(features);  // Add features to list
+                        this.newTag = '';  // Clear input
+                    }
+                },
+                removeTagfeat(index) {
+                    this.tags.splice(index, 1);
+                }
+            };
+        }
+    </script>
+        
 
     <script>
         const dropArea = document.getElementById('drop-area');
@@ -591,60 +846,9 @@
             displayImage(file);
         });
 
-        function enableTagInput(inputElement, containerElement) {
-            inputElement.addEventListener('keyup', (e) => {
-                if (e.key === ',' && inputElement.value.trim()) {
-                    const tagText = inputElement.value.replace(',', '').trim();
-                    if (tagText) {
-                        const tag = document.createElement('div');
-                        tag.className = 'bg-red-500 text-white px-2 py-1 rounded flex items-center';
-                        tag.innerHTML = `${tagText} <button class="ml-2 text-white font-bold" onclick="this.parentElement.remove()">&times;</button>`;
-                        containerElement.appendChild(tag);
-                        inputElement.value = '';
-                    }
-                }
-            });
-        }
-
-        enableTagInput(
-            document.getElementById('skills-input'),
-            document.getElementById('skills-container')
-        );
-
-        enableTagInput(
-            document.querySelector('.tech-stack-input'),
-            document.querySelector('.tech-stack-container')
-        );
-
-        enableTagInput(
-            document.querySelector('.features-input'),
-            document.querySelector('.features-container')
-        );
-
-        document.getElementById('duplicate-btn').addEventListener('click', () => {
-            const original = document.getElementById('projects-fieldset');
-            const clone = original.cloneNode(true);
-            
-            clone.querySelectorAll('input, textarea').forEach(input => input.value = '');
-            clone.removeAttribute('id');
-            
-            const deleteBtn = document.createElement('button');
-            deleteBtn.type = 'button';
-            deleteBtn.className = 'mt-4 w-full px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600';
-            deleteBtn.textContent = 'Remove';
-            deleteBtn.onclick = () => clone.remove();
-            
-            const techInput = clone.querySelector('.tech-stack-input');
-            const techContainer = clone.querySelector('.tech-stack-container');
-            const featureInput = clone.querySelector('.features-input');
-            const featureContainer = clone.querySelector('.features-container');
-            
-            enableTagInput(techInput, techContainer);
-            enableTagInput(featureInput, featureContainer);
-            
-            clone.appendChild(deleteBtn);
-            original.parentNode.insertBefore(clone, original.nextSibling);
-        });
     </script>
+
+    
+        
 
 {% endblock content %}

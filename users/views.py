@@ -19,6 +19,8 @@ from django.contrib.sites.shortcuts import get_current_site
 
 from django.contrib.auth.decorators import login_required
 
+from abouts.models import Team, PersonalProject
+from .forms import TeamForm
 
 # ----------------------
 # LOGGER SAMPLE
@@ -212,4 +214,32 @@ def custom_404_view(request, exception=None):
 
 @login_required
 def profile(request):
-    return render(request, "profile.html")
+    user = request.user
+    # Try to get the Team instance related to the user
+    team, created = Team.objects.get_or_create(user=user)
+    
+    # Get all personal projects related to this team
+    personal_projects = PersonalProject.objects.filter(team=team)
+    
+    if request.method == "POST":
+        form = TeamForm(request.POST, request.FILES, instance=team)
+        if form.is_valid():
+            new_skills = form.cleaned_data['skills']
+            if isinstance(team.skills, list):
+                team.skills.extend(new_skills)  # Append new skills
+                team.skills = list(set(team.skills))  # Remove duplicates
+            else:
+                team.skills = new_skills  # If no previous data, just save it
+            team.save()
+            messages.success(request, "Profile updated successfully!")
+            return redirect("profile")
+    else:
+        form = TeamForm(instance=team)
+
+    context = {
+        "user": user,
+        "form": form,
+        "personal_projects": personal_projects,
+        "team": team if not created else None,  # None if newly created
+    }
+    return render(request, "profile.html", context)
