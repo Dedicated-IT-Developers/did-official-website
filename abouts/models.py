@@ -51,7 +51,6 @@ class PersonalProject(models.Model):
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # Technologies used
     features = models.JSONField(default=list)  # Features of the project
-    link = models.URLField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

@@ -6,7 +6,7 @@ from .models import CustomUser
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from abouts.models import Team
+from abouts.models import Team, PersonalProject
 
 class TeamForm(forms.ModelForm):
     
@@ -31,7 +31,38 @@ class TeamForm(forms.ModelForm):
             except json.JSONDecodeError:
                 return []
         
+class PersonalProjectForm(forms.ModelForm):
+    
+    tech_stack = forms.CharField(widget=forms.HiddenInput(), required=False)
+    features = forms.CharField(widget=forms.HiddenInput(), required=False)
+    
+    class Meta:
+        model = PersonalProject
+        fields = ["project_name", "description", "project_link", "tech_stack", "features"]
+        widgets = {
+            "project_name": forms.TextInput(attrs={"placeholder": "Project Name", "class": "w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent"}),
+            "description": forms.TextInput(attrs={"placeholder": "Project Description", "class": "w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent"}),
+            "project_link": forms.URLInput(attrs={"placeholder": "Project Link", "class": "w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent"}),
+        }
         
+        
+        def clean_tech_stack(self):
+            tech_stack = self.cleaned_data.get('tech_stack', '[]')  # Default to empty list
+            try:
+                tech_stack_list = json.loads(tech_stack)  # Convert JSON string to list
+                return list(set(tech_stack.strip() for tech_stack in tech_stack_list if tech_stack.strip()))  # Remove duplicates
+            except json.JSONDecodeError:
+                return []
+            
+        def clean_features(self):
+            features = self.cleaned_data.get('features', '[]')  # Default to empty list
+            try:
+                features_list = json.loads(features)  # Convert JSON string to list
+                return list(set(features.strip() for features in features_list if features.strip()))  # Remove duplicates
+            except json.JSONDecodeError:
+                return []
+        
+                
 class VerifyForm(forms.Form):
     
     email = forms.EmailField(

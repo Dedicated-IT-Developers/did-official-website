@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from .models import SliderPoster, Team, PersonalProject, Project, ProjectImage, ProjectDeveloper, Contact
-from django.db.models import Prefetch
+from django.db.models import Case, When, Value, IntegerField, Prefetch
 
 # Create your views here.
 class Home(ListView):
@@ -41,10 +41,19 @@ class TeamListView(ListView):
     context_object_name = 'teams'
     
     def get_queryset(self):
+        
+        role_order = Case(
+            When(role='founder', then=Value(1)),
+            When(role='expert', then=Value(2)),
+            When(role='member', then=Value(3)),
+            When(role='alumni', then=Value(4)),
+            output_field=IntegerField(),
+        )
+        
         return Team.objects.prefetch_related(
             Prefetch('project_developers', queryset=ProjectDeveloper.objects.select_related('project')),
             Prefetch('personal_projects')
-        )
+        ).annotate(role_priority=role_order).order_by('role_priority')
         
 
 # class TeamDetailView(DetailView):

@@ -476,8 +476,33 @@
             </div>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-white">Welcome Members!</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-center text-white">
+            Welcome Members!
+            <small class="text-center text-white">(<a href="/user/logout">Logout</a>)</small>
+        </h2>
         <p class="mt-2 text-xs md:text-sm text-center text-white">Update your Portfolio.</p>
+
+        <br>
+        <br>
+
+        {% if messages %}
+        <ul class="space-y-2">
+          {% for message in messages %}
+          <li
+            {%
+            if
+            message.tags
+            %}
+            class="text-red-400 px-4 py-2 rounded-lg bg-red-500/10 text-sm text-center {{ message.tags }}"
+            {%
+            endif
+            %}
+          >
+            {{ message }}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
         
         
             <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -586,7 +611,7 @@
                 
                 </form>
 
-                <form action="" method="POST" class="h-full flex justify-start items-center py-4 md:py-10 flex-col space-y-6 md:space-y-10" enctype="multipart/form-data">
+                <form action="/user/addproject/" method="POST" class="h-full flex justify-start items-center py-4 md:py-10 flex-col space-y-6 md:space-y-10" enctype="multipart/form-data">
                     
                     {% csrf_token %}
 
@@ -616,14 +641,13 @@
                                                 {{ project.description }}
                                             </td>
                                             <td>
-                                                {{ project.tech_stack }}
+                                                {{ project.tech_stack|safe }}
                                             </td>
                                             <td>
-                                                {{ project.features }}
+                                                {{ project.features|safe }}
                                             </td>
                                             <td>
-                                                <a href="#"> edit</a>
-                                                <a href="#"> remove</a>
+                                                <a href="/user/removeproject/{{ project.pk }}" class="mt-0 px-4 py-0 text-white bg-red-500 rounded-lg hover:bg-red-600 text-sm md:text-base"> Remove</a>
                                             </td>
                                             
                                         </tr>
@@ -638,9 +662,11 @@
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                                    <input type="text" placeholder="Project Name" class="w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent">
+                                    {% comment %} <input type="text" placeholder="Project Name" class="w-full px-3 py-2 border rounded-lg focus:ring-red-400 bg-transparent"> {% endcomment %}
 
-                                    <div class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                    {{ personal_project_form.project_name }}
+
+                                    <div class="w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
                                         <div class="tech-stack-container flex flex-wrap gap-2"></div>
 
                                         {% comment %} <input type="text" class="tech-stack-input w-full border-none focus:ring-0 focus:outline-none bg-transparent" placeholder="Type a tech stack and press comma"/> {% endcomment %}
@@ -664,22 +690,23 @@
                                                 @keydown.enter.prevent="addTagts()"
                                                 @keydown.space.prevent="addTagts()"
                                                 @keydown.comma.prevent="addTagts()" 
-                                                placeholder="Type a tech stack and press comma"
+                                                placeholder="Tech 1, Tech 2"
                                                 class="bg-transparent outline-none text-white flex-grow px-2" />
                 
                                             </div>
                                         
                                             <!-- Hidden input to send the skills data -->
-                                            <input type="hidden" name="techstack" :value="JSON.stringify(tagsts)" />
+                                            <input type="hidden" name="tech_stack" :value="JSON.stringify(tags)" />
                                         </div>
 
                                     </div>
 
                                 </div>
 
-                                <textarea placeholder="Project Description" class="w-full px-3 py-2 border rounded-lg focus:border-red-400 bg-transparent" rows="3"></textarea>
+                                {% comment %} <textarea placeholder="Project Description" class="w-full px-3 py-2 border rounded-lg focus:border-red-400 bg-transparent" rows="3"></textarea> {% endcomment %}
+                                {{ personal_project_form.description }}
 
-                                <div class="w-full px-3 py-2 border rounded-lg">
+                                <div class="w-full rounded-lg">
 
                                     <div class="features-container flex flex-wrap gap-2"></div>
                                     {% comment %} <input type="text" class="features-input w-full border-none focus:outline-none focus:ring-0 bg-transparent" placeholder="Type a feature and press comma"/> {% endcomment %}
@@ -709,17 +736,24 @@
                                         </div>
                                     
                                         <!-- Hidden input to send the skills data -->
-                                        <input type="hidden" name="features" :value="JSON.stringify(tagsfeat)" />
+                                        <input type="hidden" name="features" :value="JSON.stringify(tags)" />
                                     </div>
                                     
                                 </div>
+
+                                {{ personal_project_form.project_link }}
+
+                                <div class="flex justify-end">
+                                    <button type="submit" class="mt-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-sm md:text-base">
+                                        Add Project
+                                    </button>
+                                </div>
+
                             </fieldset>
 
-                            <div class="flex justify-end">
-                                <button type="button" id="duplicate-btn" class="mt-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 text-sm md:text-base">
-                                    Add Project
-                                </button>
-                            </div>
+                            
+
+                            
 
 
                         </div>

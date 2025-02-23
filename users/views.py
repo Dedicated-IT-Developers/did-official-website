@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, LoginForm, PasswordResetForm, VerifyForm
@@ -20,7 +20,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.decorators import login_required
 
 from abouts.models import Team, PersonalProject
-from .forms import TeamForm
+from .forms import TeamForm, PersonalProjectForm
 
 # ----------------------
 # LOGGER SAMPLE
@@ -239,7 +239,46 @@ def profile(request):
     context = {
         "user": user,
         "form": form,
+        "personal_project_form": PersonalProjectForm(),
         "personal_projects": personal_projects,
         "team": team if not created else None,  # None if newly created
     }
     return render(request, "profile.html", context)
+
+@login_required
+def addproject(request):
+    user = request.user
+    team = get_object_or_404(Team, user=user)  # Get the user's team
+
+    if request.method == "POST":
+        form = PersonalProjectForm(request.POST)
+        if form.is_valid():           
+            project = form.save(commit=False)
+            
+            new_tech_stack = form.cleaned_data['tech_stack']
+            project.tech_stack = new_tech_stack
+            
+            new_features = form.cleaned_data['features']
+            project.features = new_features
+            
+            project.team = team  # Assign the project to the user's team
+            project.save()
+            messages.success(request, "Project added successfully!")
+        else:
+            messages.error(request, "Error adding project. Please check your input.")
+
+    return redirect("profile")  # Redirect back to the profile page
+
+@login_required
+def remove_project(request, id):
+    project = get_object_or_404(PersonalProject, id=id)
+    team = get_object_or_404(Team, user=request.user)
+
+    # Optional: Check if the user has permission to delete the project
+    if team != project.team:  # Adjust based on your model's ownership logic
+        messages.error(request, "You do not have permission to delete this project.")
+        return redirect("profile")  # Redirect to the appropriate page
+
+    project.delete()
+    messages.success(request, "Project successfully deleted.")
+    return redirect("profile")  # Redirect to the appropriate page

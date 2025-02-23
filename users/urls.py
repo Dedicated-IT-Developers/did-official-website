@@ -13,5 +13,7 @@ urlpatterns = [
     path('verify/', views.verify.as_view(), name='verify'),
     path('verified/<uidb64>/<token>/', views.verified, name='verified'),
     path('profile/', views.profile, name='profile'),
+    path("addproject/", views.addproject, name="addproject"),
+    path("removeproject/<id>/", views.remove_project, name="remove_project"),
     path('signup/', views.signup.as_view(), name='signup'),
 ]
