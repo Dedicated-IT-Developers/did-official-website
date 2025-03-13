@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from abouts.views import Home, about, Projects, ViewProjects, TeamListView, JoinView
+from abouts.views import Home, about, Projects, ViewProjects, TeamListView, JoinView, protfolio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +30,7 @@ urlpatterns = [
     path('projects/', Projects.as_view()),
     path('view_projects/<int:pk>/', ViewProjects.as_view()),
     path('team/', TeamListView.as_view()),
+    path('portfolio/<str:codename>/', protfolio),
     path('join/', JoinView.as_view()),
     
     path('user/', include('users.urls')),

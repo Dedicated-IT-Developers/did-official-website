@@ -66,3 +66,9 @@ class JoinView(ListView):
     model = Contact
     template_name = 'how_to_join.html'
     context_object_name = 'contacts'
+
+    
+def protfolio(request, codename):
+    id = codename[3]
+    
+    return render(request, "portfolio.html")

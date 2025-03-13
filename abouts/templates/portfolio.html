@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilfred V. Pine - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#e74c3c',
+                    }
+                }
+            }
+        }
+    </script>
+    <!--style>
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+    </!--style-->
+
+    <style>
+        .progress {
+          position: relative;
+          height: 0.5rem;
+          width: 100%;
+          overflow: hidden;
+          border-radius: 9999px;
+          background-color: #374151;
+        }
+        .progress-bar {
+          height: 100%;
+          background-color: #ef4444;
+          transition: all 0.3s;
+        }
+        .tab-content {
+          display: none;
+        }
+        .tab-content.active {
+          display: block;
+        }
+        .tab-trigger.active {
+          color: #ef4444;
+          border-bottom: 2px solid #ef4444;
+        }
+      </style>
+</head>
+<body class="bg-black text-white">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Mobile Header -->
+        <div class="md:hidden flex flex-col items-center mb-8">
+            <div class="rounded-full border-4 border-accent w-40 h-40 overflow-hidden mb-4">
+                <img src="https://via.placeholder.com/300/f39c12/FFFFFF?text=Photo" alt="Profile Photo" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-3xl font-bold text-center">Wilfred V. Pine, MSIT</h1>
+            <h2 class="text-xl text-accent">Founder & CTO</h2>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Left Sidebar -->
+            <div class="w-full md:w-1/4">
+                <!-- Desktop Profile -->
+                <div class="hidden md:block mb-8">
+                    <div class="rounded-full border-4 border-accent w-48 h-48 overflow-hidden mx-auto">
+                        <img src="https://via.placeholder.com/300/f39c12/FFFFFF?text=Photo" alt="Profile Photo" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Contact</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope text-accent mr-3"></i>
+                            <a href="mailto:wilfred.pine@example.com" class="hover:text-accent">wilfred.pine@example.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone text-accent mr-3"></i>
+                            <a href="tel:+15551234567" class="hover:text-accent">+1 (555) 123-4567</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-location-dot text-accent mr-3"></i>
+                            <span>San Francisco, CA</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Section -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Social</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-linkedin text-accent mr-3"></i>
+                            <a href="#" class="hover:text-accent">LinkedIn</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-github text-accent mr-3"></i>
+                            <a href="#" class="hover:text-accent">GitHub</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Education Section -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Education</h2>
+                    <div class="mb-4">
+                        <h3 class="font-bold">Master of Science in Information Technology</h3>
+                        <p>Stanford University</p>
+                        <p class="text-sm text-gray-400">2015 - 2017</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Bachelor of Computer Science</h3>
+                        <p>MIT</p>
+                        <p class="text-sm text-gray-400">2011 - 2015</p>
+                    </div>
+                </div>
+
+                <!-- Languages Section -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold mb-4">Languages</h2>
+                    <div class="mb-3">
+                        <div class="flex justify-between mb-1">
+                            <span>English</span>
+                            <span>Native</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-accent" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="flex justify-between mb-1">
+                            <span>Spanish</span>
+                            <span>Fluent</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-accent" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span>French</span>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="progress-bar bg-gray-700">
+                            <div class="progress-fill bg-accent" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Resume Button -->
+                <a href="#" class="block w-full bg-accent hover:bg-red-700 text-white font-bold py-3 px-4 rounded text-center transition duration-300">
+                    <i class="fa-solid fa-download mr-2"></i> Download Resume
+                </a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="w-full md:w-3/4">
+                <!-- Desktop Header (hidden on mobile) -->
+                <div class="hidden md:block mb-8">
+                    <h1 class="text-4xl font-bold">Wilfred V. Pine, MSIT</h1>
+                    <h2 class="text-2xl text-accent mb-2">Founder & CTO</h2>
+                    <p class="text-gray-300 mb-4">Full-Stack Developer, Project Manager, IT Expert</p>
+                    <p class="text-gray-400">
+                        Highly motivated and skilled web developer with expertise in front-end and back-end technologies, dedicated 
+                        to delivering innovative, user-centric solutions. Proficient in leadership, project management, and mentorship, 
+                        with a strong passion for integrating cutting-edge technologies, including machine learning, to drive efficiency, 
+                        scalability, and intelligent automation in modern digital solutions.
+                    </p>
+                </div>
+
+                <div class="tabs">
+                    <!-- Navigation Tabs -->
+                    <div class="mb-8 border-b border-gray-800">
+                        <nav class="flex flex-wrap">
+                            <button class="tab-trigger active px-4 py-2 font-medium hover:text-accent" data-tab="experience">Experience</button>
+                            <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="projects">Projects</button>
+                            <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="skills">Skills</button>
+                            <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="testimonials">Testimonials</button>
+                        </nav>
+                    </div>
+
+                    
+                    <div id="experience" class="tab-content active pt-6 space-y-6">
+                        <div class="space-y-4">
+                          <div class="flex justify-between items-start">
+                            <div>
+                              <h3 class="text-xl font-semibold">CTO & Co-Founder</h3>
+                              <p class="text-red-500">TechInnovate Solutions</p>
+                            </div>
+                            <span class="bg-gray-800 text-gray-300 px-2 py-1 rounded-md text-sm">2020 - Present</span>
+                          </div>
+                          <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Led a team of 15 developers to build scalable cloud-based solutions</li>
+                            <li>Implemented CI/CD pipelines reducing deployment time by 40%</li>
+                            <li>Architected microservices infrastructure handling 1M+ daily requests</li>
+                            <li>Established coding standards and review processes improving code quality by 35%</li>
+                          </ul>
+                        </div>
+                        
+                        <div class="space-y-4">
+                          <div class="flex justify-between items-start">
+                            <div>
+                              <h3 class="text-xl font-semibold">Senior Software Engineer</h3>
+                              <p class="text-red-500">Global Tech Enterprises</p>
+                            </div>
+                            <span class="bg-gray-800 text-gray-300 px-2 py-1 rounded-md text-sm">2017 - 2020</span>
+                          </div>
+                          <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                            <li>Developed and maintained enterprise-level applications using React and Node.js</li>
+                            <li>Optimized database queries resulting in 60% faster application performance</li>
+                            <li>Mentored junior developers and conducted technical interviews</li>
+                            <li>Collaborated with product managers to define and implement new features</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div id="projects" class="tab-content pt-6 space-y-6">
+                        <h2 class="text-2xl font-bold mb-4">DiD Projects</h2>
+                        
+                        <div class="space-y-6">
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-start justify-between">
+                              <div>
+                                <h3 class="text-xl font-semibold">DiD Official Website</h3>
+                                <p class="text-red-500">as Project Manager, Back-end Developer</p>
+                              </div>
+                              <div class="flex gap-2">
+                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                  <i class="fas fa-external-link-alt h-4 w-4"></i>
+                                </a>
+                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                  <i class="fab fa-github h-4 w-4"></i>
+                                </a>
+                              </div>
+                            </div>
+                            <p class="text-gray-300">
+                              Led the development of the company's official website with a focus on performance and SEO. 
+                              Implemented a headless CMS solution with Next.js and GraphQL for content management.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Next.js</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">GraphQL</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Tailwind CSS</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Vercel</span>
+                            </div>
+                          </div>
+                          
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-start justify-between">
+                              <div>
+                                <h3 class="text-xl font-semibold">Event Attendance Monitoring System</h3>
+                                <p class="text-red-500">as Fullstack Developer, Project Manager</p>
+                              </div>
+                              <div class="flex gap-2">
+                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                  <i class="fas fa-external-link-alt h-4 w-4"></i>
+                                </a>
+                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                  <i class="fab fa-github h-4 w-4"></i>
+                                </a>
+                              </div>
+                            </div>
+                            <p class="text-gray-300">
+                              Designed and developed a real-time attendance tracking system using facial recognition 
+                              and QR codes. The system handles 10,000+ attendees for large-scale events with 99.8% accuracy.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">React</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Node.js</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">TensorFlow</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">MongoDB</span>
+                            </div>
+                          </div>
+                          
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-start justify-between">
+                              <div>
+                                <h3 class="text-xl font-semibold">AI-Powered Analytics Dashboard</h3>
+                                <p class="text-red-500">as Lead Developer</p>
+                              </div>
+                              <div class="flex gap-2">
+                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                  <i class="fas fa-external-link-alt h-4 w-4"></i>
+                                </a>
+                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                  <i class="fab fa-github h-4 w-4"></i>
+                                </a>
+                              </div>
+                            </div>
+                            <p class="text-gray-300">
+                              Created an intelligent analytics platform that processes and visualizes complex data sets.
+                              Implemented machine learning algorithms to provide predictive insights and anomaly detection.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Python</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Vue.js</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Scikit-learn</span>
+                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">PostgreSQL</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="flex justify-center">
+                          <a href="#" class="text-red-500 flex items-center">
+                            View Full Profile for more Projects
+                            <i class="fas fa-external-link-alt ml-2 h-4 w-4"></i>
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div id="skills" class="tab-content pt-6">
+                        <div class="space-y-6">
+                          <div>
+                            <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
+                            <div class="flex flex-wrap gap-2">
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Python</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">PHP</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">NodeJS</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">C#</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Java</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">IoT</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Machine Learning</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Adobe</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">React</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Vue.js</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Angular</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">TypeScript</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Docker</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Kubernetes</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">AWS</span>
+                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Azure</span>
+                            </div>
+                          </div>
+                          
+                          <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
+                              <div class="space-y-3">
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>React/Next.js</span>
+                                    <span>95%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 95%"></div>
+                                  </div>
+                                </div>
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>TypeScript</span>
+                                    <span>90%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 90%"></div>
+                                  </div>
+                                </div>
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>CSS/Tailwind</span>
+                                    <span>85%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                  </div>
+                                </div>
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>Vue.js</span>
+                                    <span>80%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div>
+                              <h3 class="text-xl font-semibold mb-4">Backend Development</h3>
+                              <div class="space-y-3">
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>Node.js</span>
+                                    <span>95%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 95%"></div>
+                                  </div>
+                                </div>
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>Python</span>
+                                    <span>90%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 90%"></div>
+                                  </div>
+                                </div>
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>SQL/NoSQL</span>
+                                    <span>85%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                  </div>
+                                </div>
+                                <div class="space-y-1">
+                                  <div class="flex justify-between">
+                                    <span>GraphQL</span>
+                                    <span>80%</span>
+                                  </div>
+                                  <div class="progress">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div id="testimonials" class="tab-content pt-6">
+                        <div class="grid gap-6 md:grid-cols-2">
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-center gap-4">
+                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+                                JD
+                              </div>
+                              <div>
+                                <h3 class="font-semibold">John Doe</h3>
+                                <p class="text-sm text-gray-400">CEO, TechCorp</p>
+                              </div>
+                            </div>
+                            <p class="text-gray-300 italic">
+                              "Wilfred is an exceptional developer and leader. His technical expertise and 
+                              ability to manage complex projects made him invaluable to our team. He consistently 
+                              delivered high-quality solutions ahead of schedule."
+                            </p>
+                          </div>
+                          
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-center gap-4">
+                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+                                AS
+                              </div>
+                              <div>
+                                <h3 class="font-semibold">Amanda Smith</h3>
+                                <p class="text-sm text-gray-400">Product Manager, InnovateTech</p>
+                              </div>
+                            </div>
+                            <p class="text-gray-300 italic">
+                              "Working with Wilfred was a game-changer for our product development. 
+                              His innovative approach to problem-solving and deep technical knowledge 
+                              helped us create a product that exceeded our customers' expectations."
+                            </p>
+                          </div>
+                          
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-center gap-4">
+                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+                                RJ
+                              </div>
+                              <div>
+                                <h3 class="font-semibold">Robert Johnson</h3>
+                                <p class="text-sm text-gray-400">CTO, Enterprise Solutions</p>
+                              </div>
+                            </div>
+                            <p class="text-gray-300 italic">
+                              "Wilfred's expertise in machine learning and AI implementation transformed 
+                              our data analytics capabilities. His leadership skills and technical acumen 
+                              make him one of the best developers I've had the pleasure to work with."
+                            </p>
+                          </div>
+                          
+                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                            <div class="flex items-center gap-4">
+                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
+                                EL
+                              </div>
+                              <div>
+                                <h3 class="font-semibold">Emily Lee</h3>
+                                <p class="text-sm text-gray-400">Senior Developer, CodeCraft</p>
+                              </div>
+                            </div>
+                            <p class="text-gray-300 italic">
+                              "As a mentor, Wilfred has been instrumental in my professional growth. 
+                              His patience, deep technical knowledge, and ability to explain complex 
+                              concepts in simple terms have helped me become a better developer."
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+          const tabTriggers = document.querySelectorAll('.tab-trigger');
+          const tabContents = document.querySelectorAll('.tab-content');
+          
+          tabTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+              // Remove active class from all triggers and contents
+              tabTriggers.forEach(t => t.classList.remove('active'));
+              tabContents.forEach(c => c.classList.remove('active'));
+              
+              // Add active class to clicked trigger and corresponding content
+              trigger.classList.add('active');
+              const tabId = trigger.getAttribute('data-tab');
+              document.getElementById(tabId).classList.add('active');
+            });
+          });
+        });
+      </script>
+
+</body>
+</html>

@@ -25,15 +25,15 @@ Role
 Todos:
 
 High Priority
-- Team Profile:
-    add project (another views, and urls - redirect back to profile)
-    edit project (another views, template, and urls, then - redirect back to profile after updated )
-    remove project (another views, and urls - redirect back to profile) - add confirmation
+- Team Profile Account:
+    remove project - add confirmation
     mobile view bugs in profile (esp: Table)
 
 Others
-- Teams (Portfolio: Display the Personal Project link)
-- Teams (Team's Role e.g. Founder, Member, Alumni) - Sort
+- Teams (Portfolio: Display the Personal Project's link)
+- Teams (Sort by Team's Role e.g. Founder, Member, Alumni)
+- Teams (Portfolio: Display all DiD Projects in icons/image/short name)
+- new page for view portfolio (make username as urls' param)
 
 Plan
 - About (make dynamic)
