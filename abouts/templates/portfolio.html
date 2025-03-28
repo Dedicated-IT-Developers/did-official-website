@@ -53,9 +53,29 @@
           color: #ef4444;
           border-bottom: 2px solid #ef4444;
         }
+
+        .writing-mode-vertical {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          transform: rotate(180deg);
+        }
       </style>
 </head>
 <body class="bg-black text-white">
+
+  <div class="fixed left-8 top-1/2 z-50 -translate-y-1/2 hidden lg:block">
+    <div class="flex flex-col gap-20 animate-fade-in">
+      <div class="writing-mode-vertical text-red-600 text-2xl font-bold tracking-widest">
+        &copy; 2024
+      </div>
+      <div class="writing-mode-vertical text-gray-600 uppercase tracking-widest space-y-8">
+        <span>Dedicated</span>
+        <span>IT</span>
+        <span>Developers</span>
+      </div>
+    </div>
+  </div>
+
     <div class="container mx-auto px-4 py-8 max-w-6xl mt-5">
         <!-- Mobile Header -->
         <div class="md:hidden flex flex-col items-center mb-8">
@@ -63,7 +83,10 @@
                 <img src="{{ profile.get_photo_url }}" alt="{{ profile.name }}" class="w-full h-full object-cover">
             </div>
             <h1 class="text-3xl font-bold text-center">{{ profile.name }}</h1>
-            <h2 class="text-2xl text-accent mb-2">{{ profile.role|title }}</h2>
+            <h2 class="text-2xl text-accent mb-2">
+              <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
+              {{ profile.role|title }}
+            </h2>
             <h2 class="text-gray-300 mb-4">{{ profile.position }}</h2>
         </div>
 
@@ -194,7 +217,10 @@
                 <!-- Desktop Header (hidden on mobile) -->
                 <div class="hidden md:block mb-8">
                     <h1 class="text-4xl font-bold">{{ profile.name }}</h1>
-                    <h2 class="text-2xl text-accent mb-2">{{ profile.role|title }}</h2>
+                    <h2 class="text-2xl text-accent mb-2">
+                      <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
+                      {{ profile.role|title }}
+                    </h2>
                     <p class="text-gray-300 mb-4">{{ profile.position }}</p>
                     <p class="text-gray-400">
                       {{ profile.objectives }}
@@ -239,9 +265,83 @@
                       </div>
                       
                       <div id="projects" class="tab-content active pt-6 space-y-6">
-                        <h2 class="text-2xl font-bold mb-4">Projects</h2>
+                        
 
                           <div class="space-y-6">
+
+                            <h2 class="text-2xl font-bold mb-4">DiD Projects</h2>
+
+                            {% for project in involved_projects %}
+                              <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                                <div class="flex items-start justify-between">
+                                  <div>
+                                    <h3 class="text-xl font-semibold">
+                                      <a href="/view_projects/{{ project.id }}" target="_blank">
+                                      {{ project.project_name }}
+                                      </a>
+                                    </h3>
+                                    <p class="text-red-500">
+                                      as 
+                                      {% for dev in project.projectdeveloper_set.all %}
+                                        {{ dev.role }}{% if not forloop.last %}, {% endif %}
+                                      {% endfor %}
+                                    </p>
+                                  </div>
+                                  <div class="flex gap-2">
+                                    {% if project.link %}
+                                      <a href="{{ project.link }}" target="_blank" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                        <i class="fas fa-external-link-alt h-4 w-4"></i>
+                                      </a>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                                <p class="text-gray-300">
+                                  {{ project.description }}
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                  Tech-stack: 
+                                  {% for tech in project.tech_stack %}
+                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ tech }}</span>
+                                  {% endfor %}
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                  Features: 
+                                  {% for feature in project.features %}
+                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ feature }}</span>
+                                  {% endfor %}
+                                </div>
+
+                                <!-- Contributors -->
+    <h4 class="text-lg font-semibold mt-4">Contributors:</h4>
+    <div class="flex flex-wrap gap-4">
+      {% for dev in project.projectdeveloper_set.all %}
+        <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
+          <img src="{{ dev.team.get_photo_url }}" alt="{{ dev.team.name }}" class="w-auto h-16 rounded-full mx-auto">
+          <p class="text-white font-bold mt-2">{{ dev.team.name }}</p>
+          <p class="text-gray-400 text-sm">{{ dev.role }}</p>
+        </div>
+      {% endfor %}
+
+      <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
+        <img src="/media/images/did.png" alt="DiD" class="w-auto h-16 rounded-full mx-auto bg-white">
+        <p class="text-white font-bold">All DiD Founders/Experts/Alumni/Members</p>
+        <p class="text-gray-400 text-sm">for Implementation & Maintenance</p>
+      </div>
+
+    </div>
+
+    <!--div class="border border-gray-700 rounded-lg p-3 w-full text-center mt-4">
+      <p class="text-white font-bold">All DiD Members</p>
+      <p class="text-gray-400 text-sm">Maintenance Contributors</p>
+    </!--div-->
+
+                              </div>
+                            {% empty %}
+                              <p>No projects listed.</p>
+                            {% endfor %}
+                            
+
+                            <h2 class="text-2xl font-bold mb-4">Personal Projects</h2>
 
                             {% for project in projects %}
 

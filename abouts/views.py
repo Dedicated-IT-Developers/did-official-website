@@ -75,12 +75,15 @@ def protfolio(request, codename):
     education = Education.objects.filter(team=profile)
     experience = Experience.objects.filter(team=profile)
     projects = PersonalProject.objects.filter(team=profile)
+    # Get all projects where the team member is a developer
+    involved_projects = Project.objects.filter(projectdeveloper__team=profile).distinct()
     
     context = {
         'profile': profile,
         'education': education,
         'experience': experience,
-        'projects': projects
+        'projects': projects,
+        'involved_projects': involved_projects 
     }
     
     return render(request, "portfolio.html", context)
