@@ -171,6 +171,32 @@ class ProjectAdmin(admin.ModelAdmin):
     
     list_display = ('project_name', 'project_type', 'created', 'updated')
     search_fields = ('project_name', 'project_type')
+    
+    def get_queryset(self, request):
+        """Limit the displayed projects to only those related to the logged-in user."""
+        qs = super().get_queryset(request)
+
+        if request.user.is_superuser:
+            return qs  # Superusers can see all projects
+
+        # Get the projects where the user is involved (assuming a relation exists)
+        team = Team.objects.filter(user=request.user).first()
+        if team:
+            return qs.filter(projectdeveloper__team=team)  # Adjust field based on your model
+
+        return qs.none()  # Return no projects if user is not involved
+
+    def has_add_permission(self, request):
+        """Disable adding new projects for non-superusers."""
+        return request.user.is_superuser
+
+    def has_change_permission(self, request, obj=None):
+        """Disable editing for non-superusers."""
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        """Disable deletion for non-superusers."""
+        return request.user.is_superuser
 
 @admin.register(ProjectImage)
 class ProjectImageAdmin(admin.ModelAdmin):

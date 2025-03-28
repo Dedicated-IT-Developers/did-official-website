@@ -163,7 +163,7 @@
                       <div class="mb-4">
                         <h3 class="font-bold">{{ edu.degree }}</h3>
                         <p>{{ edu.school }}</p>
-                        <p>{{ edu.field_of_study }}</p>
+                        <p>{{ edu.field_of_study|default:'' }}</p>
                         <p class="text-sm text-gray-400">{{ edu.start_year }} - {{ edu.end_year|default:"Present" }}</p>
                       </div>
                     {% empty %}
@@ -242,9 +242,7 @@
                       <div id="experience" class="tab-content pt-6 space-y-6">
 
                         {% for exp in experience %}
-                            <p><strong></strong> at  ()</p>
-                            <p></p>
-
+                            
                             <div class="space-y-4">
                               <div class="flex justify-between items-start">
                                 <div>
@@ -312,28 +310,28 @@
                                 </div>
 
                                 <!-- Contributors -->
-    <h4 class="text-lg font-semibold mt-4">Contributors:</h4>
-    <div class="flex flex-wrap gap-4">
-      {% for dev in project.projectdeveloper_set.all %}
-        <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
-          <img src="{{ dev.team.get_photo_url }}" alt="{{ dev.team.name }}" class="w-auto h-16 rounded-full mx-auto">
-          <p class="text-white font-bold mt-2">{{ dev.team.name }}</p>
-          <p class="text-gray-400 text-sm">{{ dev.role }}</p>
-        </div>
-      {% endfor %}
+                                <h4 class="text-lg font-semibold mt-4">Contributors:</h4>
+                                <div class="flex flex-wrap gap-4">
+                                  {% for dev in project.projectdeveloper_set.all %}
+                                    <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
+                                      <img src="{{ dev.team.get_photo_url }}" alt="{{ dev.team.name }}" class="w-auto h-16 rounded-full mx-auto">
+                                      <p class="text-white font-bold mt-2">{{ dev.team.name }}</p>
+                                      <p class="text-gray-400 text-sm">{{ dev.role }}</p>
+                                    </div>
+                                  {% endfor %}
 
-      <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
-        <img src="/media/images/did.png" alt="DiD" class="w-auto h-16 rounded-full mx-auto bg-white">
-        <p class="text-white font-bold">All DiD Founders/Experts/Alumni/Members</p>
-        <p class="text-gray-400 text-sm">for Implementation & Maintenance</p>
-      </div>
+                                  <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
+                                    <img src="/media/images/did.png" alt="DiD" class="w-auto h-16 rounded-full mx-auto bg-white">
+                                    <p class="text-white font-bold">All DiD Founders/Experts/Alumni/Members</p>
+                                    <p class="text-gray-400 text-sm">for Implementation & Maintenance</p>
+                                  </div>
 
-    </div>
+                                </div>
 
-    <!--div class="border border-gray-700 rounded-lg p-3 w-full text-center mt-4">
-      <p class="text-white font-bold">All DiD Members</p>
-      <p class="text-gray-400 text-sm">Maintenance Contributors</p>
-    </!--div-->
+                                <!--div class="border border-gray-700 rounded-lg p-3 w-full text-center mt-4">
+                                  <p class="text-white font-bold">All DiD Members</p>
+                                  <p class="text-gray-400 text-sm">Maintenance Contributors</p>
+                                </!--div-->
 
                               </div>
                             {% empty %}
@@ -349,7 +347,6 @@
                                 <div class="flex items-start justify-between">
                                   <div>
                                     <h3 class="text-xl font-semibold">{{ project.project_name }}</h3>
-                                    <p class="text-red-500">as Project Manager, Back-end Developer</p>
                                   </div>
                                   <div class="flex gap-2">
                                     <a href="{{ project.project_link }}" target="_blank" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
@@ -363,12 +360,20 @@
                                 <p class="text-gray-300">
                                   {{ project.description }}
                                 </p>
-                                <!--div class="flex flex-wrap gap-2">
-                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Next.js</span>
-                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">GraphQL</span>
-                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Tailwind CSS</span>
-                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Vercel</span>
-                                </!--div-->
+
+                                <div class="flex flex-wrap gap-2">
+                                  Tech-stack: 
+                                  {% for tech in project.tech_stack %}
+                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ tech }}</span>
+                                  {% endfor %}
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                  Features: 
+                                  {% for feature in project.features %}
+                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ feature }}</span>
+                                  {% endfor %}
+                                </div>
+                                
                               </div>
                               
                             {% empty %}

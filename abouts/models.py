@@ -21,14 +21,15 @@ class Team(models.Model):
     ROLE_CHOICES = [
         ('member', 'Member'),
         ('alumni', 'Alumni'),
-        ('expert', 'Expert'),
-        ('founder', 'Founder')
+        ('external-expert', 'External Expert'),
+        ('co-founder', 'Co-Founder'),
+        ('founder', 'Founder'),
     ]
     
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='member')
+    role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='member')
     objectives = models.TextField()
     skills = models.JSONField(default=list)  # List of skills
     photo = models.ImageField(upload_to='team_photos/', blank=True, null=True)
