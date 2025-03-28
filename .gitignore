@@ -175,4 +175,4 @@ __pycache__/
 public/
 tmp/
 passenger_wsgi.py
-db.sqlite3
+# db.sqlite3

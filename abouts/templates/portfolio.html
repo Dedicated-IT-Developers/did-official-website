@@ -56,14 +56,15 @@
       </style>
 </head>
 <body class="bg-black text-white">
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="container mx-auto px-4 py-8 max-w-6xl mt-5">
         <!-- Mobile Header -->
         <div class="md:hidden flex flex-col items-center mb-8">
             <div class="rounded-full border-4 border-accent w-40 h-40 overflow-hidden mb-4">
-                <img src="https://via.placeholder.com/300/f39c12/FFFFFF?text=Photo" alt="Profile Photo" class="w-full h-full object-cover">
+                <img src="{{ profile.get_photo_url }}" alt="{{ profile.name }}" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-3xl font-bold text-center">Wilfred V. Pine, MSIT</h1>
-            <h2 class="text-xl text-accent">Founder & CTO</h2>
+            <h1 class="text-3xl font-bold text-center">{{ profile.name }}</h1>
+            <h2 class="text-2xl text-accent mb-2">{{ profile.role|title }}</h2>
+            <h2 class="text-gray-300 mb-4">{{ profile.position }}</h2>
         </div>
 
         <div class="flex flex-col md:flex-row gap-8">
@@ -72,7 +73,7 @@
                 <!-- Desktop Profile -->
                 <div class="hidden md:block mb-8">
                     <div class="rounded-full border-4 border-accent w-48 h-48 overflow-hidden mx-auto">
-                        <img src="https://via.placeholder.com/300/f39c12/FFFFFF?text=Photo" alt="Profile Photo" class="w-full h-full object-cover">
+                        <img src="{{ profile.get_photo_url }}" alt="{{ profile.name }}" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -82,15 +83,15 @@
                     <ul class="space-y-3">
                         <li class="flex items-center">
                             <i class="fa-solid fa-envelope text-accent mr-3"></i>
-                            <a href="mailto:wilfred.pine@example.com" class="hover:text-accent">wilfred.pine@example.com</a>
+                            <a href="mailto:{{ profile.email }}" class="hover:text-accent">{{ profile.email }}</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-solid fa-phone text-accent mr-3"></i>
-                            <a href="tel:+15551234567" class="hover:text-accent">+1 (555) 123-4567</a>
+                            <a href="tel:{{ profile.phone }}" class="hover:text-accent">{{ profile.phone }}</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-solid fa-location-dot text-accent mr-3"></i>
-                            <span>San Francisco, CA</span>
+                            <span>{{ profile.address }}</span>
                         </li>
                     </ul>
                 </div>
@@ -100,12 +101,33 @@
                     <h2 class="text-2xl font-bold mb-4">Social</h2>
                     <ul class="space-y-3">
                         <li class="flex items-center">
+                          <i class="fa-brands fa-globe text-accent mr-3"></i>
+                          <a href="{{ profile.website }}" target="_blank" class="hover:text-accent">Website</a>
+                        </li>
+                        <li class="flex items-center">
                             <i class="fa-brands fa-linkedin text-accent mr-3"></i>
-                            <a href="#" class="hover:text-accent">LinkedIn</a>
+                            <a href="{{ profile.linkedin }}" target="_blank" class="hover:text-accent">LinkedIn</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fa-brands fa-github text-accent mr-3"></i>
-                            <a href="#" class="hover:text-accent">GitHub</a>
+                            <a href="{{ profile.github }}" target="_blank" class="hover:text-accent">GitHub</a>
+                        </li>
+
+                        <li class="flex items-center">
+                          <i class="fa-brands fa-twitter text-accent mr-3"></i>
+                          <a href="{{ profile.twitter }}" target="_blank" class="hover:text-accent">X</a>
+                        </li>
+                        <li class="flex items-center">
+                          <i class="fa-brands fa-facebook text-accent mr-3"></i>
+                          <a href="{{ profile.facebook }}" target="_blank" class="hover:text-accent">Facebook</a>
+                        </li>
+                        <li class="flex items-center">
+                          <i class="fa-brands fa-instagram text-accent mr-3"></i>
+                          <a href="{{ profile.instagram }}" target="_blank" class="hover:text-accent">Instagram</a>
+                        </li>
+                        <li class="flex items-center">
+                          <i class="fa-brands fa-youtube text-accent mr-3"></i>
+                          <a href="{{ profile.youtube }}" target="_blank" class="hover:text-accent">Youtube</a>
                         </li>
                     </ul>
                 </div>
@@ -113,20 +135,24 @@
                 <!-- Education Section -->
                 <div class="mb-8">
                     <h2 class="text-2xl font-bold mb-4">Education</h2>
-                    <div class="mb-4">
-                        <h3 class="font-bold">Master of Science in Information Technology</h3>
-                        <p>Stanford University</p>
-                        <p class="text-sm text-gray-400">2015 - 2017</p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold">Bachelor of Computer Science</h3>
-                        <p>MIT</p>
-                        <p class="text-sm text-gray-400">2011 - 2015</p>
-                    </div>
+
+                    {% for edu in education %}
+                      <div class="mb-4">
+                        <h3 class="font-bold">{{ edu.degree }}</h3>
+                        <p>{{ edu.school }}</p>
+                        <p>{{ edu.field_of_study }}</p>
+                        <p class="text-sm text-gray-400">{{ edu.start_year }} - {{ edu.end_year|default:"Present" }}</p>
+                      </div>
+                    {% empty %}
+                        <div class="mb-4">
+                          <p>No education records found.</p>
+                        </div>
+                    {% endfor %}
+                    
                 </div>
 
                 <!-- Languages Section -->
-                <div class="mb-8">
+                <!--div class="mb-8">
                     <h2 class="text-2xl font-bold mb-4">Languages</h2>
                     <div class="mb-3">
                         <div class="flex justify-between mb-1">
@@ -155,7 +181,7 @@
                             <div class="progress-fill bg-accent" style="width: 60%"></div>
                         </div>
                     </div>
-                </div>
+                </!--div-->
 
                 <!-- Download Resume Button -->
                 <a href="#" class="block w-full bg-accent hover:bg-red-700 text-white font-bold py-3 px-4 rounded text-center transition duration-300">
@@ -167,14 +193,11 @@
             <div class="w-full md:w-3/4">
                 <!-- Desktop Header (hidden on mobile) -->
                 <div class="hidden md:block mb-8">
-                    <h1 class="text-4xl font-bold">Wilfred V. Pine, MSIT</h1>
-                    <h2 class="text-2xl text-accent mb-2">Founder & CTO</h2>
-                    <p class="text-gray-300 mb-4">Full-Stack Developer, Project Manager, IT Expert</p>
+                    <h1 class="text-4xl font-bold">{{ profile.name }}</h1>
+                    <h2 class="text-2xl text-accent mb-2">{{ profile.role|title }}</h2>
+                    <p class="text-gray-300 mb-4">{{ profile.position }}</p>
                     <p class="text-gray-400">
-                        Highly motivated and skilled web developer with expertise in front-end and back-end technologies, dedicated 
-                        to delivering innovative, user-centric solutions. Proficient in leadership, project management, and mentorship, 
-                        with a strong passion for integrating cutting-edge technologies, including machine learning, to drive efficiency, 
-                        scalability, and intelligent automation in modern digital solutions.
+                      {{ profile.objectives }}
                     </p>
                 </div>
 
@@ -182,140 +205,78 @@
                     <!-- Navigation Tabs -->
                     <div class="mb-8 border-b border-gray-800">
                         <nav class="flex flex-wrap">
-                            <button class="tab-trigger active px-4 py-2 font-medium hover:text-accent" data-tab="experience">Experience</button>
-                            <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="projects">Projects</button>
+                            <button class="tab-trigger active px-4 py-2 font-medium hover:text-accent" data-tab="projects">Projects</button>
+                            <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="experience">Experience</button>
                             <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="skills">Skills</button>
-                            <button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="testimonials">Testimonials</button>
+                            <!--button class="tab-trigger px-4 py-2 font-medium hover:text-accent" data-tab="testimonials">Educations</!--button-->
                         </nav>
                     </div>
 
                     
-                    <div id="experience" class="tab-content active pt-6 space-y-6">
-                        <div class="space-y-4">
-                          <div class="flex justify-between items-start">
-                            <div>
-                              <h3 class="text-xl font-semibold">CTO & Co-Founder</h3>
-                              <p class="text-red-500">TechInnovate Solutions</p>
+                      <div id="experience" class="tab-content pt-6 space-y-6">
+
+                        {% for exp in experience %}
+                            <p><strong></strong> at  ()</p>
+                            <p></p>
+
+                            <div class="space-y-4">
+                              <div class="flex justify-between items-start">
+                                <div>
+                                  <h3 class="text-xl font-semibold">{{ exp.position }}</h3>
+                                  <p class="text-red-500">{{ exp.company }}</p>
+                                </div>
+                                <span class="bg-gray-800 text-gray-300 px-2 py-1 rounded-md text-sm">{{ exp.start_date }} - {{ exp.end_date|default:"Present" }}</span>
+                              </div>
+                              <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                                <li>{{ exp.description }}</li>
+                              </ul>
                             </div>
-                            <span class="bg-gray-800 text-gray-300 px-2 py-1 rounded-md text-sm">2020 - Present</span>
-                          </div>
-                          <ul class="list-disc pl-5 space-y-2 text-gray-300">
-                            <li>Led a team of 15 developers to build scalable cloud-based solutions</li>
-                            <li>Implemented CI/CD pipelines reducing deployment time by 40%</li>
-                            <li>Architected microservices infrastructure handling 1M+ daily requests</li>
-                            <li>Established coding standards and review processes improving code quality by 35%</li>
-                          </ul>
-                        </div>
-                        
-                        <div class="space-y-4">
-                          <div class="flex justify-between items-start">
-                            <div>
-                              <h3 class="text-xl font-semibold">Senior Software Engineer</h3>
-                              <p class="text-red-500">Global Tech Enterprises</p>
-                            </div>
-                            <span class="bg-gray-800 text-gray-300 px-2 py-1 rounded-md text-sm">2017 - 2020</span>
-                          </div>
-                          <ul class="list-disc pl-5 space-y-2 text-gray-300">
-                            <li>Developed and maintained enterprise-level applications using React and Node.js</li>
-                            <li>Optimized database queries resulting in 60% faster application performance</li>
-                            <li>Mentored junior developers and conducted technical interviews</li>
-                            <li>Collaborated with product managers to define and implement new features</li>
-                          </ul>
-                        </div>
+
+                        {% empty %}
+                            <p>No experience records found.</p>
+                        {% endfor %}
+
                       </div>
                       
-                      <div id="projects" class="tab-content pt-6 space-y-6">
-                        <h2 class="text-2xl font-bold mb-4">DiD Projects</h2>
+                      <div id="projects" class="tab-content active pt-6 space-y-6">
+                        <h2 class="text-2xl font-bold mb-4">Projects</h2>
+
+                          <div class="space-y-6">
+
+                            {% for project in projects %}
+
+                              <div class="border border-gray-800 rounded-lg p-5 space-y-4">
+                                <div class="flex items-start justify-between">
+                                  <div>
+                                    <h3 class="text-xl font-semibold">{{ project.project_name }}</h3>
+                                    <p class="text-red-500">as Project Manager, Back-end Developer</p>
+                                  </div>
+                                  <div class="flex gap-2">
+                                    <a href="{{ project.project_link }}" target="_blank" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                      <i class="fas fa-external-link-alt h-4 w-4"></i>
+                                    </a>
+                                    {% comment %} <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
+                                      <i class="fab fa-github h-4 w-4"></i>
+                                    </a> {% endcomment %}
+                                  </div>
+                                </div>
+                                <p class="text-gray-300">
+                                  {{ project.description }}
+                                </p>
+                                <!--div class="flex flex-wrap gap-2">
+                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Next.js</span>
+                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">GraphQL</span>
+                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Tailwind CSS</span>
+                                  <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Vercel</span>
+                                </!--div-->
+                              </div>
+                              
+                            {% empty %}
+                                <p>No personal projects listed.</p>
+                            {% endfor %}
+
+                          </div>
                         
-                        <div class="space-y-6">
-                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
-                            <div class="flex items-start justify-between">
-                              <div>
-                                <h3 class="text-xl font-semibold">DiD Official Website</h3>
-                                <p class="text-red-500">as Project Manager, Back-end Developer</p>
-                              </div>
-                              <div class="flex gap-2">
-                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
-                                  <i class="fas fa-external-link-alt h-4 w-4"></i>
-                                </a>
-                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
-                                  <i class="fab fa-github h-4 w-4"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <p class="text-gray-300">
-                              Led the development of the company's official website with a focus on performance and SEO. 
-                              Implemented a headless CMS solution with Next.js and GraphQL for content management.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Next.js</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">GraphQL</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Tailwind CSS</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Vercel</span>
-                            </div>
-                          </div>
-                          
-                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
-                            <div class="flex items-start justify-between">
-                              <div>
-                                <h3 class="text-xl font-semibold">Event Attendance Monitoring System</h3>
-                                <p class="text-red-500">as Fullstack Developer, Project Manager</p>
-                              </div>
-                              <div class="flex gap-2">
-                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
-                                  <i class="fas fa-external-link-alt h-4 w-4"></i>
-                                </a>
-                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
-                                  <i class="fab fa-github h-4 w-4"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <p class="text-gray-300">
-                              Designed and developed a real-time attendance tracking system using facial recognition 
-                              and QR codes. The system handles 10,000+ attendees for large-scale events with 99.8% accuracy.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">React</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Node.js</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">TensorFlow</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">MongoDB</span>
-                            </div>
-                          </div>
-                          
-                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
-                            <div class="flex items-start justify-between">
-                              <div>
-                                <h3 class="text-xl font-semibold">AI-Powered Analytics Dashboard</h3>
-                                <p class="text-red-500">as Lead Developer</p>
-                              </div>
-                              <div class="flex gap-2">
-                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
-                                  <i class="fas fa-external-link-alt h-4 w-4"></i>
-                                </a>
-                                <a href="#" class="h-8 w-8 rounded-full border border-gray-600 flex items-center justify-center">
-                                  <i class="fab fa-github h-4 w-4"></i>
-                                </a>
-                              </div>
-                            </div>
-                            <p class="text-gray-300">
-                              Created an intelligent analytics platform that processes and visualizes complex data sets.
-                              Implemented machine learning algorithms to provide predictive insights and anomaly detection.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Python</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Vue.js</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">Scikit-learn</span>
-                              <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">PostgreSQL</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div class="flex justify-center">
-                          <a href="#" class="text-red-500 flex items-center">
-                            View Full Profile for more Projects
-                            <i class="fas fa-external-link-alt ml-2 h-4 w-4"></i>
-                          </a>
-                        </div>
                       </div>
                       
                       <div id="skills" class="tab-content pt-6">
@@ -323,26 +284,17 @@
                           <div>
                             <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
                             <div class="flex flex-wrap gap-2">
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Python</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">PHP</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">NodeJS</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">C#</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Java</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">IoT</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Machine Learning</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Adobe</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">React</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Vue.js</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Angular</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">TypeScript</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Docker</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Kubernetes</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">AWS</span>
-                              <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">Azure</span>
+
+                              {% for skill in profile.skills %}
+                                  <span class="bg-red-500 hover:bg-red-600 px-4 py-2 text-base rounded-md">{{ skill }}</span>
+                              {% empty %}
+                                  <p>No skills listed.</p>
+                              {% endfor %}
+
                             </div>
                           </div>
                           
-                          <div class="grid md:grid-cols-2 gap-6">
+                          <!--div class="grid md:grid-cols-2 gap-6">
                             <div>
                               <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
                               <div class="space-y-3">
@@ -426,12 +378,16 @@
                                 </div>
                               </div>
                             </div>
-                          </div>
+
+                          </!--div-->
+
+
                         </div>
                       </div>
                       
-                      <div id="testimonials" class="tab-content pt-6">
+                      <!--div id="testimonials" class="tab-content pt-6">
                         <div class="grid gap-6 md:grid-cols-2">
+
                           <div class="border border-gray-800 rounded-lg p-5 space-y-4">
                             <div class="flex items-center gap-4">
                               <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
@@ -449,58 +405,8 @@
                             </p>
                           </div>
                           
-                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
-                            <div class="flex items-center gap-4">
-                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
-                                AS
-                              </div>
-                              <div>
-                                <h3 class="font-semibold">Amanda Smith</h3>
-                                <p class="text-sm text-gray-400">Product Manager, InnovateTech</p>
-                              </div>
-                            </div>
-                            <p class="text-gray-300 italic">
-                              "Working with Wilfred was a game-changer for our product development. 
-                              His innovative approach to problem-solving and deep technical knowledge 
-                              helped us create a product that exceeded our customers' expectations."
-                            </p>
-                          </div>
-                          
-                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
-                            <div class="flex items-center gap-4">
-                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
-                                RJ
-                              </div>
-                              <div>
-                                <h3 class="font-semibold">Robert Johnson</h3>
-                                <p class="text-sm text-gray-400">CTO, Enterprise Solutions</p>
-                              </div>
-                            </div>
-                            <p class="text-gray-300 italic">
-                              "Wilfred's expertise in machine learning and AI implementation transformed 
-                              our data analytics capabilities. His leadership skills and technical acumen 
-                              make him one of the best developers I've had the pleasure to work with."
-                            </p>
-                          </div>
-                          
-                          <div class="border border-gray-800 rounded-lg p-5 space-y-4">
-                            <div class="flex items-center gap-4">
-                              <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-xl font-bold">
-                                EL
-                              </div>
-                              <div>
-                                <h3 class="font-semibold">Emily Lee</h3>
-                                <p class="text-sm text-gray-400">Senior Developer, CodeCraft</p>
-                              </div>
-                            </div>
-                            <p class="text-gray-300 italic">
-                              "As a mentor, Wilfred has been instrumental in my professional growth. 
-                              His patience, deep technical knowledge, and ability to explain complex 
-                              concepts in simple terms have helped me become a better developer."
-                            </p>
-                          </div>
                         </div>
-                    </div>
+                      </!--div-->
 
                 </div>
 

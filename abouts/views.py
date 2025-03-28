@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from django.conf import settings
-from .models import SliderPoster, Team, PersonalProject, Project, ProjectImage, ProjectDeveloper, Contact
+from .models import SliderPoster, Team, PersonalProject, Project, ProjectImage, ProjectDeveloper, Contact, Education, Experience
 from django.db.models import Case, When, Value, IntegerField, Prefetch
 
 # Create your views here.
@@ -70,5 +70,17 @@ class JoinView(ListView):
     
 def protfolio(request, codename):
     id = codename[3]
+
+    profile = get_object_or_404(Team, id=id)  # Assuming codename is the username
+    education = Education.objects.filter(team=profile)
+    experience = Experience.objects.filter(team=profile)
+    projects = PersonalProject.objects.filter(team=profile)
     
-    return render(request, "portfolio.html")
+    context = {
+        'profile': profile,
+        'education': education,
+        'experience': experience,
+        'projects': projects
+    }
+    
+    return render(request, "portfolio.html", context)
