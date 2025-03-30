@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wilfred V. Pine - Portfolio</title>
+    <title>{{ profile.name }} - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -281,7 +281,9 @@
                                     <p class="text-red-500">
                                       as 
                                       {% for dev in project.projectdeveloper_set.all %}
-                                        {{ dev.role }}{% if not forloop.last %}, {% endif %}
+                                        {% if dev.team == profile %}  {# Only show the logged-in user's role #}
+                                          {{ dev.role }}{% if not forloop.last %}, {% endif %}
+                                        {% endif %}
                                       {% endfor %}
                                     </p>
                                   </div>
@@ -322,7 +324,7 @@
 
                                   <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
                                     <img src="/media/images/did.png" alt="DiD" class="w-auto h-16 rounded-full mx-auto bg-white">
-                                    <p class="text-white font-bold">All DiD Founders/Experts/Alumni/Members</p>
+                                    <p class="text-white font-bold">DiD Founders, Experts, & Members</p>
                                     <p class="text-gray-400 text-sm">for Implementation & Maintenance</p>
                                   </div>
 

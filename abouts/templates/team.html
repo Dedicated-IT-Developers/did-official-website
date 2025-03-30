@@ -503,11 +503,15 @@
                 <ul class="list-none space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                   ${member.project_did.map(projectdid => `
                     <li class="text-sm sm:text-base text-gray-300 flex items-center">
-                      <span class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full inline-block mr-2 sm:mr-3"></span> <b><a href="/view_projects/${projectdid.id}">${projectdid.project_name}</a></b> &nbsp; as ${projectdid.role}
+                      <span class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full inline-block mr-2 sm:mr-3"></span> 
+                      <b><a href="/view_projects/${projectdid.id}">
+                        ${projectdid.project_name}
+                      </a></b> 
                     </li>
+                    <li> <p> &nbsp; &nbsp; &nbsp; Role: ${projectdid.role} </p> </li>
                   `).join('')}
                     <li class="text-sm sm:text-base text-gray-300 flex items-center">
-                      <span class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full inline-block mr-2 sm:mr-3"></span> <b><a href="/projects">All Projects</a></b> &nbsp; maintained by DiD Members & Experts
+                      <span class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full inline-block mr-2 sm:mr-3"></span> <b><a href="/projects">All DiD Projects</a></b> &nbsp; are maintained by DiD Members & Experts
                     </li>
                   <hr class="border-gray-600/30 my-4">
                   View Full <a href="/portfolio/${member.codename}" style="color:blue">Profile</a> for more Projects

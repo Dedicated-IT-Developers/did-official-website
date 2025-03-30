@@ -87,8 +87,8 @@ def protfolio(request, codename):
     username = codename
 
     profile = get_object_or_404(Team, user__username=username)  # Assuming codename is the username
-    education = Education.objects.filter(team=profile)
-    experience = Experience.objects.filter(team=profile)
+    education = Education.objects.filter(team=profile).order_by("-start_year", "end_year")
+    experience = Experience.objects.filter(team=profile).order_by("-start_date", "end_date")
     projects = PersonalProject.objects.filter(team=profile)
     # Get all projects where the team member is a developer
     involved_projects = Project.objects.filter(projectdeveloper__team=profile).distinct()
