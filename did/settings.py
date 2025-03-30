@@ -12,8 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
+# # Prevents unnecessary environment modifications in production.
+# if DEBUG==True:
+#     from dotenv import load_dotenv
+#     load_dotenv()
+    
+from dotenv import load_dotenv
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,6 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("Missing SECRET_KEY in environment variables")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # ----------------------
@@ -36,7 +43,12 @@ DEBUG = debug_env.lower() in ['true', '1', 'yes'] # Convert to boolean
 # -------------------
 # Allowed Hosts
 # -------------------
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
+# Prevents an attacker from using a fake domain to exploit Django.
+SECURE_HOST = os.getenv('SECURE_HOST')
+if SECURE_HOST and SECURE_HOST not in ALLOWED_HOSTS and SECURE_HOST != 'did.confired.com':
+    ALLOWED_HOSTS.append(SECURE_HOST)
 
 
 # Application definition
@@ -192,6 +204,11 @@ LOGOUT_REDIRECT_URL = '/'
 # ----------------------
 MEDIA_URL = os.getenv('UPLOAD_DIR', default='media')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+FILE_UPLOAD_PERMISSIONS = 0o640  # Read/write for owner, read-only for group
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+]
 
 # ----------------------
 # Email Configuration
@@ -202,7 +219,8 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -221,6 +239,9 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 CSRF_COOKIE_HTTPONLY = not DEBUG  # True in Production, False in Development
 CSRF_COOKIE_SECURE = not DEBUG   # True in Production, False in Development
 CSRF_COOKIE_SAMESITE = 'strict' if not DEBUG else 'lax'  # strict in Production, lax in Development
+# If using Django behind a proxy, set trusted origins to avoid CSRF bypass
+# Prevents cross-origin request forgery on admin/login pages.
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', 'https://did.confired.com').split(',')
 
 # ----------------------
 # Security Features
@@ -241,16 +262,35 @@ else:
 # ----------------------
 # Logger
 # ----------------------
-LOGGING_DIR = os.path.join(BASE_DIR, 'logs')  # Directory where log files will be stored
+import os
+import logging
+import logging.handlers
+import stat
+
+LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
+
+# Ensure logging directory exists with secure permissions
 if not os.path.exists(LOGGING_DIR):
-    os.makedirs(LOGGING_DIR)
-    
-# Conditional logging level based on DEBUG value
+    os.makedirs(LOGGING_DIR, exist_ok=True)
+    os.chmod(LOGGING_DIR, stat.S_IRUSR | stat.S_IWUSR | stat.S_IXUSR)  # Secure directory permissions
+
+# Define log file paths
+DEBUG_LOG_FILE = os.path.join(LOGGING_DIR, 'django_debug.log')
+ERROR_LOG_FILE = os.path.join(LOGGING_DIR, 'django_errors.log')
+
+# Ensure log files exist with secure permissions
+for log_file in [DEBUG_LOG_FILE, ERROR_LOG_FILE]:
+    if not os.path.exists(log_file):
+        with open(log_file, 'w'):
+            pass  # Create the file
+    os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR)  # Set secure file permissions
+
+# Conditional logging level
 LOGGING_LEVEL = 'DEBUG' if DEBUG else 'INFO'
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,  # Don't disable other loggers (useful for third-party apps)
+    'disable_existing_loggers': False,  # Keeps third-party logs
     'formatters': {
         'verbose': {
             'format': '{levelname} {asctime} {module} {message}',
@@ -262,24 +302,45 @@ LOGGING = {
         },
     },
     'handlers': {
-        'file': {
-            'level': LOGGING_LEVEL,  # Set based on DEBUG setting
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(LOGGING_DIR, 'django_debug.log'),  # Path to your log file
+        'debug_file': {
+            'level': LOGGING_LEVEL,
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': DEBUG_LOG_FILE,
+            'when': 'midnight',  # Rotates logs daily
+            'interval': 1,  # Every day
+            'backupCount': 7,  # Keeps last 7 days of logs
             'formatter': 'verbose',
+            'encoding': 'utf-8',
         },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': ERROR_LOG_FILE,
+            'when': 'midnight',
+            'interval': 1,
+            'backupCount': 14,  # Keeps last 14 days of error logs
+            'formatter': 'verbose',
+            'encoding': 'utf-8',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        } if DEBUG else None,  # Console logging only in development
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
-            'level': LOGGING_LEVEL,  # Set based on DEBUG setting
+            'handlers': ['debug_file', 'console'] if DEBUG else ['debug_file'],
+            'level': LOGGING_LEVEL,
             'propagate': True,
         },
         'django.request': {
-            'handlers': ['file'],
-            'level': 'ERROR' if DEBUG else 'WARNING',  # Errors during DEBUG, less verbose otherwise
+            'handlers': ['error_file'],
+            'level': 'ERROR',
             'propagate': False,
         },
     },
 }
 
+# Remove None values (to prevent issues if DEBUG=False)
+LOGGING['handlers'] = {k: v for k, v in LOGGING['handlers'].items() if v is not None}
