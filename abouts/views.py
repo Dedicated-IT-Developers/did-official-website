@@ -50,10 +50,25 @@ class TeamListView(ListView):
             output_field=IntegerField(),
         )
         
-        return Team.objects.prefetch_related(
-            Prefetch('project_developers', queryset=ProjectDeveloper.objects.select_related('project')),
-            Prefetch('personal_projects')
-        ).annotate(role_priority=role_order).order_by('role_priority')
+        # return Team.objects.prefetch_related(
+        #     Prefetch('project_developers', queryset=ProjectDeveloper.objects.select_related('project')),
+        #     Prefetch('personal_projects')
+        # ).annotate(role_priority=role_order).order_by('role_priority','id')
+        return (
+            Team.objects.select_related('user')  # Join with CustomUser model
+            .prefetch_related(
+                Prefetch('project_developers', queryset=ProjectDeveloper.objects.select_related('project')),
+                Prefetch('personal_projects')
+            )
+            .annotate(role_priority=role_order)
+            .order_by('role_priority', 'id')
+        )
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        for team in context['teams']:
+            team.username = team.user.username  # Attach username to each team member
+        return context
         
 
 # class TeamDetailView(DetailView):
@@ -69,9 +84,9 @@ class JoinView(ListView):
 
     
 def protfolio(request, codename):
-    id = codename[3]
+    username = codename
 
-    profile = get_object_or_404(Team, id=id)  # Assuming codename is the username
+    profile = get_object_or_404(Team, user__username=username)  # Assuming codename is the username
     education = Education.objects.filter(team=profile)
     experience = Experience.objects.filter(team=profile)
     projects = PersonalProject.objects.filter(team=profile)

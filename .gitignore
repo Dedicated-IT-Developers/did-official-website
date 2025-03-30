@@ -176,3 +176,4 @@ public/
 tmp/
 passenger_wsgi.py
 # db.sqlite3
+acc

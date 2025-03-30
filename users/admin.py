@@ -37,8 +37,8 @@ class TeamAdmin(admin.ModelAdmin):
     
     form = TeamForm
     
-    list_display = ('name', 'position', 'created', 'updated')
-    search_fields = ('name', 'position')
+    list_display = ("name", "position", "role", "user", 'created', 'updated')
+    search_fields = ('name', 'position', "role")
     
     def get_form(self, request, obj=None, **kwargs):
         # Ensure the form is passed the request
@@ -72,12 +72,16 @@ class TeamAdmin(admin.ModelAdmin):
     #         return True
     #     return obj.user == request.user or request.user.is_superuser
 
+    # def save_model(self, request, obj, form, change):
+    #     """Ensure the logged-in user is set as the owner of the team."""
+    #     if not obj.pk:  # Only set user on new objects
+    #         obj.user = request.user
+    #     obj.save()
     def save_model(self, request, obj, form, change):
-        """Ensure the logged-in user is set as the owner of the team."""
-        if not obj.pk:  # Only set user on new objects
-            obj.user = request.user
-        obj.save()
-        
+        """Ensure the selected user is assigned properly."""
+        if not change:  # Only set user when adding a new profile
+            obj.user = form.cleaned_data.get("user")  # Ensure correct user is assigned
+        super().save_model(request, obj, form, change)    
     
 @admin.register(Education)
 class EducationAdmin(RestrictedAdmin):

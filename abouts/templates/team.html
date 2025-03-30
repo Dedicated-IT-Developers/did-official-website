@@ -382,7 +382,7 @@
     {% for team in teams %}
     {
       id: {{ team.id }},
-      codename: "did{{ team.id }}01",
+      codename: "{{ team.username }}",
       name: "{{ team.name }}",
       role: "{{ team.role }}".replace(/^./, char => char.toUpperCase()),
       position: "{{ team.position }}",
@@ -427,7 +427,7 @@
 
         <div class="team-card-details absolute bottom-0 left-0 right-0 flex flex-col justify-end p-4 sm:p-6 bg-gradient-to-t from-black/80 via-black/60 to-transparent backdrop-blur-sm">
           <div class="team-card-content relative z-10">
-            <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-wide drop-shadow-lg mb-1">${member.name}</h3>
+            <h3 class="text-md sm:text-l md:text-xl font-extrabold text-white tracking-wide drop-shadow-lg mb-1">${member.name}</h3>
             <p class="text-sm sm:text-base md:text-lg font-medium text-red-400 drop-shadow-md">${member.role}</p>
             <small>${member.position}</small>
           </div>

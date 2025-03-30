@@ -27,6 +27,9 @@ Todos:
     * Teams Page
 - Teams Page (Sort by Team's Role e.g. Founder, Member, Alumni)
 - Teams Page (Portfolio: Display all DiD Projects in icons/image/short name)
+- Super Admin Inputs Validations 
+    * JSON inputs (select2 css) 
+    * Team Profile (1 profile = 1 user only)
 
 Plan
 - About (make dynamic)

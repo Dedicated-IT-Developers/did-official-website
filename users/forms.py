@@ -87,10 +87,33 @@ class TeamForm(forms.ModelForm):
         request = kwargs.pop('request', None)  # Get the request object
         super().__init__(*args, **kwargs)
         
-        if request and not request.user.is_superuser:
-            # If user is NOT superuser, limit choices to "Member"
-            self.fields['role'].choices = [('member', 'Member')]
         
+        
+        # If the user is NOT a superadmin, the dropdown will only show their own user account. If the user is a superadmin, they can see all users.
+        #request = getattr(self, 'request', None)  # Get request if available
+        if request and not request.user.is_superuser:
+            # If the logged-in user is NOT a superuser, restrict choices
+            self.fields['user'].queryset = CustomUser.objects.filter(id=request.user.id)
+        else:
+            # Superadmins can see all users
+            self.fields['user'].queryset = CustomUser.objects.all()
+        
+        # If user is NOT superuser, limit choices to "Member"
+        #request = kwargs.pop('request', None)  # Get the request object
+        # if request and not request.user.is_superuser:
+        #     # If user is NOT superuser, limit choices to "Member"
+        #     self.fields['role'].choices = [('member', 'Member')]
+        
+        if request:
+            if not request.user.is_superuser:
+                # Regular users: Limit the user dropdown to their own profile
+                self.fields['user'].queryset = CustomUser.objects.filter(id=request.user.id)
+                # Limit the role dropdown to only show their assigned role
+                if self.instance and self.instance.pk:
+                    assigned_role = self.instance.role  # Get assigned role
+                    self.fields['role'].choices = [(assigned_role, assigned_role.capitalize())]  # Restrict role choices
+        
+        # display the value of skills
         if self.instance and self.instance.pk:
             skills_values = ', '.join(self.instance.skills) if self.instance.skills else "No data"
 
