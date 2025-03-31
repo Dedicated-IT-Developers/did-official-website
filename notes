@@ -1,5 +1,10 @@
+Install Python 3.9 or higher
+- Please see: 
+        https://github.com/wilfredpine/Python-Tutorial/blob/main/Chapter%204%20-%20Application%20Development/Python%20Environment.docx 
+    for Installing/Using Multiple version of Python on Windows.
+
 // Install PostgreSQL Version 17.4.1 or Higher
-// Install MySQL Server / E.g. WAMP
+Install MySQL Server / E.g. WAMP
 Import sample_db/did_mysql.sql
 
 1. Create Virtual environment (e.g: env_did)
