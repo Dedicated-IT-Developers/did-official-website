@@ -27,22 +27,22 @@ class Team(models.Model):
     ]
     
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=191)
+    position = models.CharField(max_length=191)
     role = models.CharField(max_length=50, choices=ROLE_CHOICES, default='member')
     objectives = models.TextField()
     skills = models.JSONField(default=list)  # List of skills
     photo = models.ImageField(upload_to='team_photos/', blank=True, null=True)
-    website = models.URLField(max_length=200, verbose_name="Website Link", blank=True, null=True)
+    website = models.URLField(max_length=191, verbose_name="Website Link", blank=True, null=True)
     
-    github = models.URLField(max_length=200, blank=True, null=True)
-    linkedin = models.URLField(max_length=200, blank=True, null=True)
-    twitter = models.URLField(max_length=200, blank=True, null=True)
-    facebook = models.URLField(max_length=200, blank=True, null=True)
-    instagram = models.URLField(max_length=200, blank=True, null=True)
-    youtube = models.URLField(max_length=200, blank=True, null=True)
+    github = models.URLField(max_length=191, blank=True, null=True)
+    linkedin = models.URLField(max_length=191, blank=True, null=True)
+    twitter = models.URLField(max_length=191, blank=True, null=True)
+    facebook = models.URLField(max_length=191, blank=True, null=True)
+    instagram = models.URLField(max_length=191, blank=True, null=True)
+    youtube = models.URLField(max_length=191, blank=True, null=True)
     
-    email = models.EmailField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=191, blank=True, null=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     
@@ -63,9 +63,9 @@ class Team(models.Model):
 
 class Education(models.Model):
     team = models.ForeignKey('Team', on_delete=models.CASCADE, related_name='education')
-    school = models.CharField(max_length=255)
-    degree = models.CharField(max_length=255)
-    field_of_study = models.CharField(max_length=255, blank=True, null=True)
+    school = models.CharField(max_length=191)
+    degree = models.CharField(max_length=191)
+    field_of_study = models.CharField(max_length=191, blank=True, null=True)
     start_year = models.IntegerField()
     end_year = models.IntegerField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
@@ -81,8 +81,8 @@ class Education(models.Model):
 
 class Experience(models.Model):
     team = models.ForeignKey('Team', on_delete=models.CASCADE, related_name='experience')
-    company = models.CharField(max_length=255)
-    position = models.CharField(max_length=255)
+    company = models.CharField(max_length=191)
+    position = models.CharField(max_length=191)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
@@ -90,7 +90,8 @@ class Experience(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.position} at {self.company} - {self.team.name}"
+        end = self.end_date if self.end_date else "Present"
+        return f"{self.position} at {self.company} - {self.team.name} ({self.start_date} to {end})"
     
     class Meta:
         verbose_name = "Work Experience"
@@ -98,8 +99,8 @@ class Experience(models.Model):
     
 class PersonalProject(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='personal_projects')
-    project_name = models.CharField(max_length=255)
-    project_link = models.URLField(max_length=200, verbose_name="Website Link", blank=True, null=True)
+    project_name = models.CharField(max_length=191)
+    project_link = models.URLField(max_length=191, verbose_name="Website Link", blank=True, null=True)
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # Technologies used
     features = models.JSONField(default=list)  # Features of the project
@@ -114,8 +115,8 @@ class PersonalProject(models.Model):
         verbose_name_plural = "Personal Projects"
 
 class Project(models.Model):
-    project_name = models.CharField(max_length=255)
-    project_type = models.CharField(max_length=255)
+    project_name = models.CharField(max_length=191)
+    project_type = models.CharField(max_length=191)
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # List of techs used
     features = models.JSONField(default=list)  # 
@@ -137,7 +138,7 @@ class ProjectImage(models.Model):
 class ProjectDeveloper(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='project_developers')
-    role = models.CharField(max_length=255)
+    role = models.CharField(max_length=191)
 
     def __str__(self):
         return f"{self.team.name} - {self.role}" 

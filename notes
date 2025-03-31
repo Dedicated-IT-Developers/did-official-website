@@ -1,5 +1,6 @@
-Install PostgreSQL Version 17.4.1 or Higher
-Import database.sql
+// Install PostgreSQL Version 17.4.1 or Higher
+// Install MySQL Server / E.g. WAMP
+Import sample_db/did_mysql.sql
 
 1. Create Virtual environment (e.g: env_did)
 2. Activate Virtual environment

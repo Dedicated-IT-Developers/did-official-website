@@ -146,6 +146,12 @@ else:
             'PASSWORD': os.getenv('DB_PASSWORD'),
             'HOST': os.getenv('DB_HOST'),
             'PORT': os.getenv('DB_PORT'),
+            # For MySQL
+            'OPTIONS': {
+                #'charset': 'utf8',  # Change utf8mb4 to utf8
+                #'init_command': "SET default_storage_engine=INNODB",
+                'sql_mode': 'STRICT_TRANS_TABLES'
+            }
         }
     }
 
@@ -262,85 +268,85 @@ else:
 # ----------------------
 # Logger
 # ----------------------
-import os
-import logging
-import logging.handlers
-import stat
+# import os
+# import logging
+# import logging.handlers
+# import stat
 
-LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
+# LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
 
-# Ensure logging directory exists with secure permissions
-if not os.path.exists(LOGGING_DIR):
-    os.makedirs(LOGGING_DIR, exist_ok=True)
-    os.chmod(LOGGING_DIR, stat.S_IRUSR | stat.S_IWUSR | stat.S_IXUSR)  # Secure directory permissions
+# # Ensure logging directory exists with secure permissions
+# if not os.path.exists(LOGGING_DIR):
+#     os.makedirs(LOGGING_DIR, exist_ok=True)
+#     os.chmod(LOGGING_DIR, stat.S_IRUSR | stat.S_IWUSR | stat.S_IXUSR)  # Secure directory permissions
 
-# Define log file paths
-DEBUG_LOG_FILE = os.path.join(LOGGING_DIR, 'django_debug.log')
-ERROR_LOG_FILE = os.path.join(LOGGING_DIR, 'django_errors.log')
+# # Define log file paths
+# DEBUG_LOG_FILE = os.path.join(LOGGING_DIR, 'django_debug.log')
+# ERROR_LOG_FILE = os.path.join(LOGGING_DIR, 'django_errors.log')
 
-# Ensure log files exist with secure permissions
-for log_file in [DEBUG_LOG_FILE, ERROR_LOG_FILE]:
-    if not os.path.exists(log_file):
-        with open(log_file, 'w'):
-            pass  # Create the file
-    os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR)  # Set secure file permissions
+# # Ensure log files exist with secure permissions
+# for log_file in [DEBUG_LOG_FILE, ERROR_LOG_FILE]:
+#     if not os.path.exists(log_file):
+#         with open(log_file, 'w'):
+#             pass  # Create the file
+#     os.chmod(log_file, stat.S_IRUSR | stat.S_IWUSR)  # Set secure file permissions
 
-# Conditional logging level
-LOGGING_LEVEL = 'DEBUG' if DEBUG else 'INFO'
+# # Conditional logging level
+# LOGGING_LEVEL = 'DEBUG' if DEBUG else 'INFO'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,  # Keeps third-party logs
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'debug_file': {
-            'level': LOGGING_LEVEL,
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': DEBUG_LOG_FILE,
-            'when': 'midnight',  # Rotates logs daily
-            'interval': 1,  # Every day
-            'backupCount': 7,  # Keeps last 7 days of logs
-            'formatter': 'verbose',
-            'encoding': 'utf-8',
-        },
-        'error_file': {
-            'level': 'ERROR',
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': ERROR_LOG_FILE,
-            'when': 'midnight',
-            'interval': 1,
-            'backupCount': 14,  # Keeps last 14 days of error logs
-            'formatter': 'verbose',
-            'encoding': 'utf-8',
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-        } if DEBUG else None,  # Console logging only in development
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['debug_file', 'console'] if DEBUG else ['debug_file'],
-            'level': LOGGING_LEVEL,
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['error_file'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,  # Keeps third-party logs
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'handlers': {
+#         'debug_file': {
+#             'level': LOGGING_LEVEL,
+#             'class': 'logging.handlers.TimedRotatingFileHandler',
+#             'filename': DEBUG_LOG_FILE,
+#             'when': 'midnight',  # Rotates logs daily
+#             'interval': 1,  # Every day
+#             'backupCount': 7,  # Keeps last 7 days of logs
+#             'formatter': 'verbose',
+#             'encoding': 'utf-8',
+#         },
+#         'error_file': {
+#             'level': 'ERROR',
+#             'class': 'logging.handlers.TimedRotatingFileHandler',
+#             'filename': ERROR_LOG_FILE,
+#             'when': 'midnight',
+#             'interval': 1,
+#             'backupCount': 14,  # Keeps last 14 days of error logs
+#             'formatter': 'verbose',
+#             'encoding': 'utf-8',
+#         },
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'simple',
+#         } if DEBUG else None,  # Console logging only in development
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['debug_file', 'console'] if DEBUG else ['debug_file'],
+#             'level': LOGGING_LEVEL,
+#             'propagate': True,
+#         },
+#         'django.request': {
+#             'handlers': ['error_file'],
+#             'level': 'ERROR',
+#             'propagate': False,
+#         },
+#     },
+# }
 
-# Remove None values (to prevent issues if DEBUG=False)
-LOGGING['handlers'] = {k: v for k, v in LOGGING['handlers'].items() if v is not None}
+# # Remove None values (to prevent issues if DEBUG=False)
+# LOGGING['handlers'] = {k: v for k, v in LOGGING['handlers'].items() if v is not None}
