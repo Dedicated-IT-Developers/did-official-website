@@ -28,7 +28,7 @@ Sample:
 username: aristonmagboo17
 password: DiD@2025
     
-Todos:
+Todos: (Always make Pull request before Push updates)
 
 - Remove the Javascript for fetching data (displaying data) into html | just used Django Template Engine inside html 
     * Projects Page
