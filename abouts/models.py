@@ -76,8 +76,8 @@ class Education(models.Model):
         return f"{self.degree} at {self.school} - {self.team.name}"
     
     class Meta:
-        verbose_name = "Educational Background"
-        verbose_name_plural = "Educational Backgrounds"
+        verbose_name = "Education"
+        verbose_name_plural = "Educations"
 
 class Experience(models.Model):
     team = models.ForeignKey('Team', on_delete=models.CASCADE, related_name='experience')

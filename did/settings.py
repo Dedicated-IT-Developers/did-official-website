@@ -55,15 +55,6 @@ if SECURE_HOST and SECURE_HOST not in ALLOWED_HOSTS and SECURE_HOST != 'did.conf
 
 INSTALLED_APPS = [
     # 'jazzmin',
-    
-    # 'material.admin',
-    
-    # 'xadmin',
-    # 'crispy_forms',  # Required dependency
-    # 'reversion',  # For model version control
-    
-    #'jet',  # Add before 'django.contrib.admin'
-    
     'django_select2',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,6 +79,8 @@ INSTALLED_APPS = [
 #     "order_with_respect_to": ["auth", "abouts"],  # Order of sidebar apps
 #     "show_sidebar": True,  # Ensure sidebar is visible
 #     "navigation_expanded": True,  # Keep sidebar open
+#     "theme": "darkly",
+#     "site_logo": "did-logo.png",
 # }
 
 # -------------------
@@ -135,6 +128,17 @@ if os.getenv('DB_ENGINE') == 'django.db.backends.sqlite3':
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+elif os.getenv('DB_ENGINE') == 'django.db.backends.postgresql':
+    DATABASES = {
+        'default': {
+            'ENGINE': os.getenv('DB_ENGINE'),
+            'NAME': os.getenv('DB_NAME'),
+            'USER': os.getenv('DB_USER'),
+            'PASSWORD': os.getenv('DB_PASSWORD'),
+            'HOST': os.getenv('DB_HOST'),
+            'PORT': os.getenv('DB_PORT'),
         }
     }
 else:

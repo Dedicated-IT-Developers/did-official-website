@@ -16,7 +16,6 @@ class RestrictedAdmin(admin.ModelAdmin):
                 kwargs["queryset"] = Team.objects.filter(user=request.user)
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
-
 # Register the custom user model
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
@@ -216,3 +215,4 @@ class ProjectDeveloperAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('email', 'number', 'address', 'website')
     search_fields = ('email', 'number')
+

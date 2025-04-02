@@ -46,3 +46,58 @@ Plan
 - Gallery or Events (For proof of implementations of DiD Projects)
 - Announcement / Greetings (to recognized member's achievements)
 - Testimonials
+
+
+//-------------------------------------------------------------------------
+Resources
+//-------------------------------------------------------------------------
+From PostgreSQL > MySQL:
+Step 1: Dump Data from PostgreSQL
+Run the following command to export your data into a JSON file:
+    python manage.py dumpdata --natural-primary --natural-foreign --indent 4 > data.json
+Step 2: Update DATABASES Settings for MySQL
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'your_mysql_db',
+            'USER': 'your_mysql_user',
+            'PASSWORD': 'your_mysql_password',
+            'HOST': 'localhost',  # or your MySQL host
+            'PORT': '3306',  # default MySQL port
+            'OPTIONS': {
+                'sql_mode': 'STRICT_TRANS_TABLES'
+            }
+        }
+    }
+Then, apply migrations again:
+    python manage.py migrate
+Step 3: Load Data into MySQL
+    python manage.py loaddata data.json
+Step 4: Verify the Data
+Log into your MySQL database:
+    mysql -u your_mysql_user -p your_mysql_db
+
+//-------------------------------------------------------------------------
+Audit for Security Issues
+//-------------------------------------------------------------------------
+You can use pip-audit (install if necessary):
+    pip install pip-audit
+    pip-audit
+
+//-------------------------------------------------------------------------
+Generate a requirements.txt
+//-------------------------------------------------------------------------
+To generate a requirements.txt file that includes only the libraries actually used in your Django project, follow these steps:
+1️⃣ Install pipreqs (if not installed)
+    pip install pipreqs
+2️⃣ Generate requirements.txt for Your Django Project
+Run the following command inside your project directory:
+    pipreqs . --force
+This will scan your Django project and generate a requirements.txt file with only the libraries imported in your code.
+3️⃣ (Optional) Remove Unused Dependencies
+If you still suspect unused packages, you can check dependencies manually:
+    pip uninstall -r requirements.txt --dry-run
+This will list the libraries to be removed without actually uninstalling them.
+4️⃣ Audit the New requirements.txt
+Run:
+    pip-audit -r requirements.txt
