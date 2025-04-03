@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib import admin
 from abouts.models import (
     SliderPoster, Team, Education, Experience, PersonalProject, Project, ProjectImage, 
@@ -5,7 +6,7 @@ from abouts.models import (
 )
 from .models import CustomUser
 from django.contrib.auth.admin import UserAdmin
-from .forms import TeamForm, PersonalProjectForm, ProjectAdminForm
+from .forms import TeamForm, PersonalProjectForm, ProjectAdminForm, ProjectDeveloperForm
 
 class RestrictedAdmin(admin.ModelAdmin):
     """Base admin class to restrict dropdown choices to only the logged-in user's data."""
@@ -172,7 +173,7 @@ class ProjectAdmin(admin.ModelAdmin):
     # class Media:
     #     js = ('admin/js/custom_admin.js',)
     
-    list_display = ('project_name', 'project_type', 'created', 'updated')
+    list_display = ('project_name', 'project_type', 'project_start', 'project_end', 'status', 'created', 'updated')
     search_fields = ('project_name', 'project_type')
     
     def get_queryset(self, request):
@@ -205,9 +206,10 @@ class ProjectAdmin(admin.ModelAdmin):
 class ProjectImageAdmin(admin.ModelAdmin):
     list_display = ('project', 'uploaded_at')
     search_fields = ('project__project_name',)
-
+    
 @admin.register(ProjectDeveloper)
 class ProjectDeveloperAdmin(admin.ModelAdmin):
+    form = ProjectDeveloperForm
     list_display = ('project', 'team', 'role')
     search_fields = ('project__project_name', 'team__name', 'role')
 
@@ -216,3 +218,21 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('email', 'number', 'address', 'website')
     search_fields = ('email', 'number')
 
+from abouts.models import ProjectRole
+@admin.register(ProjectRole)
+class ProjectRoleAdmin(admin.ModelAdmin):
+    list_display = ('name', 'acronym', 'category')
+    search_fields = ('name', 'acronym', 'category')
+    list_filter = ('category',)
+    
+    def has_view_permission(self, request, obj=None):
+        return request.user.is_superuser  # Only superusers can view
+
+    def has_add_permission(self, request):
+        return request.user.is_superuser  # Only superusers can add
+
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_superuser  # Only superusers can edit
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_superuser  # Only superusers can delete

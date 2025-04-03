@@ -200,7 +200,7 @@
             {% for image in project.images.all %}
             "{{ image.image.url }}",
             {% empty %}
-            "../images/1.jpg",
+            "/media/images/4.png",
             {% endfor %}
           ],
           description:
@@ -213,6 +213,7 @@
             "{{ developer.team.name }}  ( {{ developer.role }} )", 
             {% endfor %}
           ],
+          status: "{{ project.status | safe }}",
         },
 
         {% endfor %}

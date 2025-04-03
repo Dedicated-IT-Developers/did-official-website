@@ -315,17 +315,17 @@
                                 <h4 class="text-lg font-semibold mt-4">Contributors:</h4>
                                 <div class="flex flex-wrap gap-4">
                                   {% for dev in project.projectdeveloper_set.all %}
-                                    <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
-                                      <img src="{{ dev.team.get_photo_url }}" alt="{{ dev.team.name }}" class="w-auto h-16 rounded-full mx-auto">
-                                      <p class="text-white font-bold mt-2">{{ dev.team.name }}</p>
-                                      <p class="text-gray-400 text-sm">{{ dev.role }}</p>
+                                    <div class="border border-gray-700 rounded-lg p-2 w-40 text-center">
+                                      <img src="{{ dev.team.get_photo_url }}" alt="{{ dev.team.name }}" class="w-auto h-12 rounded-full mx-auto">
+                                      <p class="text-white text-sm font-bold mt-2">{{ dev.team.name }}</p>
+                                      <p class="text-gray-400 text-xs">{{ dev.role }}</p>
                                     </div>
                                   {% endfor %}
 
-                                  <div class="border border-gray-700 rounded-lg p-3 w-48 text-center">
-                                    <img src="/media/images/did.png" alt="DiD" class="w-auto h-16 rounded-full mx-auto bg-white">
-                                    <p class="text-white font-bold">DiD Founders, Experts, & Members</p>
-                                    <p class="text-gray-400 text-sm">for Implementation & Maintenance</p>
+                                  <div class="border border-gray-700 rounded-lg p-2 w-40 text-center">
+                                    <img src="/media/images/did.png" alt="DiD" class="w-auto h-12 rounded-full mx-auto bg-white">
+                                    <p class="text-white text-sm font-bold">Founders, Experts, Members, & Alumni</p>
+                                    <p class="text-gray-400 text-xs">for Implementation, Critic, Support, & Maintenance</p>
                                   </div>
 
                                 </div>

@@ -5,9 +5,9 @@ from .models import CustomUser
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django_select2.forms import Select2TagWidget
+from django_select2.forms import Select2TagWidget, Select2MultipleWidget
 
-from abouts.models import Team, PersonalProject, Project
+from abouts.models import Team, PersonalProject, Project, ProjectDeveloper, ProjectRole
 
 from django.utils.safestring import mark_safe
 
@@ -56,7 +56,30 @@ class ProjectAdminForm(forms.ModelForm):
         #     if isinstance(self.instance.features, list):
         #         self.fields['features'].initial = ', '.join(self.instance.features)
 
+class ProjectDeveloperForm(forms.ModelForm):
+    ROLE_CHOICES = []
+
+    role = forms.MultipleChoiceField(
+        choices=ROLE_CHOICES,
+        widget=Select2MultipleWidget,  # Allows multiple selections
+        required=False
+    )
     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['role'].choices = [(role.name, role.name) for role in ProjectRole.objects.all()]
+        
+        role_values = self.instance.role if self.instance.role else "No data"
+        self.fields['role'].help_text = mark_safe(f'<div style="margin-top: 5px; font-size: 12px; color: #555;"><strong>Current:</strong> {role_values}</div>')
+
+
+    def clean_role(self):
+        """Convert selected role to a comma-separated string"""
+        return ",".join(self.cleaned_data['role'])
+
+    class Meta:
+        model = ProjectDeveloper
+        fields = "__all__"
         
 class TeamForm(forms.ModelForm):
     
@@ -165,8 +188,9 @@ class PersonalProjectForm(forms.ModelForm):
             self.fields['features'].help_text = mark_safe(f'<div style="margin-top: 5px; font-size: 12px; color: #555;"><strong>Current:</strong> {features_values}</div>')    
 
 
-
-
+#---------------------------------------------------------------------------
+# Not used
+#---------------------------------------------------------------------------
 class VerifyForm(forms.Form):
     
     email = forms.EmailField(

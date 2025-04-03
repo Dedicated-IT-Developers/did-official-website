@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 31, 2025 at 08:54 AM
+-- Generation Time: Apr 03, 2025 at 09:01 AM
 -- Server version: 8.2.0
 -- PHP Version: 8.3.0
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `abouts_contact` (
 --
 
 INSERT INTO `abouts_contact` (`id`, `email`, `number`, `address`, `website`) VALUES
-(1, 'dedicateditdevelopers@gmail.com', 'na', 'Calapan City, Oriental Mindoro, Philippines', 'http://did.confired.com');
+(1, 'dedicateditdevelopers@gmail.com', 'None', 'Calapan City, Oriental Mindoro, Philippines', 'http://did.confired.com');
 
 -- --------------------------------------------------------
 
@@ -149,6 +149,9 @@ CREATE TABLE IF NOT EXISTS `abouts_project` (
   `created` datetime(6) NOT NULL,
   `updated` datetime(6) NOT NULL,
   `link` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `project_end` date DEFAULT NULL,
+  `project_start` date DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -156,12 +159,12 @@ CREATE TABLE IF NOT EXISTS `abouts_project` (
 -- Dumping data for table `abouts_project`
 --
 
-INSERT INTO `abouts_project` (`id`, `project_name`, `project_type`, `description`, `tech_stack`, `features`, `created`, `updated`, `link`) VALUES
-(1, 'DiD Official Website', 'Web Application', 'DiD Official Website is a web application developed by DiD Members using Python. The website is designed using html and tailwind css.', '[\"django\", \"tailwind\"]', '[\"Home\", \"Page\", \"Projects\", \"Teams\", \"Portfolio\", \"About\", \"Contacts\"]', '2025-02-10 13:33:22.514000', '2025-03-28 07:45:57.643000', 'https://did.confired.com/'),
-(2, 'Event Attendance Monitoring System', 'Web Application', 'The Event Attendance Monitoring System is a web-based application designed to streamline attendance tracking for events, conferences, and gatherings. Utilizing RFID, the system enables real-time check-ins, automated validation, and secure data storage. Features include live attendance monitoring, reporting, analytics, and integration, ensuring accurate and efficient attendance management. Ideal for organizations, schools, and businesses, this system enhances event security, reduces manual errors, and provides insightful attendance data.', '[\"ExpressJS\", \"PosgreSql\", \"HTML -Bootstrap\"]', '[\"RFID Scanner\", \"Student Registration\", \"Attendance Tracking\", \"Reports\", \"Others\"]', '2025-02-11 01:19:50.894000', '2025-02-11 01:19:50.894000', NULL),
-(3, 'TeachTrack', 'Web Application', 'TeachTrack is an RFID-based monitoring system that tracks faculty members\' presence inside the faculty office. By tapping their RFID cards, the system updates their status as \"Inside\" or \"Outside\" in real-time, providing a quick and efficient way to monitor faculty availability.', '[\"Django\", \"Tailwind\"]', '[\"RFID\", \"Kiosk\", \"Admin\"]', '2025-03-27 13:21:35.477000', '2025-03-28 07:45:21.279000', NULL),
-(4, 'RoVote: Student Organization Voting System', 'Web Application', 'Web-based Voting system for student organization of Mindoro State University Calapan City Campus', '[\"PHP\", \"MySQL\", \"LavaLust-MVC-Framework\", \"HTML-Bootstrap\"]', '[\"Student-Registration\", \"Realtime-Display-Results\", \"Voting-Panel(Kiosk)\", \"Report-Generation\", \"Validation&Security\", \"More\"]', '2025-03-30 06:09:20.898000', '2025-03-30 06:09:20.898000', NULL),
-(5, 'Student Kiosk - Student Information Tracker System for Faculty', 'Web Application', 'MINSU-Student-Kiosk is a faculty-accessible system designed to quickly search, retrieve, and manage student information. The system will be deployed as both a kiosk for searching and a secured admin panel for full management.', '[\"Laravel-11\", \"TailwindCSS\", \"Blade\", \"MySQL\", \"Laravel-Breeze\"]', '[\"Kiosk\", \"Admin-Dashboard\", \"More\"]', '2025-03-30 07:07:12.956000', '2025-03-30 07:07:12.956000', NULL);
+INSERT INTO `abouts_project` (`id`, `project_name`, `project_type`, `description`, `tech_stack`, `features`, `created`, `updated`, `link`, `project_end`, `project_start`, `status`) VALUES
+(1, 'DiD Official Website', 'Web Application', 'DiD Official Website is a web application developed by DiD Members using Python. The website is designed using html and tailwind css.', '[\"django\", \"tailwind\"]', '[\"Home\", \"Page\", \"Projects\", \"Teams\", \"Portfolio\", \"About\", \"Contacts\"]', '2025-02-10 13:33:22.514000', '2025-04-03 08:36:19.642015', 'https://did.confired.com/', NULL, '2025-02-08', 'pre-deployment'),
+(2, 'Student Org. Event Attendance Monitoring System using RFID', 'Web Application', 'The Event Attendance Monitoring System is a web-based application designed to streamline attendance tracking for events, conferences, and gatherings. Utilizing RFID, the system enables real-time check-ins, automated validation, and secure data storage. Features include live attendance monitoring, reporting, analytics, and integration, ensuring accurate and efficient attendance management. Ideal for organizations, schools, and businesses, this system enhances event security, reduces manual errors, and provides insightful attendance data.', '[\"ExpressJS\", \"PosgreSql\", \"HTML\", \"-Bootstrap\"]', '[\"RFID\", \"Scanner\", \"Student\", \"Registration\", \"Attendance\", \"Tracking\", \"Reports\", \"Others\"]', '2025-02-11 01:19:50.894000', '2025-04-03 08:47:36.105603', NULL, '2025-03-09', '2024-10-15', 'implemented & maintained'),
+(3, 'TeachTrack', 'Web Application', 'TeachTrack is an RFID-based monitoring system that tracks faculty members\' presence inside the faculty office. By tapping their RFID cards, the system updates their status as \"Inside\" or \"Outside\" in real-time, providing a quick and efficient way to monitor faculty availability.', '[\"Django\", \"Tailwind\"]', '[\"RFID\", \"Kiosk\", \"Admin\", \"More\"]', '2025-03-27 13:21:35.477000', '2025-04-03 08:37:46.968816', NULL, NULL, '2025-03-12', 'development'),
+(4, 'RoVote: Student Organization Voting System', 'Web Application', 'Web-based Voting system for student organization of Mindoro State University Calapan City Campus', '[\"PHP\", \"MySQL\", \"LavaLust-MVC-Framework\", \"HTML-Bootstrap\"]', '[\"Student-Registration\", \"Realtime-Display-Results\", \"Voting-Panel(Kiosk)\", \"Report-Generation\", \"Validation&Security\", \"More\"]', '2025-03-30 06:09:20.898000', '2025-04-03 08:27:33.255585', NULL, '2023-06-23', '2023-04-15', 'testing'),
+(5, 'Student Kiosk - Student Information Tracker System for Faculty', 'Web Application', 'MINSU-Student-Kiosk is a faculty-accessible system designed to quickly search, retrieve, and manage student information. The system will be deployed as both a kiosk for searching and a secured admin panel for full management.', '[\"Laravel-11\", \"TailwindCSS\", \"Blade\", \"MySQL\", \"Laravel-Breeze\"]', '[\"Kiosk\", \"Admin-Dashboard\", \"More\"]', '2025-03-30 07:07:12.956000', '2025-04-03 08:33:31.361208', NULL, '2025-03-03', '2025-02-02', 'testing');
 
 -- --------------------------------------------------------
 
@@ -178,29 +181,39 @@ CREATE TABLE IF NOT EXISTS `abouts_projectdeveloper` (
   PRIMARY KEY (`id`),
   KEY `abouts_projectdeveloper_project_id_e62d6256_fk_abouts_project_id` (`project_id`),
   KEY `abouts_projectdeveloper_team_id_aab9646a_fk_abouts_team_id` (`team_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `abouts_projectdeveloper`
 --
 
 INSERT INTO `abouts_projectdeveloper` (`id`, `role`, `project_id`, `team_id`) VALUES
-(4, 'Project Manager, Lead Programmer & Fullstack Developer', 2, 2),
-(6, 'Project Manager, Lead Programmer & Back-end Developer', 3, 2),
-(7, 'Project Manager, Lead Programmer, & Full-stack Developer', 1, 2),
-(8, 'Project Manager & Fullstack Developer', 4, 2),
-(9, 'Full-stack Developer', 4, 13),
-(10, 'Full-stack Developer', 1, 14),
-(11, 'Full-stack Developer', 3, 14),
-(12, 'Programmer & QA Tester', 4, 15),
-(13, 'Full-stack Developer', 3, 16),
-(14, 'Front-end Developer', 1, 16),
-(15, 'Front-end Developer', 1, 17),
-(16, 'Full-stack Developer', 2, 18),
-(17, 'Full-stack Developer', 2, 3),
-(18, 'Lead Programmer & Full-stack Developer', 5, 19),
-(19, 'Project Manager & QA', 5, 2),
-(20, 'Front-end Developer/Graphic Designer', 1, 20);
+(4, 'Project Manager,Software Architect,Full-Stack Developer,Database Administrator', 2, 2),
+(6, 'Project Manager,Full-Stack Developer', 3, 2),
+(7, 'Project Manager,Software Architect,Full-Stack Developer,Database Administrator', 1, 2),
+(8, 'Project Manager,Full-Stack Developer,Database Administrator', 4, 2),
+(9, 'Full-Stack Developer', 4, 13),
+(10, 'UI/UX Designer,Full-Stack Developer', 1, 14),
+(11, 'Full-Stack Developer', 3, 14),
+(12, 'Full-Stack Developer', 4, 15),
+(13, 'Full-Stack Developer', 3, 16),
+(14, 'UI/UX Designer,Frontend Developer', 1, 16),
+(15, 'UI/UX Designer,Frontend Developer', 1, 17),
+(16, 'Full-Stack Developer', 2, 18),
+(17, 'Full-Stack Developer', 2, 3),
+(18, 'Software Architect,Full-Stack Developer', 5, 19),
+(19, 'Project Manager', 5, 2),
+(20, 'UI/UX Designer,Frontend Developer', 1, 20),
+(21, 'Business Analyst', 2, 6),
+(22, 'Business Analyst', 2, 12),
+(23, 'System Administrator', 2, 9),
+(24, 'Full-Stack Developer,QA Engineer / Tester', 5, 7),
+(25, 'Project Manager,QA Engineer / Tester', 5, 12),
+(26, 'Business Analyst,Software Architect', 3, 6),
+(27, 'Project Manager,QA Engineer / Tester', 3, 10),
+(28, 'QA Engineer / Tester', 3, 11),
+(29, 'System Administrator', 2, 8),
+(30, 'System Administrator', 3, 8);
 
 -- --------------------------------------------------------
 
@@ -230,6 +243,48 @@ INSERT INTO `abouts_projectimage` (`id`, `image`, `uploaded_at`, `project_id`) V
 (9, 'project_images/admin.PNG', '2025-03-28 07:52:47.685000', 2),
 (10, 'project_images/scan.PNG', '2025-03-28 07:52:54.127000', 2),
 (11, 'project_images/DiD_Logo.png', '2025-03-28 07:59:12.514000', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abouts_projectrole`
+--
+
+DROP TABLE IF EXISTS `abouts_projectrole`;
+CREATE TABLE IF NOT EXISTS `abouts_projectrole` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_general_ci NOT NULL,
+  `acronym` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_general_ci NOT NULL,
+  `category` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `acronym` (`acronym`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `abouts_projectrole`
+--
+
+INSERT INTO `abouts_projectrole` (`id`, `name`, `acronym`, `description`, `category`) VALUES
+(1, 'Project Manager', 'PM', 'Oversees the project, manages resources, sets deadlines, and ensures smooth execution.', 'Core IT'),
+(2, 'UI/UX Designer', 'UI/UX Designer', 'Designs wireframes, user journeys, and interfaces for a great user experience.', 'Support'),
+(3, 'Business Analyst', 'BA', 'Gathers requirements, translates business needs into technical specifications, and ensures alignment with stakeholders.', 'Core IT'),
+(4, 'Software Architect', 'Software Architect', 'Designs the overall system architecture, selects technologies, and ensures scalability and security.', 'Core IT'),
+(5, 'Frontend Developer', 'Frontend Dev', 'Develops the user interface (UI) using React, Vue, or other frameworks.', 'Core IT'),
+(6, 'Backend Developer', 'Backend Dev', 'Implements business logic, APIs, and database interactions (Node.js, Python, Java, etc.).', 'Core IT'),
+(7, 'Full-Stack Developer', 'Full-Stack Dev', 'Works on both frontend and backend if the team is small.', 'Core IT'),
+(8, 'Database Administrator', 'DBA', 'Designs, optimizes, and maintains the database (SQL, NoSQL, etc.).', 'Core IT'),
+(9, 'DevOps Engineer', 'DevOps', 'Handles cloud deployment, CI/CD pipelines, and server maintenance (AWS, Docker, Kubernetes).', 'Core IT'),
+(10, 'Cybersecurity Specialist', 'Cybersecurity', 'Ensures security protocols, encryption, and compliance with standards.', 'Core IT'),
+(11, 'QA Engineer / Tester', 'QA Tester', 'Performs manual and automated testing to ensure quality and fix bugs.', 'Core IT'),
+(12, 'Technical Writer', 'Tech Writer', 'Documents software architecture, API references, and user manuals.', 'Support'),
+(13, 'System Administrator', 'Sys Admin', 'Manages infrastructure, networks, and IT support.', 'Support'),
+(14, 'Product Owner', 'Product Owner', 'Represents the client’s needs and ensures the project aligns with business goals.', 'Support'),
+(15, 'Scrum Master', 'Scrum Master', 'Facilitates Agile processes, sprint planning, and stand-up meetings.', 'Support'),
+(16, 'Machine Learning Engineer', 'ML Engineer', 'Works on AI/ML models if the project involves data science.', 'Specialized'),
+(17, 'Blockchain Developer', 'Blockchain Dev', 'If the project integrates blockchain for smart contracts or decentralization.', 'Specialized'),
+(18, 'IoT Developer', 'IoT Dev', 'If the project involves smart devices and sensor data.', 'Specialized');
 
 -- --------------------------------------------------------
 
@@ -385,7 +440,7 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
   `codename` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `auth_permission`
@@ -451,7 +506,11 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (57, 'Can add experience', 15, 'add_experience'),
 (58, 'Can change experience', 15, 'change_experience'),
 (59, 'Can delete experience', 15, 'delete_experience'),
-(60, 'Can view experience', 15, 'view_experience');
+(60, 'Can view experience', 15, 'view_experience'),
+(61, 'Can add project role', 16, 'add_projectrole'),
+(62, 'Can change project role', 16, 'change_projectrole'),
+(63, 'Can delete project role', 16, 'delete_projectrole'),
+(64, 'Can view project role', 16, 'view_projectrole');
 
 -- --------------------------------------------------------
 
@@ -664,7 +723,84 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (187, '2025-03-30 07:14:02.345000', '20', 'Loraine B. Alagasi - Front-end Developer/Graphic Designer', 1, '[{\"added\": {}}]', 11, 1),
 (188, '2025-03-31 08:51:29.490805', '19', 'britolancekianne', 1, '[{\"added\": {}}]', 6, 1),
 (189, '2025-03-31 08:51:46.371124', '19', 'britolancekianne', 2, '[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]', 6, 1),
-(190, '2025-03-31 08:53:33.999921', '21', 'Lance Kianne E. Brito', 1, '[{\"added\": {}}]', 10, 1);
+(190, '2025-03-31 08:53:33.999921', '21', 'Lance Kianne E. Brito', 1, '[{\"added\": {}}]', 10, 1),
+(191, '2025-04-02 08:36:22.287438', '20', 'Loraine B. Alagasi - UI/UX Designer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(192, '2025-04-02 09:10:13.654301', '1', 'Project Manager (PM)', 1, '[{\"added\": {}}]', 16, 1),
+(193, '2025-04-02 09:10:23.427871', '20', 'Loraine B. Alagasi - Project Manager (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(194, '2025-04-02 09:10:52.953885', '2', 'UI/UX Designer (UI/UX Designer)', 1, '[{\"added\": {}}]', 16, 1),
+(195, '2025-04-02 09:11:02.566145', '20', 'Loraine B. Alagasi - UI/UX Designer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(196, '2025-04-03 01:34:20.105931', '3', 'Business Analyst (BA)', 1, '[{\"added\": {}}]', 16, 1),
+(197, '2025-04-03 01:34:30.562474', '4', 'Software Architect (Software Architect)', 1, '[{\"added\": {}}]', 16, 1),
+(198, '2025-04-03 01:34:45.535540', '5', 'Frontend Developer (Frontend Dev)', 1, '[{\"added\": {}}]', 16, 1),
+(199, '2025-04-03 01:35:12.155231', '6', 'Backend Developer (Backend Dev)', 1, '[{\"added\": {}}]', 16, 1),
+(200, '2025-04-03 01:35:19.897830', '7', 'Full-Stack Developer (Full-Stack Dev)', 1, '[{\"added\": {}}]', 16, 1),
+(201, '2025-04-03 01:35:28.230155', '8', 'Database Administrator (DBA)', 1, '[{\"added\": {}}]', 16, 1),
+(202, '2025-04-03 01:35:37.099265', '9', 'DevOps Engineer (DevOps)', 1, '[{\"added\": {}}]', 16, 1),
+(203, '2025-04-03 01:35:47.703411', '10', 'Cybersecurity Specialist (Cybersecurity)', 1, '[{\"added\": {}}]', 16, 1),
+(204, '2025-04-03 01:35:57.148933', '11', 'QA Engineer / Tester (QA Tester)', 1, '[{\"added\": {}}]', 16, 1),
+(205, '2025-04-03 01:36:53.485070', '12', 'Technical Writer (Tech Writer)', 1, '[{\"added\": {}}]', 16, 1),
+(206, '2025-04-03 01:37:05.789215', '13', 'System Administrator (Sys Admin)', 1, '[{\"added\": {}}]', 16, 1),
+(207, '2025-04-03 01:37:16.158402', '14', 'Product Owner (Product Owner)', 1, '[{\"added\": {}}]', 16, 1),
+(208, '2025-04-03 01:37:24.304323', '15', 'Scrum Master (Scrum Master)', 1, '[{\"added\": {}}]', 16, 1),
+(209, '2025-04-03 01:37:50.796330', '16', 'Machine Learning Engineer (ML Engineer)', 1, '[{\"added\": {}}]', 16, 1),
+(210, '2025-04-03 01:38:03.001051', '17', 'Blockchain Developer (Blockchain Dev)', 1, '[{\"added\": {}}]', 16, 1),
+(211, '2025-04-03 01:38:13.629261', '18', 'IoT Developer (IoT Dev)', 1, '[{\"added\": {}}]', 16, 1),
+(212, '2025-04-03 01:39:21.724882', '1', 'Project Manager (PM)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(213, '2025-04-03 01:39:38.474457', '3', 'Business Analyst (BA)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(214, '2025-04-03 01:39:55.232011', '4', 'Software Architect (Software Architect)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(215, '2025-04-03 01:40:16.645209', '5', 'Frontend Developer (Frontend Dev)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(216, '2025-04-03 01:40:28.917771', '6', 'Backend Developer (Backend Dev)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(217, '2025-04-03 01:40:47.749246', '7', 'Full-Stack Developer (Full-Stack Dev)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(218, '2025-04-03 01:41:00.653189', '8', 'Database Administrator (DBA)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(219, '2025-04-03 01:41:10.550217', '9', 'DevOps Engineer (DevOps)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(220, '2025-04-03 01:41:22.207111', '10', 'Cybersecurity Specialist (Cybersecurity)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(221, '2025-04-03 01:41:37.980671', '11', 'QA Engineer / Tester (QA Tester)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(222, '2025-04-03 01:41:50.752525', '2', 'UI/UX Designer (UI/UX Designer)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(223, '2025-04-03 01:42:03.449538', '12', 'Technical Writer (Tech Writer)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(224, '2025-04-03 01:42:19.686061', '13', 'System Administrator (Sys Admin)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(225, '2025-04-03 01:42:28.680315', '14', 'Product Owner (Product Owner)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(226, '2025-04-03 01:42:40.085411', '15', 'Scrum Master (Scrum Master)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(227, '2025-04-03 01:42:53.508226', '16', 'Machine Learning Engineer (ML Engineer)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(228, '2025-04-03 01:43:08.648629', '17', 'Blockchain Developer (Blockchain Dev)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(229, '2025-04-03 01:43:17.883949', '18', 'IoT Developer (IoT Dev)', 2, '[{\"changed\": {\"fields\": [\"Description\"]}}]', 16, 1),
+(230, '2025-04-03 01:44:40.788248', '7', 'Wilfred V. Pine, MSIT - Project Manager,Software Architect,Full-Stack Developer,Database Administrator (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(231, '2025-04-03 01:47:12.625073', '20', 'Loraine B. Alagasi - UI/UX Designer,Frontend Developer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(232, '2025-04-03 01:47:29.072866', '20', 'Loraine B. Alagasi - UI/UX Designer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(233, '2025-04-03 01:50:06.873670', '20', 'Loraine B. Alagasi - UI/UX Designer,Frontend Developer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(234, '2025-04-03 01:58:26.154945', '15', 'Cy Kean Angel Dave R. Perjes - UI/UX Designer,Frontend Developer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(235, '2025-04-03 01:58:34.420459', '14', 'Edward Gatbonton - UI/UX Designer,Frontend Developer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(236, '2025-04-03 01:58:42.887811', '10', 'Sonny Sarcia - UI/UX Designer,Frontend Developer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(237, '2025-04-03 02:02:12.112231', '10', 'Sonny Sarcia - UI/UX Designer,Full-Stack Developer (DiD Official Website)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(238, '2025-04-03 02:04:25.438499', '4', 'Wilfred V. Pine, MSIT - Project Manager,Software Architect,Full-Stack Developer,Database Administrator (Event Attendance Monitoring System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(239, '2025-04-03 02:04:41.295539', '16', 'Ian Sandoval - Full-Stack Developer (Event Attendance Monitoring System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(240, '2025-04-03 02:04:52.967635', '17', 'Ariston A. Magboo Jr. - Full-Stack Developer (Event Attendance Monitoring System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(241, '2025-04-03 02:07:00.576748', '21', 'Fidel C. Romasanta, MIT - Business Analyst (Event Attendance Monitoring System)', 1, '[{\"added\": {}}]', 11, 1),
+(242, '2025-04-03 02:07:11.831926', '22', 'Dezza Marie M. Magsino, MSIT - Business Analyst (Event Attendance Monitoring System)', 1, '[{\"added\": {}}]', 11, 1),
+(243, '2025-04-03 02:08:00.307859', '23', 'Engr. Jesus M. Bautista, MSIT - System Administrator (Event Attendance Monitoring System)', 1, '[{\"added\": {}}]', 11, 1),
+(244, '2025-04-03 02:11:02.384964', '18', 'Mark Lua - Software Architect,Full-Stack Developer (Student Kiosk - Student Information Tracker System for Faculty)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(245, '2025-04-03 02:11:17.136197', '19', 'Wilfred V. Pine, MSIT - Project Manager (Student Kiosk - Student Information Tracker System for Faculty)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(246, '2025-04-03 02:12:36.882222', '24', 'Ronald M. Marasigan, MSIT - Full-Stack Developer,QA Engineer / Tester (Student Kiosk - Student Information Tracker System for Faculty)', 1, '[{\"added\": {}}]', 11, 1),
+(247, '2025-04-03 02:12:46.769945', '25', 'Dezza Marie M. Magsino, MSIT - Project Manager (Student Kiosk - Student Information Tracker System for Faculty)', 1, '[{\"added\": {}}]', 11, 1),
+(248, '2025-04-03 02:13:10.702330', '8', 'Wilfred V. Pine, MSIT - Project Manager,Full-Stack Developer (RoVote: Student Organization Voting System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(249, '2025-04-03 02:13:38.368243', '8', 'Wilfred V. Pine, MSIT - Project Manager,Full-Stack Developer,Database Administrator (RoVote: Student Organization Voting System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(250, '2025-04-03 02:13:48.573461', '9', 'Noel Dimailig - Full-Stack Developer (RoVote: Student Organization Voting System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(251, '2025-04-03 02:14:23.165670', '12', 'Lileth V. Pine - Full-Stack Developer (RoVote: Student Organization Voting System)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(252, '2025-04-03 02:14:37.783171', '13', 'Edward Gatbonton - Full-Stack Developer (TeachTrack)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(253, '2025-04-03 02:14:58.767492', '11', 'Sonny Sarcia - Full-Stack Developer (TeachTrack)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(254, '2025-04-03 02:19:40.712825', '6', 'Wilfred V. Pine, MSIT - Project Manager,Full-Stack Developer (TeachTrack)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(255, '2025-04-03 02:20:14.460853', '26', 'Fidel C. Romasanta, MIT - Business Analyst,Software Architect (TeachTrack)', 1, '[{\"added\": {}}]', 11, 1),
+(256, '2025-04-03 02:22:04.830365', '27', 'Kristianne Aleza Marie L. Javier, MSIT - Project Manager,QA Engineer / Tester (TeachTrack)', 1, '[{\"added\": {}}]', 11, 1),
+(257, '2025-04-03 02:22:34.580550', '28', 'Malou B. Aday - QA Engineer / Tester (TeachTrack)', 1, '[{\"added\": {}}]', 11, 1),
+(258, '2025-04-03 02:23:08.615043', '25', 'Dezza Marie M. Magsino, MSIT - Project Manager,QA Engineer / Tester (Student Kiosk - Student Information Tracker System for Faculty)', 2, '[{\"changed\": {\"fields\": [\"role\"]}}]', 11, 1),
+(259, '2025-04-03 02:25:13.741860', '29', 'Elmer H. Festijo, MSIT - System Administrator (Event Attendance Monitoring System)', 1, '[{\"added\": {}}]', 11, 1),
+(260, '2025-04-03 02:25:38.061208', '30', 'Elmer H. Festijo, MSIT - System Administrator (TeachTrack)', 1, '[{\"added\": {}}]', 11, 1),
+(261, '2025-04-03 03:05:52.859961', '1', 'dedicateditdevelopers@gmail.com', 2, '[{\"changed\": {\"fields\": [\"Number\"]}}]', 7, 1),
+(262, '2025-04-03 08:27:33.259536', '4', 'RoVote: Student Organization Voting System', 2, '[{\"changed\": {\"fields\": [\"Project start\", \"Project end\", \"Status\"]}}]', 8, 1),
+(263, '2025-04-03 08:31:11.257322', '2', 'Event Attendance Monitoring System', 2, '[{\"changed\": {\"fields\": [\"Tech stack\", \"Features\", \"Project start\", \"Project end\"]}}]', 8, 1),
+(264, '2025-04-03 08:33:31.364142', '5', 'Student Kiosk - Student Information Tracker System for Faculty', 2, '[{\"changed\": {\"fields\": [\"Project start\", \"Project end\", \"Status\"]}}]', 8, 1),
+(265, '2025-04-03 08:36:19.644071', '1', 'DiD Official Website', 2, '[{\"changed\": {\"fields\": [\"Project start\", \"Status\"]}}]', 8, 1),
+(266, '2025-04-03 08:37:46.970493', '3', 'TeachTrack', 2, '[{\"changed\": {\"fields\": [\"Features\", \"Project start\", \"Status\"]}}]', 8, 1),
+(267, '2025-04-03 08:47:36.108314', '2', 'Student Org. Event Attendance Monitoring System using RFID', 2, '[{\"changed\": {\"fields\": [\"Project name\"]}}]', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -679,7 +815,7 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
   `model` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `django_content_type`
@@ -693,6 +829,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (8, 'abouts', 'project'),
 (11, 'abouts', 'projectdeveloper'),
 (12, 'abouts', 'projectimage'),
+(16, 'abouts', 'projectrole'),
 (9, 'abouts', 'sliderposter'),
 (10, 'abouts', 'team'),
 (1, 'admin', 'logentry'),
@@ -715,7 +852,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `django_migrations`
@@ -752,7 +889,10 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (28, 'admin', '0001_initial', '2025-03-31 08:37:52.518209'),
 (29, 'admin', '0002_logentry_remove_auto_add', '2025-03-31 08:37:52.535349'),
 (30, 'admin', '0003_logentry_add_action_flag_choices', '2025-03-31 08:37:52.548815'),
-(31, 'sessions', '0001_initial', '2025-03-31 08:37:52.594759');
+(31, 'sessions', '0001_initial', '2025-03-31 08:37:52.594759'),
+(32, 'abouts', '0013_alter_education_options_alter_projectdeveloper_role', '2025-04-02 08:41:41.437321'),
+(33, 'abouts', '0014_projectrole', '2025-04-02 09:07:58.231749'),
+(34, 'abouts', '0015_project_project_end_project_project_start_and_more', '2025-04-03 08:24:46.160284');
 
 -- --------------------------------------------------------
 
@@ -799,9 +939,9 @@ CREATE TABLE IF NOT EXISTS `users_customuser` (
 --
 
 INSERT INTO `users_customuser` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `is_staff`, `is_active`, `date_joined`, `is_email_verified`, `email`) VALUES
-(1, 'pbkdf2_sha256$870000$2HftBRyUNFS1nfUBqZAfAs$jhPamweRzoRUBET+6HzqxorWjVvHzr2IWY39bqayLSQ=', '2025-03-29 13:46:15.418000', 1, 'didadmin', '', '', 1, 1, '2025-02-09 15:10:32.442000', 0, 'wilfredpine9@gmail.com'),
-(2, 'pbkdf2_sha256$870000$csEcSMf36pRVRg6ZkeOlLP$Uh4Je7LwXrbe0K6k2bNgtBvxDHqRT/7MoV8Hdc+7PJo=', '2025-03-30 05:39:34.198000', 0, 'wilfredpine9', '', '', 1, 1, '2025-02-09 15:19:42.000000', 1, 'only.master.red@gmail.com'),
-(3, 'pbkdf2_sha256$870000$Vak160W8UkYqUgsaqpQzR2$0NzFSGIZOb7OV+ZUrApnvyUm5jXf87rlex1ioBm9+NQ=', '2025-03-30 00:30:32.151000', 0, 'aristonmagboo17', '', '', 1, 1, '2025-03-29 23:01:34.000000', 0, 'aristonmagboo17@gmail.com'),
+(1, 'pbkdf2_sha256$870000$2HftBRyUNFS1nfUBqZAfAs$jhPamweRzoRUBET+6HzqxorWjVvHzr2IWY39bqayLSQ=', '2025-04-03 06:23:28.731743', 1, 'didadmin', '', '', 1, 1, '2025-02-09 15:10:32.442000', 0, 'wilfredpine9@gmail.com'),
+(2, 'pbkdf2_sha256$870000$csEcSMf36pRVRg6ZkeOlLP$Uh4Je7LwXrbe0K6k2bNgtBvxDHqRT/7MoV8Hdc+7PJo=', '2025-04-02 09:17:54.027588', 0, 'wilfredpine9', '', '', 1, 1, '2025-02-09 15:19:42.000000', 1, 'only.master.red@gmail.com'),
+(3, 'pbkdf2_sha256$870000$Vak160W8UkYqUgsaqpQzR2$0NzFSGIZOb7OV+ZUrApnvyUm5jXf87rlex1ioBm9+NQ=', '2025-04-03 06:22:26.773393', 0, 'aristonmagboo17', '', '', 1, 1, '2025-03-29 23:01:34.000000', 0, 'aristonmagboo17@gmail.com'),
 (4, 'pbkdf2_sha256$870000$DVpxbyDKwfJkVShIFCzpOd$QhpyzHsarYnyQvwJcoxxWq87vpDd9QsNNXpdAoJEF8w=', '2025-03-30 00:14:16.139000', 0, 'delfirome', '', '', 1, 1, '2025-03-29 23:13:18.000000', 0, 'delfirome@gmail.com'),
 (5, 'pbkdf2_sha256$870000$Zb0u9sAwl3YZ4mnXk8E269$R932RqJ9LRxoVuMmr41Xo4ayypXq8/QKQqgV/62b5x4=', NULL, 0, 'ronmarasigan', '', '', 1, 1, '2025-03-30 00:37:10.000000', 0, 'ronald.marasigan@yahoo.com'),
 (6, 'pbkdf2_sha256$870000$h3gQsKQUCcyPcVOX3KmJZy$NbErPn0u3kRbznP1XZ4N+E24BNiYG9HoEWm0i/RJaI8=', NULL, 0, 'kamj', '', '', 1, 1, '2025-03-30 02:22:16.000000', 0, 'kam25javier@gmail.com'),

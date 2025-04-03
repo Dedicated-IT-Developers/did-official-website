@@ -115,12 +115,24 @@ class PersonalProject(models.Model):
         verbose_name_plural = "Personal Projects"
 
 class Project(models.Model):
+    STATUS_CHOICES = [
+        ('planning', 'Planning'),
+        ('design', 'Design'),
+        ('development', 'Development'),
+        ('testing', 'Testing'),
+        ('pre-deployment', 'Pre-deployment'),
+        ('implemented & maintained', 'Implemented & Maintained'),
+        ('under-maintenance', 'Under Maintenance'),
+    ]
     project_name = models.CharField(max_length=191)
     project_type = models.CharField(max_length=191)
     description = models.TextField()
     tech_stack = models.JSONField(default=list)  # List of techs used
     features = models.JSONField(default=list)  # 
     link = models.URLField(blank=True, null=True)
+    project_start = models.DateField(blank=True, null=True)
+    project_end = models.DateField(blank=True, null=True)  # Blank & null for ongoing projects
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='implemented & maintained')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -135,13 +147,34 @@ class ProjectImage(models.Model):
     def __str__(self):
         return f"Image for {self.project.project_name}" 
 
+
+class ProjectRole(models.Model):
+    CATEGORY_CHOICES = [
+        ('Core IT', 'Core IT Development Team'),
+        ('Support', 'Support & Auxiliary Roles'),
+        ('Specialized', 'Specialized Roles'),
+    ]
+
+    name = models.CharField(max_length=191, unique=True, help_text="Full role name (e.g., Project Manager)")
+    acronym = models.CharField(max_length=20, unique=True, help_text="Short code (e.g., PM)")
+    description = models.TextField(blank=True, help_text="Brief description of the role")
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Core IT')
+
+    def __str__(self):
+        return f"{self.name} ({self.acronym})"
+
+
 class ProjectDeveloper(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='project_developers')
-    role = models.CharField(max_length=191)
+    role = models.CharField(max_length=191, help_text="Comma-separated roles")
 
+    def get_roles_list(self):
+        """Return roles as a list"""
+        return self.role.split(',') if self.role else []
+    
     def __str__(self):
-        return f"{self.team.name} - {self.role}" 
+        return f"{self.team.name} - {self.role} ({self.project.project_name})" 
 
 class Contact(models.Model):
     email = models.EmailField()

@@ -6,6 +6,8 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 from .models import SliderPoster, Team, PersonalProject, Project, ProjectImage, ProjectDeveloper, Contact, Education, Experience
 from django.db.models import Case, When, Value, IntegerField, Prefetch
+from django.utils import timezone
+from django.db.models import Q
 
 # Create your views here.
 class Home(ListView):
@@ -22,7 +24,7 @@ class Projects(ListView):
     context_object_name = 'projects'
 
     def get_queryset(self):
-        return Project.objects.prefetch_related('images', 'projectdeveloper_set__team')
+        return Project.objects.prefetch_related('images', 'projectdeveloper_set__team').order_by('-project_start', 'project_end')
 
 class ViewProjects(DetailView):
     model = Project
@@ -90,8 +92,9 @@ def protfolio(request, codename):
     education = Education.objects.filter(team=profile).order_by("-start_year", "end_year")
     experience = Experience.objects.filter(team=profile).order_by("-start_date", "end_date")
     projects = PersonalProject.objects.filter(team=profile)
+    
     # Get all projects where the team member is a developer
-    involved_projects = Project.objects.filter(projectdeveloper__team=profile).distinct()
+    involved_projects = Project.objects.filter(projectdeveloper__team=profile).order_by('-project_start', 'project_end').distinct()
     
     context = {
         'profile': profile,

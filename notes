@@ -1,43 +1,41 @@
-Install Python 3.9 or higher
-- Please see: 
-        https://github.com/wilfredpine/Python-Tutorial/blob/main/Chapter%204%20-%20Application%20Development/Python%20Environment.docx 
-    for Installing/Using Multiple version of Python on Windows.
+# Installation
+1. Install Python 3.9 or higher
+    - Please see: https://github.com/wilfredpine/Python-Tutorial/blob/main/Chapter%204%20-%20Application%20Development/Python%20Environment.docx for Installing/Using Multiple version of Python on Windows.
+2. Install MySQL Server (E.g. WAMP, XAMP, MySQL Server Community)
+3. Clone the project: `git clone https://github.com/Dedicated-IT-Developers/did-official-website.git`
+3. Create database and Import `sample_db/did_mysql.sql`
+2. Create Virtual environment (e.g: `py -m venv env`)
+2. Activate Virtual environment: (e.g: `env\scripts\activate`)
+3. Run: `pip install -r requirements.txt`
+4. rename `.env-rename` to `.env`
+5. configure the `.env` file
+6. run `py manage.py runserver`
 
-// Install PostgreSQL Version 17.4.1 or Higher
-Install MySQL Server / E.g. WAMP
-Import sample_db/did_mysql.sql
+# Accounts
+## Dashboard / Admin
+    http://127.0.0.1:8000/admin
+    username:didadmin
+    password:didadmin
 
-1. Create Virtual environment (e.g: env_did)
-2. Activate Virtual environment
-3. pip install -r requirements.txt
-4. rename .env-rename to .env
-5. configure the .env file
-6. run
-
-
-Dashboard / Admin
-127.0.0.1:8000/admin
-username:didadmin
-password:didadmin
-
-User / Member
-127.0.0.1:8000/admin
-username:(assigned by admin)
-password:(assigned by admin)
+## User / Member
+    http://127.0.0.1:8000/admin
+    username:(assigned by admin)
+    password:(assigned by admin)
 Sample:
-username: aristonmagboo17
-password: DiD@2025
+    username: aristonmagboo17
+    password: DiD@2025
     
-Todos: (Always make Pull request before Push updates)
 
-- Remove the Javascript for fetching data (displaying data) into html | just used Django Template Engine inside html 
+# Todos: (Note: Always make Pull request before Push updates)
+
+- Remove the Javascript/Ajax for fetching data (displaying data) into html, just used the Django Template Engine inside html 
     * Projects Page
     * View Projects Page
     * Teams Page
 - Teams Page (Sobra laki ng Card)
-- Teams Page (Portfolio: Display all DiD Projects in icons/image/short name)
+- Project Page (alternative image if no uploaded)
 - Super Admin Inputs Validations 
-    * JSON inputs (select2 css) 
+    * JSON inputs (select2 css) - make it required even in updating
     * Team Profile (1 profile = 1 user only)
 
 Plan

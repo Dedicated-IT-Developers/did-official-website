@@ -212,6 +212,7 @@
               >
                 About the Project
               </h2>
+              <small id="project-status" class="mb-5"></small>
               <p
                 id="project-description"
                 class="text-base sm:text-lg text-gray-300 leading-relaxed"
@@ -471,6 +472,7 @@
 
       function displayProjectDetails(project) {
         document.getElementById("project-title").textContent = project.title;
+        document.getElementById("project-status").textContent = "Status: " + project.status;
         document.getElementById("project-description").textContent =
           project.description;
 
