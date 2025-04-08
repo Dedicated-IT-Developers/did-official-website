@@ -1,0 +1,7430 @@
+[
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "users",
+        "model": "customuser"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "contact"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "project"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "sliderposter"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "team"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "projectdeveloper"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "projectimage"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "personalproject"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "education"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "experience"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "fields": {
+        "app_label": "abouts",
+        "model": "projectrole"
+    }
+},
+{
+    "model": "abouts.sliderposter",
+    "pk": 3,
+    "fields": {
+        "slider_image": "slider_images/vaGlzhdl.jpg",
+        "status": "active",
+        "created": "2025-02-10T12:50:47.981Z",
+        "updated": "2025-02-12T04:50:55.325Z"
+    }
+},
+{
+    "model": "abouts.sliderposter",
+    "pk": 4,
+    "fields": {
+        "slider_image": "slider_images/uKRgnASI.jpg",
+        "status": "active",
+        "created": "2025-02-10T12:50:55.473Z",
+        "updated": "2025-02-12T04:51:02.926Z"
+    }
+},
+{
+    "model": "abouts.sliderposter",
+    "pk": 5,
+    "fields": {
+        "slider_image": "slider_images/iChFfAhg.jpg",
+        "status": "active",
+        "created": "2025-02-10T12:51:00.376Z",
+        "updated": "2025-02-12T04:51:10.007Z"
+    }
+},
+{
+    "model": "abouts.sliderposter",
+    "pk": 6,
+    "fields": {
+        "slider_image": "slider_images/6ZZAoijn.jpg",
+        "status": "active",
+        "created": "2025-02-12T04:51:17.233Z",
+        "updated": "2025-02-12T04:51:17.233Z"
+    }
+},
+{
+    "model": "abouts.sliderposter",
+    "pk": 7,
+    "fields": {
+        "slider_image": "slider_images/_z-m1N2n.jpg",
+        "status": "active",
+        "created": "2025-02-12T04:51:23.900Z",
+        "updated": "2025-02-12T04:51:23.900Z"
+    }
+},
+{
+    "model": "abouts.education",
+    "pk": 1,
+    "fields": {
+        "team": 2,
+        "school": "Mindoro State University",
+        "degree": "Bachelor of Science in Information Technology",
+        "field_of_study": null,
+        "start_year": 2014,
+        "end_year": 2018,
+        "description": "",
+        "created": "2025-03-28T08:25:35.357Z",
+        "updated": "2025-03-28T08:26:00.504Z"
+    }
+},
+{
+    "model": "abouts.education",
+    "pk": 2,
+    "fields": {
+        "team": 2,
+        "school": "Batangas State University - The National Engineering University",
+        "degree": "Master of Science in Information Technology",
+        "field_of_study": "Machine Learning",
+        "start_year": 2019,
+        "end_year": 2023,
+        "description": "",
+        "created": "2025-03-28T08:26:48.552Z",
+        "updated": "2025-03-28T08:26:48.552Z"
+    }
+},
+{
+    "model": "abouts.experience",
+    "pk": 1,
+    "fields": {
+        "team": 2,
+        "company": "Dedicated IT Developers (DiD)",
+        "position": "Founder, IT Expert, Project Manager, Full-Stack Developer",
+        "start_date": "2024-03-04",
+        "end_date": null,
+        "description": "Dedicated IT Developers (DiD) is a dynamic community of IT students driven by innovation, collaboration, and excellence. Guided by our esteemed IT faculty mentors, we strive to bridge the gap between academic learning and real-world application.",
+        "created": "2025-03-28T08:16:24.816Z",
+        "updated": "2025-03-28T08:16:24.816Z"
+    }
+},
+{
+    "model": "abouts.experience",
+    "pk": 2,
+    "fields": {
+        "team": 2,
+        "company": "Mindoro State University Management Information System (MIS) Office",
+        "position": "IT Staff",
+        "start_date": "2018-06-05",
+        "end_date": "2020-02-28",
+        "description": "Responsible for performing IT operations such as Network Configurations, Computer Troubleshooting, System Planning, Development, and Maintenance. Lead Programmer/Developer of the First Web-based Enrollment System (Version 1) of the University.",
+        "created": "2025-03-30T05:48:26.074Z",
+        "updated": "2025-03-30T05:48:26.074Z"
+    }
+},
+{
+    "model": "abouts.experience",
+    "pk": 3,
+    "fields": {
+        "team": 2,
+        "company": "Mindoro State University",
+        "position": "IT Instructor",
+        "start_date": "2020-03-02",
+        "end_date": null,
+        "description": "Responsible for developing instructional materials and teaching IT courses that equip students with industry-relevant skills for their future careers. Guided, facilitated, and supervised student activities, projects, research, and extension initiatives within the IT Department. Designed and implemented application/systems for the department while also developing solutions, conducting research, and leading extension projects that benefit both the university and the broader community.",
+        "created": "2025-03-30T05:52:58.306Z",
+        "updated": "2025-03-30T05:52:58.306Z"
+    }
+},
+{
+    "model": "abouts.personalproject",
+    "pk": 1,
+    "fields": {
+        "team": 2,
+        "project_name": "ConfiRed Framework",
+        "project_link": "https://github.com/wilfredpine/confired",
+        "description": "A light and basic PHP MVC Framework. It was created to examine the structure of an MVC Framework and how it works. It uses static methods to implement Libraries or Helpers better, clear, and easy management. In some PHP versions, a static method is slower than non-static methods. You can also use object-oriented approach.",
+        "tech_stack": [
+            "PHP"
+        ],
+        "features": [
+            "OOP",
+            "MVC"
+        ],
+        "created": "2025-03-28T08:21:36.893Z",
+        "updated": "2025-03-28T08:21:36.893Z"
+    }
+},
+{
+    "model": "abouts.project",
+    "pk": 1,
+    "fields": {
+        "project_name": "DiD Official Website",
+        "project_type": "Web Application",
+        "description": "DiD Official Website is a web application developed by DiD Members using Python. The website is designed using html and tailwind css.",
+        "tech_stack": [
+            "django",
+            "tailwind"
+        ],
+        "features": [
+            "Home",
+            "Page",
+            "Projects",
+            "Teams",
+            "Portfolio",
+            "About",
+            "Contacts"
+        ],
+        "link": "https://did.confired.com/",
+        "project_start": "2025-02-08",
+        "project_end": null,
+        "status": "pre-deployment",
+        "created": "2025-02-10T13:33:22.514Z",
+        "updated": "2025-04-03T08:36:19.642Z"
+    }
+},
+{
+    "model": "abouts.project",
+    "pk": 2,
+    "fields": {
+        "project_name": "Student Org. Event Attendance Monitoring System using RFID",
+        "project_type": "Web Application",
+        "description": "The Event Attendance Monitoring System is a web-based application designed to streamline attendance tracking for events, conferences, and gatherings. Utilizing RFID, the system enables real-time check-ins, automated validation, and secure data storage. Features include live attendance monitoring, reporting, analytics, and integration, ensuring accurate and efficient attendance management. Ideal for organizations, schools, and businesses, this system enhances event security, reduces manual errors, and provides insightful attendance data.",
+        "tech_stack": [
+            "ExpressJS",
+            "PosgreSql",
+            "HTML",
+            "-Bootstrap"
+        ],
+        "features": [
+            "RFID",
+            "Scanner",
+            "Student",
+            "Registration",
+            "Attendance",
+            "Tracking",
+            "Reports",
+            "Others"
+        ],
+        "link": null,
+        "project_start": "2024-10-15",
+        "project_end": "2025-03-09",
+        "status": "implemented & maintained",
+        "created": "2025-02-11T01:19:50.894Z",
+        "updated": "2025-04-03T08:47:36.105Z"
+    }
+},
+{
+    "model": "abouts.project",
+    "pk": 3,
+    "fields": {
+        "project_name": "TeachTrack",
+        "project_type": "Web Application",
+        "description": "TeachTrack is an RFID-based monitoring system that tracks faculty members' presence inside the faculty office. By tapping their RFID cards, the system updates their status as \"Inside\" or \"Outside\" in real-time, providing a quick and efficient way to monitor faculty availability.",
+        "tech_stack": [
+            "Django",
+            "Tailwind"
+        ],
+        "features": [
+            "RFID",
+            "Kiosk",
+            "Admin",
+            "More"
+        ],
+        "link": null,
+        "project_start": "2025-03-12",
+        "project_end": null,
+        "status": "development",
+        "created": "2025-03-27T13:21:35.477Z",
+        "updated": "2025-04-03T08:37:46.968Z"
+    }
+},
+{
+    "model": "abouts.project",
+    "pk": 4,
+    "fields": {
+        "project_name": "RoVote: Student Organization Voting System",
+        "project_type": "Web Application",
+        "description": "Web-based Voting system for student organization of Mindoro State University Calapan City Campus",
+        "tech_stack": [
+            "PHP",
+            "MySQL",
+            "LavaLust-MVC-Framework",
+            "HTML-Bootstrap"
+        ],
+        "features": [
+            "Student-Registration",
+            "Realtime-Display-Results",
+            "Voting-Panel(Kiosk)",
+            "Report-Generation",
+            "Validation&Security",
+            "More"
+        ],
+        "link": null,
+        "project_start": "2023-04-15",
+        "project_end": "2023-06-23",
+        "status": "testing",
+        "created": "2025-03-30T06:09:20.898Z",
+        "updated": "2025-04-03T08:27:33.255Z"
+    }
+},
+{
+    "model": "abouts.project",
+    "pk": 5,
+    "fields": {
+        "project_name": "Student Kiosk - Student Information Tracker System for Faculty",
+        "project_type": "Web Application",
+        "description": "MINSU-Student-Kiosk is a faculty-accessible system designed to quickly search, retrieve, and manage student information. The system will be deployed as both a kiosk for searching and a secured admin panel for full management.",
+        "tech_stack": [
+            "Laravel-11",
+            "TailwindCSS",
+            "Blade",
+            "MySQL",
+            "Laravel-Breeze"
+        ],
+        "features": [
+            "Kiosk",
+            "Admin-Dashboard",
+            "More"
+        ],
+        "link": null,
+        "project_start": "2025-02-02",
+        "project_end": "2025-03-03",
+        "status": "testing",
+        "created": "2025-03-30T07:07:12.956Z",
+        "updated": "2025-04-03T08:33:31.361Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 1,
+    "fields": {
+        "project": 1,
+        "image": "project_images/did.PNG",
+        "uploaded_at": "2025-02-10T13:34:54.716Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 6,
+    "fields": {
+        "project": 2,
+        "image": "project_images/kiosk.PNG",
+        "uploaded_at": "2025-03-28T07:52:26.943Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 7,
+    "fields": {
+        "project": 2,
+        "image": "project_images/login.PNG",
+        "uploaded_at": "2025-03-28T07:52:33.303Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 8,
+    "fields": {
+        "project": 2,
+        "image": "project_images/staff.PNG",
+        "uploaded_at": "2025-03-28T07:52:41.007Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 9,
+    "fields": {
+        "project": 2,
+        "image": "project_images/admin.PNG",
+        "uploaded_at": "2025-03-28T07:52:47.685Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 10,
+    "fields": {
+        "project": 2,
+        "image": "project_images/scan.PNG",
+        "uploaded_at": "2025-03-28T07:52:54.127Z"
+    }
+},
+{
+    "model": "abouts.projectimage",
+    "pk": 11,
+    "fields": {
+        "project": 3,
+        "image": "project_images/DiD_Logo.png",
+        "uploaded_at": "2025-03-28T07:59:12.514Z"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 1,
+    "fields": {
+        "name": "Project Manager",
+        "acronym": "PM",
+        "description": "Oversees the project, manages resources, sets deadlines, and ensures smooth execution.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 2,
+    "fields": {
+        "name": "UI/UX Designer",
+        "acronym": "UI/UX Designer",
+        "description": "Designs wireframes, user journeys, and interfaces for a great user experience.",
+        "category": "Support"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 3,
+    "fields": {
+        "name": "Business Analyst",
+        "acronym": "BA",
+        "description": "Gathers requirements, translates business needs into technical specifications, and ensures alignment with stakeholders.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 4,
+    "fields": {
+        "name": "Software Architect",
+        "acronym": "Software Architect",
+        "description": "Designs the overall system architecture, selects technologies, and ensures scalability and security.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 5,
+    "fields": {
+        "name": "Frontend Developer",
+        "acronym": "Frontend Dev",
+        "description": "Develops the user interface (UI) using React, Vue, or other frameworks.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 6,
+    "fields": {
+        "name": "Backend Developer",
+        "acronym": "Backend Dev",
+        "description": "Implements business logic, APIs, and database interactions (Node.js, Python, Java, etc.).",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 7,
+    "fields": {
+        "name": "Full-Stack Developer",
+        "acronym": "Full-Stack Dev",
+        "description": "Works on both frontend and backend if the team is small.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 8,
+    "fields": {
+        "name": "Database Administrator",
+        "acronym": "DBA",
+        "description": "Designs, optimizes, and maintains the database (SQL, NoSQL, etc.).",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 9,
+    "fields": {
+        "name": "DevOps Engineer",
+        "acronym": "DevOps",
+        "description": "Handles cloud deployment, CI/CD pipelines, and server maintenance (AWS, Docker, Kubernetes).",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 10,
+    "fields": {
+        "name": "Cybersecurity Specialist",
+        "acronym": "Cybersecurity",
+        "description": "Ensures security protocols, encryption, and compliance with standards.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 11,
+    "fields": {
+        "name": "QA Engineer / Tester",
+        "acronym": "QA Tester",
+        "description": "Performs manual and automated testing to ensure quality and fix bugs.",
+        "category": "Core IT"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 12,
+    "fields": {
+        "name": "Technical Writer",
+        "acronym": "Tech Writer",
+        "description": "Documents software architecture, API references, and user manuals.",
+        "category": "Support"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 13,
+    "fields": {
+        "name": "System Administrator",
+        "acronym": "Sys Admin",
+        "description": "Manages infrastructure, networks, and IT support.",
+        "category": "Support"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 14,
+    "fields": {
+        "name": "Product Owner",
+        "acronym": "Product Owner",
+        "description": "Represents the client�s needs and ensures the project aligns with business goals.",
+        "category": "Support"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 15,
+    "fields": {
+        "name": "Scrum Master",
+        "acronym": "Scrum Master",
+        "description": "Facilitates Agile processes, sprint planning, and stand-up meetings.",
+        "category": "Support"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 16,
+    "fields": {
+        "name": "Machine Learning Engineer",
+        "acronym": "ML Engineer",
+        "description": "Works on AI/ML models if the project involves data science.",
+        "category": "Specialized"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 17,
+    "fields": {
+        "name": "Blockchain Developer",
+        "acronym": "Blockchain Dev",
+        "description": "If the project integrates blockchain for smart contracts or decentralization.",
+        "category": "Specialized"
+    }
+},
+{
+    "model": "abouts.projectrole",
+    "pk": 18,
+    "fields": {
+        "name": "IoT Developer",
+        "acronym": "IoT Dev",
+        "description": "If the project involves smart devices and sensor data.",
+        "category": "Specialized"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 4,
+    "fields": {
+        "project": 2,
+        "team": 2,
+        "role": "Project Manager,Software Architect,Full-Stack Developer,Database Administrator"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 6,
+    "fields": {
+        "project": 3,
+        "team": 2,
+        "role": "Project Manager,Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 7,
+    "fields": {
+        "project": 1,
+        "team": 2,
+        "role": "Project Manager,Software Architect,Full-Stack Developer,Database Administrator"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 8,
+    "fields": {
+        "project": 4,
+        "team": 2,
+        "role": "Project Manager,Full-Stack Developer,Database Administrator"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 9,
+    "fields": {
+        "project": 4,
+        "team": 13,
+        "role": "Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 10,
+    "fields": {
+        "project": 1,
+        "team": 14,
+        "role": "UI/UX Designer,Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 11,
+    "fields": {
+        "project": 3,
+        "team": 14,
+        "role": "Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 12,
+    "fields": {
+        "project": 4,
+        "team": 15,
+        "role": "Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 13,
+    "fields": {
+        "project": 3,
+        "team": 16,
+        "role": "Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 14,
+    "fields": {
+        "project": 1,
+        "team": 16,
+        "role": "UI/UX Designer,Frontend Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 15,
+    "fields": {
+        "project": 1,
+        "team": 17,
+        "role": "UI/UX Designer,Frontend Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 16,
+    "fields": {
+        "project": 2,
+        "team": 18,
+        "role": "Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 17,
+    "fields": {
+        "project": 2,
+        "team": 3,
+        "role": "Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 18,
+    "fields": {
+        "project": 5,
+        "team": 19,
+        "role": "Software Architect,Full-Stack Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 19,
+    "fields": {
+        "project": 5,
+        "team": 2,
+        "role": "Project Manager"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 20,
+    "fields": {
+        "project": 1,
+        "team": 20,
+        "role": "UI/UX Designer,Frontend Developer"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 21,
+    "fields": {
+        "project": 2,
+        "team": 6,
+        "role": "Business Analyst"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 22,
+    "fields": {
+        "project": 2,
+        "team": 12,
+        "role": "Business Analyst"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 23,
+    "fields": {
+        "project": 2,
+        "team": 9,
+        "role": "System Administrator"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 24,
+    "fields": {
+        "project": 5,
+        "team": 7,
+        "role": "Full-Stack Developer,QA Engineer / Tester"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 25,
+    "fields": {
+        "project": 5,
+        "team": 12,
+        "role": "Project Manager,QA Engineer / Tester"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 26,
+    "fields": {
+        "project": 3,
+        "team": 6,
+        "role": "Business Analyst,Software Architect"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 27,
+    "fields": {
+        "project": 3,
+        "team": 10,
+        "role": "Project Manager,QA Engineer / Tester"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 28,
+    "fields": {
+        "project": 3,
+        "team": 11,
+        "role": "QA Engineer / Tester"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 29,
+    "fields": {
+        "project": 2,
+        "team": 8,
+        "role": "System Administrator"
+    }
+},
+{
+    "model": "abouts.projectdeveloper",
+    "pk": 30,
+    "fields": {
+        "project": 3,
+        "team": 8,
+        "role": "System Administrator"
+    }
+},
+{
+    "model": "abouts.contact",
+    "pk": 1,
+    "fields": {
+        "email": "dedicateditdevelopers@gmail.com",
+        "number": "None",
+        "address": "Calapan City, Oriental Mindoro, Philippines",
+        "website": "http://did.confired.com"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "codename": "add_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "codename": "change_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "codename": "delete_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "codename": "view_customuser"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add contact",
+        "content_type": [
+            "abouts",
+            "contact"
+        ],
+        "codename": "add_contact"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change contact",
+        "content_type": [
+            "abouts",
+            "contact"
+        ],
+        "codename": "change_contact"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete contact",
+        "content_type": [
+            "abouts",
+            "contact"
+        ],
+        "codename": "delete_contact"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view contact",
+        "content_type": [
+            "abouts",
+            "contact"
+        ],
+        "codename": "view_contact"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project",
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "codename": "add_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project",
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "codename": "change_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project",
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "codename": "delete_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view project",
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "codename": "view_project"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add slider poster",
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "codename": "add_sliderposter"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change slider poster",
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "codename": "change_sliderposter"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete slider poster",
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "codename": "delete_sliderposter"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view slider poster",
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "codename": "view_sliderposter"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add team",
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "codename": "add_team"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change team",
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "codename": "change_team"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete team",
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "codename": "delete_team"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view team",
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "codename": "view_team"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project developer",
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "codename": "add_projectdeveloper"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project developer",
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "codename": "change_projectdeveloper"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project developer",
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "codename": "delete_projectdeveloper"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view project developer",
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "codename": "view_projectdeveloper"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project image",
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "codename": "add_projectimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project image",
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "codename": "change_projectimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project image",
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "codename": "delete_projectimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view project image",
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "codename": "view_projectimage"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add personal project",
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "codename": "add_personalproject"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change personal project",
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "codename": "change_personalproject"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete personal project",
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "codename": "delete_personalproject"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view personal project",
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "codename": "view_personalproject"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add education",
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "codename": "add_education"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change education",
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "codename": "change_education"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete education",
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "codename": "delete_education"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view education",
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "codename": "view_education"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add experience",
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "codename": "add_experience"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change experience",
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "codename": "change_experience"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete experience",
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "codename": "delete_experience"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view experience",
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "codename": "view_experience"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add project role",
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "codename": "add_projectrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change project role",
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "codename": "change_projectrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete project role",
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "codename": "delete_projectrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view project role",
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "codename": "view_projectrole"
+    }
+},
+{
+    "model": "auth.group",
+    "fields": {
+        "name": "members",
+        "permissions": [
+            [
+                "add_education",
+                "abouts",
+                "education"
+            ],
+            [
+                "change_education",
+                "abouts",
+                "education"
+            ],
+            [
+                "delete_education",
+                "abouts",
+                "education"
+            ],
+            [
+                "view_education",
+                "abouts",
+                "education"
+            ],
+            [
+                "add_experience",
+                "abouts",
+                "experience"
+            ],
+            [
+                "change_experience",
+                "abouts",
+                "experience"
+            ],
+            [
+                "delete_experience",
+                "abouts",
+                "experience"
+            ],
+            [
+                "view_experience",
+                "abouts",
+                "experience"
+            ],
+            [
+                "add_personalproject",
+                "abouts",
+                "personalproject"
+            ],
+            [
+                "change_personalproject",
+                "abouts",
+                "personalproject"
+            ],
+            [
+                "delete_personalproject",
+                "abouts",
+                "personalproject"
+            ],
+            [
+                "view_personalproject",
+                "abouts",
+                "personalproject"
+            ],
+            [
+                "view_project",
+                "abouts",
+                "project"
+            ],
+            [
+                "change_team",
+                "abouts",
+                "team"
+            ]
+        ]
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$2HftBRyUNFS1nfUBqZAfAs$jhPamweRzoRUBET+6HzqxorWjVvHzr2IWY39bqayLSQ=",
+        "last_login": "2025-04-03T06:23:28.731Z",
+        "is_superuser": true,
+        "username": "didadmin",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-02-09T15:10:32.442Z",
+        "is_email_verified": false,
+        "email": "wilfredpine9@gmail.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$csEcSMf36pRVRg6ZkeOlLP$Uh4Je7LwXrbe0K6k2bNgtBvxDHqRT/7MoV8Hdc+7PJo=",
+        "last_login": "2025-04-02T09:17:54.027Z",
+        "is_superuser": false,
+        "username": "wilfredpine9",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-02-09T15:19:42Z",
+        "is_email_verified": true,
+        "email": "only.master.red@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Vak160W8UkYqUgsaqpQzR2$0NzFSGIZOb7OV+ZUrApnvyUm5jXf87rlex1ioBm9+NQ=",
+        "last_login": "2025-04-03T06:22:26.773Z",
+        "is_superuser": false,
+        "username": "aristonmagboo17",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-29T23:01:34Z",
+        "is_email_verified": false,
+        "email": "aristonmagboo17@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$DVpxbyDKwfJkVShIFCzpOd$QhpyzHsarYnyQvwJcoxxWq87vpDd9QsNNXpdAoJEF8w=",
+        "last_login": "2025-03-30T00:14:16.139Z",
+        "is_superuser": false,
+        "username": "delfirome",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-29T23:13:18Z",
+        "is_email_verified": false,
+        "email": "delfirome@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Zb0u9sAwl3YZ4mnXk8E269$R932RqJ9LRxoVuMmr41Xo4ayypXq8/QKQqgV/62b5x4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ronmarasigan",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T00:37:10Z",
+        "is_email_verified": false,
+        "email": "ronald.marasigan@yahoo.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$h3gQsKQUCcyPcVOX3KmJZy$NbErPn0u3kRbznP1XZ4N+E24BNiYG9HoEWm0i/RJaI8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "kamj",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T02:22:16Z",
+        "is_email_verified": false,
+        "email": "kam25javier@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$ZzElY8kPnxSxIHleP9qXMn$HD5vX0WmeHLwnVu8d1lBfhO9E8Iw4zvlx+IT+SXYb/o=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "elmerfestijo",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T02:24:54Z",
+        "is_email_verified": false,
+        "email": "elmerfestijo@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$g8q6PHsHrGUSB0CdIKIyZi$4Zp4Ky4oTRJuxFrdbKc9e+Y4otUz24WfKxFPDukQ808=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jesusbautista",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T02:32:38Z",
+        "is_email_verified": false,
+        "email": "bautista_kf@yahoo.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$tYJb8vzDDeuG2sDcRDk9yM$QvhJI0vAj2/Cr685ar1kyvtWCL3Y8QJ41732Jz4l+tQ=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "adaymalou30",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T02:42:11Z",
+        "is_email_verified": false,
+        "email": "adaymalou30@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$K6kbMEj2P8yDF1ghVyo17g$V1sx4VP43w0n8qN7aths7gtQi8RiLr4HaHfviBKZi6Y=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "dhesmarie",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T02:53:44Z",
+        "is_email_verified": false,
+        "email": "dhesmarie@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$l75b03fKEhVKdVYkwFXm5l$xI577Hskixh/SG7nwkBOn97u8O1OAJ74vo/hFYf16Fc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "noeldimailig",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T06:12:36Z",
+        "is_email_verified": false,
+        "email": "noeldimailig@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$rsN0b66uDyKR24Fcc0hQJF$Ewgc+sqi+skN6D7HZs1Mzjxxxb38o8oQB0keVsSB7lM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "SonyCookies",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T06:25:01Z",
+        "is_email_verified": false,
+        "email": "sonycookies@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$rYNNTiehXm6608TEyUUbF6$bC+RyFt9LcuzykG2yj2qY8hltTrKUKN0hHBEgCpAIOA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "lilethpine",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T06:35:22Z",
+        "is_email_verified": false,
+        "email": "lilethpine@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$cbdUXcVy5JVH9A5IicWxW3$ORmc/e6xWOMhbBTbALmNWGRlkU9bP963NhQlErwiXU4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ejayayayyy",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T06:46:45Z",
+        "is_email_verified": false,
+        "email": "ejayayayyy@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$XVLRYnvaex13AeFGiZzCwy$kLfABDNZ0+JOL1yE/wKdcPbZrmDw/D4zz1Y7fvKcxx4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "CyKean",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T06:50:54Z",
+        "is_email_verified": false,
+        "email": "perjescykean356@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$xvi8eoVQugKGnwS1VnsSYK$Q4fnJ4/aJsLjCr0AG+NqxRSMzGFbenkv4UHXJPMBVN4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "i4nizer",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T06:56:31Z",
+        "is_email_verified": false,
+        "email": "i4nizer@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$nBgYrBhYvFEPUa9jb4YFSE$agMy4bE0/UfkBkpze/esQxy5lDXeqLOd76WvKTrQVtY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Mr-LuaM",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T07:02:19Z",
+        "is_email_verified": false,
+        "email": "luamark@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$d9aUKucnWscDV5Iz8sLNTD$IKvSIbHTRTMYUrjCaFjxPBIDT1IefhaLbiFIhUAgPXA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "alagasiloraine",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-30T07:10:27Z",
+        "is_email_verified": false,
+        "email": "alagasiloraine@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.customuser",
+    "fields": {
+        "password": "pbkdf2_sha256$870000$qWiDaxpJu26AKIvSNRVeRZ$8xlFnDNqoZ8BrAbUTtRuaW5u75OMjeBxt/v2AyZWDac=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "britolancekianne",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-03-31T08:51:28Z",
+        "is_email_verified": false,
+        "email": "britolancekianne@gmail.com",
+        "groups": [
+            [
+                "members"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "wilfredpine9"
+        ],
+        "name": "Wilfred V. Pine, MSIT",
+        "position": "DiD Founder, IT Expert, Project Manager, Full-Stack Developer",
+        "role": "founder",
+        "objectives": "Highly motivated and skilled web developer with expertise in front-end and back-end technologies, dedicated to delivering innovative, user-centric solutions. Proficient in leadership, project management, and mentorship, with a strong passion for integrating cutting-edge technologies, including machine learning, to drive efficiency, scalability, and intelligent automation in modern digital solutions.",
+        "skills": [
+            "Python",
+            "PHP",
+            "C#",
+            "NodeJS",
+            "Java",
+            "IoT",
+            "Machine-Learning",
+            "Adobe"
+        ],
+        "photo": "team_photos/DSC_8968_yzmCouA.JPG",
+        "website": "https://confired.com",
+        "github": "https://github.com/wilfredpine",
+        "linkedin": "https://www.linkedin.com/in/wilfredpine/",
+        "twitter": "https://twitter.com/wilfredpine9",
+        "facebook": "https://www.facebook.com/confiredtechnology",
+        "instagram": "https://www.instagram.com/wilfredpine/",
+        "youtube": "https://www.youtube.com/@confired-official/",
+        "email": "wilfredpine9@gmail.com",
+        "phone": null,
+        "address": "Calapan City, Oriental Mindoro, Philippines",
+        "created": "2025-03-28T07:39:02.032Z",
+        "updated": "2025-03-29T13:52:43.751Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "aristonmagboo17"
+        ],
+        "name": "Ariston A. Magboo Jr.",
+        "position": "Full-stack Developer",
+        "role": "member",
+        "objectives": "To earn new knowledge by solving real world problems, enhance my skills in different situations.",
+        "skills": [
+            "Python",
+            "PHP",
+            "NodeJS",
+            "C#",
+            "Java",
+            "IoT",
+            "Lavalust",
+            "Vue",
+            "Code",
+            "Igniter",
+            "Django",
+            "ExpressJS",
+            "HTML",
+            "Bootstrap",
+            "Tailwind",
+            "CSS",
+            "Adobe",
+            "Photoshop",
+            "Machine-Learning"
+        ],
+        "photo": "team_photos/ID_PIC_-_Magboo_Jr._Ariston_A..jpg",
+        "website": null,
+        "github": "https://github.com/Inton0417",
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-29T23:10:21.464Z",
+        "updated": "2025-03-29T23:58:20.401Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 6,
+    "fields": {
+        "user": [
+            "delfirome"
+        ],
+        "name": "Fidel C. Romasanta, MIT",
+        "position": "DiD Founder, IT Expert, Project Manager, Programmer",
+        "role": "founder",
+        "objectives": "Develop a roadmap for long-term sustainability, ensuring continuous growth, adaptation, and positive impact in the tech community. Instill a culture of teamwork, leadership, and knowledge-sharing to empower members to become industry leaders.",
+        "skills": [
+            "Programming",
+            "Internet-of-Things",
+            "Leadership",
+            "Project-Management",
+            "Mentoring"
+        ],
+        "photo": "team_photos/5R3_FO7RLpr.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-29T23:59:58.473Z",
+        "updated": "2025-03-30T03:30:19.668Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 7,
+    "fields": {
+        "user": [
+            "ronmarasigan"
+        ],
+        "name": "Ronald M. Marasigan, MSIT",
+        "position": "DiD Founder, IT Expert, Project Manager, Full-Stack Developer",
+        "role": "founder",
+        "objectives": "Provide mentorship, training, and hands-on projects to help members enhance their technical skills, preparing them for real-world challenges. Ensure sustainable solutions by focusing on scalable, well-documented, and continuously improving systems for long-term effectiveness.",
+        "skills": [
+            "PHP",
+            "C#",
+            "Java",
+            "JS",
+            "Laravel",
+            "CodeIgniter",
+            "LavaLust"
+        ],
+        "photo": "team_photos/5R8.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T00:40:45.538Z",
+        "updated": "2025-03-30T00:40:45.538Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 8,
+    "fields": {
+        "user": [
+            "elmerfestijo"
+        ],
+        "name": "Elmer H. Festijo, MSIT",
+        "position": "DiD Founder, IT Expert, Project Manager, Programmer",
+        "role": "founder",
+        "objectives": "Provide mentorship, training, and hands-on projects to help members enhance their technical skills, preparing them for real-world challenges.",
+        "skills": [
+            "Network-Administration",
+            "Virtualization",
+            "Cyber-Security",
+            "Internet-of-Things",
+            "Project-Management",
+            "Programming"
+        ],
+        "photo": "team_photos/5R5.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T02:29:49.720Z",
+        "updated": "2025-03-30T02:29:49.720Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 9,
+    "fields": {
+        "user": [
+            "jesusbautista"
+        ],
+        "name": "Engr. Jesus M. Bautista, MSIT",
+        "position": "DiD Founder, IT Expert, Network/System Administrator",
+        "role": "founder",
+        "objectives": "Ensure sustainable solutions by focusing on scalable, well-documented, and continuously improving systems for long-term effectiveness.",
+        "skills": [
+            "Network-Administration",
+            "System-Administration",
+            "Virtualization",
+            "Cyber-Security",
+            "Project-Management"
+        ],
+        "photo": "team_photos/5R4.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T02:40:21.645Z",
+        "updated": "2025-03-30T02:40:21.645Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 10,
+    "fields": {
+        "user": [
+            "kamj"
+        ],
+        "name": "Kristianne Aleza Marie L. Javier, MSIT",
+        "position": "DiD Founder, IT Expert, Project Manager",
+        "role": "founder",
+        "objectives": "Develop a roadmap for long-term sustainability, ensuring continuous growth, adaptation, and positive impact in the tech community.",
+        "skills": [
+            "Programming",
+            "Network",
+            "CMS",
+            "ERP",
+            "Project-Management"
+        ],
+        "photo": "team_photos/5R6.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T02:59:39.401Z",
+        "updated": "2025-03-30T02:59:39.401Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 11,
+    "fields": {
+        "user": [
+            "adaymalou30"
+        ],
+        "name": "Malou B. Aday",
+        "position": "DiD Founder, IT Expert, Project Manager, Programmer",
+        "role": "founder",
+        "objectives": "Guide members in creating strong professional portfolios, resumes, and LinkedIn profiles to improve their job opportunities after graduation.",
+        "skills": [
+            "Programming",
+            "Docker",
+            "Project-Management"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T03:26:22.805Z",
+        "updated": "2025-03-30T03:26:22.805Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 12,
+    "fields": {
+        "user": [
+            "dhesmarie"
+        ],
+        "name": "Dezza Marie M. Magsino, MSIT",
+        "position": "DiD Founder, IT Expert, Project Manager, Programmer",
+        "role": "founder",
+        "objectives": "Provide mentorship, training, and hands-on projects to help members enhance their technical skills, preparing them for real-world challenges.",
+        "skills": [
+            "Programming",
+            "Project-Management",
+            "Mentoring"
+        ],
+        "photo": "team_photos/5R7.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T03:29:48.489Z",
+        "updated": "2025-03-30T03:29:48.489Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 13,
+    "fields": {
+        "user": [
+            "noeldimailig"
+        ],
+        "name": "Noel Dimailig",
+        "position": "IT Expert, Full-stack Developer",
+        "role": "alumni",
+        "objectives": "--",
+        "skills": [
+            "PHP",
+            "Python",
+            "MVC",
+            "Django",
+            "C#",
+            "JS"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T06:15:21.968Z",
+        "updated": "2025-03-30T06:15:21.968Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 14,
+    "fields": {
+        "user": [
+            "SonyCookies"
+        ],
+        "name": "Sonny Sarcia",
+        "position": "Full-stack Developer",
+        "role": "member",
+        "objectives": "Participate in research and development initiatives to advance technology.",
+        "skills": [
+            "Python",
+            "PHP",
+            "C#",
+            "Java",
+            "NodeJS",
+            "Machine-Learning"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T06:27:55.201Z",
+        "updated": "2025-03-30T06:27:55.201Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 15,
+    "fields": {
+        "user": [
+            "lilethpine"
+        ],
+        "name": "Lileth V. Pine",
+        "position": "Full-stack Developer, Quality Assurance Analyst",
+        "role": "alumni",
+        "objectives": "Collaborate on innovative solutions to address community challenges.",
+        "skills": [
+            "PHP",
+            "MySQL",
+            "HTML-Bootstrap",
+            "MVC",
+            "Agile"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T06:39:04.789Z",
+        "updated": "2025-03-30T06:39:04.789Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 16,
+    "fields": {
+        "user": [
+            "ejayayayyy"
+        ],
+        "name": "Edward Gatbonton",
+        "position": "Full-stack Developer",
+        "role": "member",
+        "objectives": "--",
+        "skills": [
+            "PHP",
+            "MVC",
+            "C#",
+            "Python",
+            "Tailwind"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T06:48:21.185Z",
+        "updated": "2025-03-30T06:48:21.185Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 17,
+    "fields": {
+        "user": [
+            "CyKean"
+        ],
+        "name": "Cy Kean Angel Dave R. Perjes",
+        "position": "Full-stack Developer",
+        "role": "member",
+        "objectives": "To enhance my skills and learn new programming languages and frameworks and to be familiarize to the environment of team project and too experience real-world project and to collaborate with other members of the organization.",
+        "skills": [
+            "PHP",
+            "HTML",
+            "CSS",
+            "Tailwind",
+            "Laravel",
+            "Python",
+            "NodeJS",
+            "Bootstrap",
+            "Firebase",
+            "SQL",
+            "Django"
+        ],
+        "photo": "team_photos/Untitled_design_-_Cy_Kean_Perjes.png",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T06:53:28.344Z",
+        "updated": "2025-03-30T06:53:28.344Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 18,
+    "fields": {
+        "user": [
+            "i4nizer"
+        ],
+        "name": "Ian Sandoval",
+        "position": "Full-stack Developer",
+        "role": "member",
+        "objectives": "--",
+        "skills": [
+            "PHP",
+            "C#",
+            "Python",
+            "MVC"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T06:57:32.080Z",
+        "updated": "2025-03-30T06:57:32.080Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 19,
+    "fields": {
+        "user": [
+            "Mr-LuaM"
+        ],
+        "name": "Mark Lua",
+        "position": "Full-stack Developer",
+        "role": "member",
+        "objectives": "--",
+        "skills": [
+            "PHP",
+            "Python",
+            "Laravel",
+            "Django",
+            "NodeJS"
+        ],
+        "photo": "",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T07:03:41.818Z",
+        "updated": "2025-03-30T07:03:41.818Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 20,
+    "fields": {
+        "user": [
+            "alagasiloraine"
+        ],
+        "name": "Loraine B. Alagasi",
+        "position": "Front-end Developer, Graphic Designer, Programmer, QA Tester",
+        "role": "member",
+        "objectives": "To apply my skills in web development and UI design in real-world projects, continuously learn new technologies, and contribute to innovative solutions.",
+        "skills": [
+            "HTML",
+            "Bootstrap",
+            "Tailwind",
+            "CSS",
+            "Node.js",
+            "and",
+            "Vue.js"
+        ],
+        "photo": "team_photos/loraine_alagasi_-_Alagasi_Loraine_B..png",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-30T07:13:20.489Z",
+        "updated": "2025-03-30T07:13:20.489Z"
+    }
+},
+{
+    "model": "abouts.team",
+    "pk": 21,
+    "fields": {
+        "user": [
+            "britolancekianne"
+        ],
+        "name": "Lance Kianne E. Brito",
+        "position": "Programmer",
+        "role": "member",
+        "objectives": "To become a skilled IT student",
+        "skills": [
+            "C",
+            "C#",
+            "Java",
+            "SQL"
+        ],
+        "photo": "team_photos/IMG_20240816_024955_114920_-_LANCE_KIANNE_BRITO.jpg",
+        "website": null,
+        "github": null,
+        "linkedin": null,
+        "twitter": null,
+        "facebook": null,
+        "instagram": null,
+        "youtube": null,
+        "email": null,
+        "phone": null,
+        "address": "",
+        "created": "2025-03-31T08:53:33.998Z",
+        "updated": "2025-03-31T08:53:33.998Z"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2025-02-09T15:19:44.251Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "2",
+        "object_repr": "wilfredpine9",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2025-02-09T15:20:57.309Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "2",
+        "object_repr": "wilfredpine9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2025-02-10T06:29:03.213Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "1",
+        "object_repr": "Slider 1 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2025-02-10T06:32:16.146Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "2",
+        "object_repr": "Slider 2 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2025-02-10T06:46:52.214Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "2",
+        "object_repr": "Slider 2 - active",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2025-02-10T12:50:26.774Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "1",
+        "object_repr": "Slider 1 - active",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2025-02-10T12:50:47.983Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "3",
+        "object_repr": "Slider 3 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2025-02-10T12:50:55.475Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "4",
+        "object_repr": "Slider 4 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2025-02-10T12:51:00.378Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "5",
+        "object_repr": "Slider 5 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2025-02-10T13:33:22.517Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "DiD Official Website",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2025-02-10T13:34:54.717Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "1",
+        "object_repr": "Image for DiD Official Website",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2025-02-10T14:24:51.006Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "DiD Official Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Features\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2025-02-10T15:01:55.361Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2025-02-10T15:05:51.146Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "1",
+        "object_repr": "Image for DiD Official Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2025-02-10T15:06:06.417Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2025-02-10T15:07:32.823Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "1",
+        "object_repr": "Image for DiD Official Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2025-02-10T15:31:27.194Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Position\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2025-02-10T15:54:05.815Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager, Back-end Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2025-02-10T15:55:01.743Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Projects\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2025-02-10T16:03:39.808Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "contact"
+        ],
+        "object_id": "1",
+        "object_repr": "dedicateditdevelopers@gmail.com",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2025-02-10T16:14:48.201Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "1",
+        "object_repr": "ConfiRed (Personal) - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2025-02-10T17:30:29.018Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "3",
+        "object_repr": "sonny",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2025-02-10T17:31:30.920Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2025-02-10T17:32:09.798Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia - Fullstack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2025-02-11T01:02:44.275Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Position\", \"Objectives\", \"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2025-02-11T01:13:25.734Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2025-02-11T01:19:50.910Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2025-02-11T01:20:34.441Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "3",
+        "object_repr": "Wilfred V. Pine, MSIT - Fullstack Developer, Project Manager",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2025-02-11T01:30:43.308Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "2",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2025-02-11T01:30:54.057Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "3",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2025-02-11T01:31:04.424Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "4",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2025-02-11T01:31:12.676Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "5",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2025-02-11T01:56:15.729Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2025-02-12T04:50:55.326Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "3",
+        "object_repr": "Slider 3 - active",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slider image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2025-02-12T04:51:02.928Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "4",
+        "object_repr": "Slider 4 - active",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slider image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2025-02-12T04:51:10.009Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "5",
+        "object_repr": "Slider 5 - active",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Slider image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2025-02-12T04:51:17.235Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "6",
+        "object_repr": "Slider 6 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2025-02-12T04:51:23.901Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "sliderposter"
+        ],
+        "object_id": "7",
+        "object_repr": "Slider 7 - active",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2025-02-18T06:46:30.640Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "3",
+        "object_repr": "sonny",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2025-02-22T15:16:21.986Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2025-02-22T15:17:32.827Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2025-02-22T15:18:41.119Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2025-02-22T15:23:00.422Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2025-02-22T15:32:46.059Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2025-02-22T15:58:35.119Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2025-02-22T16:03:13.403Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "4",
+        "object_repr": "Wilfred V. Pine, MSIT - Fullstack Developer, Project Manager",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2025-02-22T16:03:57.503Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "4",
+        "object_repr": "Wilfred V. Pine, MSIT - Fullstack Developer, Project Manager",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2025-02-22T16:28:51.211Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2025-02-22T16:29:14.100Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Position\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2025-02-22T16:46:14.264Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "2",
+        "object_repr": "Egg (Personal) - Sonny Sarcia",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2025-02-22T17:12:10.134Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "2",
+        "object_repr": "Egg (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2025-02-22T17:12:51.086Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "5",
+        "object_repr": "Sonny Sarcia - Fullstack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2025-02-22T17:13:14.022Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "3",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Objectives\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2025-02-23T03:46:18.416Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "3",
+        "object_repr": "Egg (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2025-02-23T03:46:24.885Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "4",
+        "object_repr": "asdasd (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2025-02-23T03:59:48.187Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "5",
+        "object_repr": "Egg (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2025-03-27T08:25:28.709Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "object_id": "1",
+        "object_repr": "members",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2025-03-27T08:26:37.831Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "3",
+        "object_repr": "sonny",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2025-03-27T08:41:25.923Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "object_id": "1",
+        "object_repr": "members",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2025-03-27T13:21:35.480Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "TeachTrack",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2025-03-27T13:29:23.772Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "TeachTrack",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tech stack\", \"Features\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2025-03-27T13:49:29.859Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "TeachTrack",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tech stack\", \"Features\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2025-03-27T13:53:19.128Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "10",
+        "object_repr": "dsfngkjhb rjh yt trhtj h th (Personal) - Sonny Sarcia",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tech stack\", \"Features\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2025-03-27T15:13:37.021Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "4",
+        "object_repr": "user",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2025-03-27T15:14:21.432Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "4",
+        "object_repr": "user",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2025-03-27T15:16:03.540Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "4",
+        "object_repr": "User",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2025-03-28T03:40:52.746Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "11",
+        "object_repr": "csacsacsac (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2025-03-28T03:40:52.746Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "10",
+        "object_repr": "dsfngkjhb rjh yt trhtj h th (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2025-03-28T03:40:52.746Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "9",
+        "object_repr": "zczxcxc (Personal) - Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2025-03-28T03:40:52.746Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "1",
+        "object_repr": "ConfiRed (Personal) - Wilfred V. Pine, MSIT",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2025-03-28T03:41:38.791Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "4",
+        "object_repr": "User",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2025-03-28T03:41:52.684Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "3",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2025-03-28T06:47:23.372Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "4",
+        "object_repr": "user",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2025-03-28T07:09:48.335Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "3",
+        "object_repr": "Wilfred V. Pine, MSIT - Fullstack Developer, Project Manager",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2025-03-28T07:09:48.335Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager, Back-end Developer",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2025-03-28T07:10:08.208Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "1",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2025-03-28T07:10:23.208Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "3",
+        "object_repr": "sonny",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2025-03-28T07:10:42.017Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "2",
+        "object_repr": "wilfredpine9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2025-03-28T07:39:02.042Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2025-03-28T07:42:09.366Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2025-03-28T07:45:21.281Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "TeachTrack",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Features\", \"Link\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2025-03-28T07:45:57.645Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "DiD Official Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Features\", \"Link\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2025-03-28T07:48:16.947Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "1",
+        "object_repr": "Image for DiD Official Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2025-03-28T07:48:27.159Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "5",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2025-03-28T07:48:27.159Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "4",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2025-03-28T07:48:27.159Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "3",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2025-03-28T07:48:27.159Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "2",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2025-03-28T07:52:26.945Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "6",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2025-03-28T07:52:33.306Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "7",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2025-03-28T07:52:41.010Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "8",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2025-03-28T07:52:47.688Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "9",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2025-03-28T07:52:54.130Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "10",
+        "object_repr": "Image for Event Attendance Monitoring System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2025-03-28T07:59:12.517Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectimage"
+        ],
+        "object_id": "11",
+        "object_repr": "Image for TeachTrack",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2025-03-28T08:00:40.102Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "4",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager & Fullstack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2025-03-28T08:02:58.960Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "2",
+        "object_repr": "wilfredpine9",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2025-03-28T08:08:54.742Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "object_id": "1",
+        "object_repr": "members",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2025-03-28T08:16:24.822Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "object_id": "1",
+        "object_repr": "Founder, IT Expert, Project Manager, Full-Stack Developer at Dedicated IT Developers (DiD) - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2025-03-28T08:21:36.899Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "personalproject"
+        ],
+        "object_id": "1",
+        "object_repr": "ConfiRed Framework (Personal) - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2025-03-28T08:25:35.362Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "object_id": "1",
+        "object_repr": "Bachelor of Science in Information Technology at Mindoro State University - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2025-03-28T08:26:00.506Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "object_id": "1",
+        "object_repr": "Bachelor of Science in Information Technology at Mindoro State University - Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Field of study\", \"Start year\", \"End year\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2025-03-28T08:26:48.554Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "education"
+        ],
+        "object_id": "2",
+        "object_repr": "Master of Science in Information Technology at Batangas State University - The National Engineering University - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2025-03-28T08:34:53.512Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "5",
+        "object_repr": "moderator",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2025-03-28T08:37:16.861Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "5",
+        "object_repr": "moderator",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"User permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2025-03-28T08:38:50.837Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "5",
+        "object_repr": "moderator",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2025-03-28T08:41:46.189Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "5",
+        "object_repr": "moderator",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2025-03-28T08:42:35.022Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "5",
+        "object_repr": "moderator",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2025-03-28T08:44:25.111Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "5",
+        "object_repr": "moderator",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2025-03-29T13:52:43.759Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "2",
+        "object_repr": "Wilfred V. Pine, MSIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Linkedin\", \"Twitter\", \"Facebook\", \"Instagram\", \"Youtube\", \"Email\", \"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2025-03-29T23:01:35.681Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "6",
+        "object_repr": "aristonmagboo17",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2025-03-29T23:02:38.896Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "6",
+        "object_repr": "aristonmagboo17",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2025-03-29T23:10:21.479Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "3",
+        "object_repr": "Ariston A. Magboo Jr.",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2025-03-29T23:13:20.307Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "7",
+        "object_repr": "delfirom",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2025-03-29T23:14:32.917Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "7",
+        "object_repr": "delfirome",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2025-03-29T23:58:20.408Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "3",
+        "object_repr": "Ariston A. Magboo Jr.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2025-03-29T23:59:58.477Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "6",
+        "object_repr": "Fidel C. Romasanta, MIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2025-03-30T00:29:19.330Z",
+        "user": [
+            "delfirome"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "6",
+        "object_repr": "Fidel C. Romasanta, MIT",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2025-03-30T00:33:54.518Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "6",
+        "object_repr": "Fidel C. Romasanta, MIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2025-03-30T00:37:11.267Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "8",
+        "object_repr": "ronmarasigan",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2025-03-30T00:37:27.592Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "8",
+        "object_repr": "ronmarasigan",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 124,
+    "fields": {
+        "action_time": "2025-03-30T00:40:45.546Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "7",
+        "object_repr": "Ronald M. Marasigan, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 125,
+    "fields": {
+        "action_time": "2025-03-30T00:44:09.884Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "6",
+        "object_repr": "Fidel C. Romasanta, MIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Position\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 126,
+    "fields": {
+        "action_time": "2025-03-30T02:22:17.161Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "9",
+        "object_repr": "kamj",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 127,
+    "fields": {
+        "action_time": "2025-03-30T02:23:08.600Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "9",
+        "object_repr": "kamj",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 128,
+    "fields": {
+        "action_time": "2025-03-30T02:24:55.418Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "10",
+        "object_repr": "ehf",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 129,
+    "fields": {
+        "action_time": "2025-03-30T02:25:44.919Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "10",
+        "object_repr": "elmerfestijo",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 130,
+    "fields": {
+        "action_time": "2025-03-30T02:29:49.725Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "8",
+        "object_repr": "Elmer H. Festijo, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 131,
+    "fields": {
+        "action_time": "2025-03-30T02:32:39.646Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "11",
+        "object_repr": "jesusbautista",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 132,
+    "fields": {
+        "action_time": "2025-03-30T02:32:57.226Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "11",
+        "object_repr": "jesusbautista",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 133,
+    "fields": {
+        "action_time": "2025-03-30T02:40:21.648Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "9",
+        "object_repr": "Engr. Jesus M. Bautista, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 134,
+    "fields": {
+        "action_time": "2025-03-30T02:42:12.458Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "12",
+        "object_repr": "adaymalou30",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 135,
+    "fields": {
+        "action_time": "2025-03-30T02:42:36.602Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "12",
+        "object_repr": "adaymalou30",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 136,
+    "fields": {
+        "action_time": "2025-03-30T02:53:45.029Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "13",
+        "object_repr": "dhesmarie",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 137,
+    "fields": {
+        "action_time": "2025-03-30T02:54:58.060Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "13",
+        "object_repr": "dhesmarie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 138,
+    "fields": {
+        "action_time": "2025-03-30T02:59:39.412Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "10",
+        "object_repr": "Kristianne Aleza Marie L. Javier, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 139,
+    "fields": {
+        "action_time": "2025-03-30T03:26:22.817Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "11",
+        "object_repr": "Malou B. Aday",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 140,
+    "fields": {
+        "action_time": "2025-03-30T03:29:48.491Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "12",
+        "object_repr": "Dezza Marie M. Magsino, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 141,
+    "fields": {
+        "action_time": "2025-03-30T03:30:19.673Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "6",
+        "object_repr": "Fidel C. Romasanta, MIT",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Skills\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 142,
+    "fields": {
+        "action_time": "2025-03-30T05:20:34.003Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "5",
+        "object_repr": "Ariston A. Magboo Jr. - Fullstack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 143,
+    "fields": {
+        "action_time": "2025-03-30T05:22:16.735Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "4",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager, Lead Programmer & Fullstack Developer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 144,
+    "fields": {
+        "action_time": "2025-03-30T05:48:26.088Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "object_id": "2",
+        "object_repr": "IT Staff at Mindoro State University Management Information System (MIS) Office - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 145,
+    "fields": {
+        "action_time": "2025-03-30T05:52:58.311Z",
+        "user": [
+            "wilfredpine9"
+        ],
+        "content_type": [
+            "abouts",
+            "experience"
+        ],
+        "object_id": "3",
+        "object_repr": "IT Instructor at Mindoro State University - Wilfred V. Pine, MSIT",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 146,
+    "fields": {
+        "action_time": "2025-03-30T06:00:39.733Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "6",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager, Lead Programmer & Back-end Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 147,
+    "fields": {
+        "action_time": "2025-03-30T06:01:26.197Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "7",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager, Lead Programmer, & Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 148,
+    "fields": {
+        "action_time": "2025-03-30T06:09:20.917Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "4",
+        "object_repr": "RoVote: Student Organization Voting System",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 149,
+    "fields": {
+        "action_time": "2025-03-30T06:12:37.603Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "14",
+        "object_repr": "noeldimailig",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 150,
+    "fields": {
+        "action_time": "2025-03-30T06:13:04.623Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "14",
+        "object_repr": "noeldimailig",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 151,
+    "fields": {
+        "action_time": "2025-03-30T06:15:21.973Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "13",
+        "object_repr": "Noel Dimailig",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 152,
+    "fields": {
+        "action_time": "2025-03-30T06:16:59.290Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "8",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager & Fullstack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 153,
+    "fields": {
+        "action_time": "2025-03-30T06:17:22.438Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "9",
+        "object_repr": "Noel Dimailig - Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 154,
+    "fields": {
+        "action_time": "2025-03-30T06:25:02.695Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "15",
+        "object_repr": "SonyCookies",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 155,
+    "fields": {
+        "action_time": "2025-03-30T06:25:28.386Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "15",
+        "object_repr": "SonyCookies",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 156,
+    "fields": {
+        "action_time": "2025-03-30T06:27:55.221Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "14",
+        "object_repr": "Sonny Sarcia",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 157,
+    "fields": {
+        "action_time": "2025-03-30T06:29:10.926Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "10",
+        "object_repr": "Sonny Sarcia - Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 158,
+    "fields": {
+        "action_time": "2025-03-30T06:29:26.398Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "11",
+        "object_repr": "Sonny Sarcia - Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 159,
+    "fields": {
+        "action_time": "2025-03-30T06:35:24.191Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "16",
+        "object_repr": "lilethpine",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 160,
+    "fields": {
+        "action_time": "2025-03-30T06:35:39.869Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "16",
+        "object_repr": "lilethpine",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 161,
+    "fields": {
+        "action_time": "2025-03-30T06:39:04.812Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "15",
+        "object_repr": "Lileth V. Pine",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 162,
+    "fields": {
+        "action_time": "2025-03-30T06:40:16.822Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "12",
+        "object_repr": "Lileth V. Pine - Programmer & QA Tester",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 163,
+    "fields": {
+        "action_time": "2025-03-30T06:46:46.893Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "17",
+        "object_repr": "ejayayayyy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 164,
+    "fields": {
+        "action_time": "2025-03-30T06:47:12.430Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "17",
+        "object_repr": "ejayayayyy",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 165,
+    "fields": {
+        "action_time": "2025-03-30T06:48:21.189Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "16",
+        "object_repr": "Edward Gatbonton",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 166,
+    "fields": {
+        "action_time": "2025-03-30T06:48:52.439Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "13",
+        "object_repr": "Edward Gatbonton - Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 167,
+    "fields": {
+        "action_time": "2025-03-30T06:49:20.512Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "14",
+        "object_repr": "Edward Gatbonton - Front-end Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 168,
+    "fields": {
+        "action_time": "2025-03-30T06:50:55.580Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "18",
+        "object_repr": "CyKean",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 169,
+    "fields": {
+        "action_time": "2025-03-30T06:51:09.164Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "18",
+        "object_repr": "CyKean",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 170,
+    "fields": {
+        "action_time": "2025-03-30T06:53:28.349Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "17",
+        "object_repr": "Cy Kean Angel Dave R. Perjes",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 171,
+    "fields": {
+        "action_time": "2025-03-30T06:54:45.731Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "15",
+        "object_repr": "Cy Kean Angel Dave R. Perjes - Front-end Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 172,
+    "fields": {
+        "action_time": "2025-03-30T06:56:33.300Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "19",
+        "object_repr": "i4nizer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 173,
+    "fields": {
+        "action_time": "2025-03-30T06:56:52.441Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "19",
+        "object_repr": "i4nizer",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 174,
+    "fields": {
+        "action_time": "2025-03-30T06:57:32.083Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "18",
+        "object_repr": "Ian Sandoval",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 175,
+    "fields": {
+        "action_time": "2025-03-30T06:57:51.621Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "16",
+        "object_repr": "Ian Sandoval - Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 176,
+    "fields": {
+        "action_time": "2025-03-30T07:00:50.953Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "5",
+        "object_repr": "Ariston A. Magboo Jr. - Fullstack Developer",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 177,
+    "fields": {
+        "action_time": "2025-03-30T07:01:02.795Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "17",
+        "object_repr": "Ariston A. Magboo Jr. - Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 178,
+    "fields": {
+        "action_time": "2025-03-30T07:02:21.287Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "20",
+        "object_repr": "Mr-LuaM",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 179,
+    "fields": {
+        "action_time": "2025-03-30T07:02:47.696Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "20",
+        "object_repr": "Mr-LuaM",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 180,
+    "fields": {
+        "action_time": "2025-03-30T07:03:41.840Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "19",
+        "object_repr": "Mark Lua",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 181,
+    "fields": {
+        "action_time": "2025-03-30T07:07:12.963Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "5",
+        "object_repr": "Student Kiosk - Student Information Tracker System for Faculty",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 182,
+    "fields": {
+        "action_time": "2025-03-30T07:08:11.942Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "18",
+        "object_repr": "Mark Lua - Lead Programmer & Full-stack Developer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 183,
+    "fields": {
+        "action_time": "2025-03-30T07:09:02.904Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "19",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager & QA",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 184,
+    "fields": {
+        "action_time": "2025-03-30T07:10:29.160Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "21",
+        "object_repr": "alagasiloraine",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 185,
+    "fields": {
+        "action_time": "2025-03-30T07:10:46.179Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "21",
+        "object_repr": "alagasiloraine",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 186,
+    "fields": {
+        "action_time": "2025-03-30T07:13:20.492Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 187,
+    "fields": {
+        "action_time": "2025-03-30T07:14:02.345Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - Front-end Developer/Graphic Designer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 188,
+    "fields": {
+        "action_time": "2025-03-31T08:51:29.490Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "19",
+        "object_repr": "britolancekianne",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 189,
+    "fields": {
+        "action_time": "2025-03-31T08:51:46.371Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "users",
+            "customuser"
+        ],
+        "object_id": "19",
+        "object_repr": "britolancekianne",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Email\", \"Staff status\", \"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 190,
+    "fields": {
+        "action_time": "2025-03-31T08:53:33.999Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "team"
+        ],
+        "object_id": "21",
+        "object_repr": "Lance Kianne E. Brito",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 191,
+    "fields": {
+        "action_time": "2025-04-02T08:36:22.287Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - UI/UX Designer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 192,
+    "fields": {
+        "action_time": "2025-04-02T09:10:13.654Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "1",
+        "object_repr": "Project Manager (PM)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 193,
+    "fields": {
+        "action_time": "2025-04-02T09:10:23.427Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - Project Manager (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 194,
+    "fields": {
+        "action_time": "2025-04-02T09:10:52.953Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "2",
+        "object_repr": "UI/UX Designer (UI/UX Designer)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 195,
+    "fields": {
+        "action_time": "2025-04-02T09:11:02.566Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - UI/UX Designer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 196,
+    "fields": {
+        "action_time": "2025-04-03T01:34:20.105Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "3",
+        "object_repr": "Business Analyst (BA)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 197,
+    "fields": {
+        "action_time": "2025-04-03T01:34:30.562Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "4",
+        "object_repr": "Software Architect (Software Architect)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 198,
+    "fields": {
+        "action_time": "2025-04-03T01:34:45.535Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "5",
+        "object_repr": "Frontend Developer (Frontend Dev)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 199,
+    "fields": {
+        "action_time": "2025-04-03T01:35:12.155Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "6",
+        "object_repr": "Backend Developer (Backend Dev)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 200,
+    "fields": {
+        "action_time": "2025-04-03T01:35:19.897Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "7",
+        "object_repr": "Full-Stack Developer (Full-Stack Dev)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 201,
+    "fields": {
+        "action_time": "2025-04-03T01:35:28.230Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "8",
+        "object_repr": "Database Administrator (DBA)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 202,
+    "fields": {
+        "action_time": "2025-04-03T01:35:37.099Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "9",
+        "object_repr": "DevOps Engineer (DevOps)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 203,
+    "fields": {
+        "action_time": "2025-04-03T01:35:47.703Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "10",
+        "object_repr": "Cybersecurity Specialist (Cybersecurity)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 204,
+    "fields": {
+        "action_time": "2025-04-03T01:35:57.148Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "11",
+        "object_repr": "QA Engineer / Tester (QA Tester)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 205,
+    "fields": {
+        "action_time": "2025-04-03T01:36:53.485Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "12",
+        "object_repr": "Technical Writer (Tech Writer)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 206,
+    "fields": {
+        "action_time": "2025-04-03T01:37:05.789Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "13",
+        "object_repr": "System Administrator (Sys Admin)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 207,
+    "fields": {
+        "action_time": "2025-04-03T01:37:16.158Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "14",
+        "object_repr": "Product Owner (Product Owner)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 208,
+    "fields": {
+        "action_time": "2025-04-03T01:37:24.304Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "15",
+        "object_repr": "Scrum Master (Scrum Master)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 209,
+    "fields": {
+        "action_time": "2025-04-03T01:37:50.796Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "16",
+        "object_repr": "Machine Learning Engineer (ML Engineer)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 210,
+    "fields": {
+        "action_time": "2025-04-03T01:38:03.001Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "17",
+        "object_repr": "Blockchain Developer (Blockchain Dev)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 211,
+    "fields": {
+        "action_time": "2025-04-03T01:38:13.629Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "18",
+        "object_repr": "IoT Developer (IoT Dev)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 212,
+    "fields": {
+        "action_time": "2025-04-03T01:39:21.724Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "1",
+        "object_repr": "Project Manager (PM)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 213,
+    "fields": {
+        "action_time": "2025-04-03T01:39:38.474Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "3",
+        "object_repr": "Business Analyst (BA)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 214,
+    "fields": {
+        "action_time": "2025-04-03T01:39:55.232Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "4",
+        "object_repr": "Software Architect (Software Architect)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 215,
+    "fields": {
+        "action_time": "2025-04-03T01:40:16.645Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "5",
+        "object_repr": "Frontend Developer (Frontend Dev)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 216,
+    "fields": {
+        "action_time": "2025-04-03T01:40:28.917Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "6",
+        "object_repr": "Backend Developer (Backend Dev)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 217,
+    "fields": {
+        "action_time": "2025-04-03T01:40:47.749Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "7",
+        "object_repr": "Full-Stack Developer (Full-Stack Dev)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 218,
+    "fields": {
+        "action_time": "2025-04-03T01:41:00.653Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "8",
+        "object_repr": "Database Administrator (DBA)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 219,
+    "fields": {
+        "action_time": "2025-04-03T01:41:10.550Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "9",
+        "object_repr": "DevOps Engineer (DevOps)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 220,
+    "fields": {
+        "action_time": "2025-04-03T01:41:22.207Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "10",
+        "object_repr": "Cybersecurity Specialist (Cybersecurity)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 221,
+    "fields": {
+        "action_time": "2025-04-03T01:41:37.980Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "11",
+        "object_repr": "QA Engineer / Tester (QA Tester)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 222,
+    "fields": {
+        "action_time": "2025-04-03T01:41:50.752Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "2",
+        "object_repr": "UI/UX Designer (UI/UX Designer)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 223,
+    "fields": {
+        "action_time": "2025-04-03T01:42:03.449Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "12",
+        "object_repr": "Technical Writer (Tech Writer)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 224,
+    "fields": {
+        "action_time": "2025-04-03T01:42:19.686Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "13",
+        "object_repr": "System Administrator (Sys Admin)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 225,
+    "fields": {
+        "action_time": "2025-04-03T01:42:28.680Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "14",
+        "object_repr": "Product Owner (Product Owner)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 226,
+    "fields": {
+        "action_time": "2025-04-03T01:42:40.085Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "15",
+        "object_repr": "Scrum Master (Scrum Master)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 227,
+    "fields": {
+        "action_time": "2025-04-03T01:42:53.508Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "16",
+        "object_repr": "Machine Learning Engineer (ML Engineer)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 228,
+    "fields": {
+        "action_time": "2025-04-03T01:43:08.648Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "17",
+        "object_repr": "Blockchain Developer (Blockchain Dev)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 229,
+    "fields": {
+        "action_time": "2025-04-03T01:43:17.883Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectrole"
+        ],
+        "object_id": "18",
+        "object_repr": "IoT Developer (IoT Dev)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 230,
+    "fields": {
+        "action_time": "2025-04-03T01:44:40.788Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "7",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager,Software Architect,Full-Stack Developer,Database Administrator (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 231,
+    "fields": {
+        "action_time": "2025-04-03T01:47:12.625Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - UI/UX Designer,Frontend Developer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 232,
+    "fields": {
+        "action_time": "2025-04-03T01:47:29.072Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - UI/UX Designer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 233,
+    "fields": {
+        "action_time": "2025-04-03T01:50:06.873Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "20",
+        "object_repr": "Loraine B. Alagasi - UI/UX Designer,Frontend Developer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 234,
+    "fields": {
+        "action_time": "2025-04-03T01:58:26.154Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "15",
+        "object_repr": "Cy Kean Angel Dave R. Perjes - UI/UX Designer,Frontend Developer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 235,
+    "fields": {
+        "action_time": "2025-04-03T01:58:34.420Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "14",
+        "object_repr": "Edward Gatbonton - UI/UX Designer,Frontend Developer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 236,
+    "fields": {
+        "action_time": "2025-04-03T01:58:42.887Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "10",
+        "object_repr": "Sonny Sarcia - UI/UX Designer,Frontend Developer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 237,
+    "fields": {
+        "action_time": "2025-04-03T02:02:12.112Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "10",
+        "object_repr": "Sonny Sarcia - UI/UX Designer,Full-Stack Developer (DiD Official Website)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 238,
+    "fields": {
+        "action_time": "2025-04-03T02:04:25.438Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "4",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager,Software Architect,Full-Stack Developer,Database Administrator (Event Attendance Monitoring System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 239,
+    "fields": {
+        "action_time": "2025-04-03T02:04:41.295Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "16",
+        "object_repr": "Ian Sandoval - Full-Stack Developer (Event Attendance Monitoring System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 240,
+    "fields": {
+        "action_time": "2025-04-03T02:04:52.967Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "17",
+        "object_repr": "Ariston A. Magboo Jr. - Full-Stack Developer (Event Attendance Monitoring System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 241,
+    "fields": {
+        "action_time": "2025-04-03T02:07:00.576Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "21",
+        "object_repr": "Fidel C. Romasanta, MIT - Business Analyst (Event Attendance Monitoring System)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 242,
+    "fields": {
+        "action_time": "2025-04-03T02:07:11.831Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "22",
+        "object_repr": "Dezza Marie M. Magsino, MSIT - Business Analyst (Event Attendance Monitoring System)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 243,
+    "fields": {
+        "action_time": "2025-04-03T02:08:00.307Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "23",
+        "object_repr": "Engr. Jesus M. Bautista, MSIT - System Administrator (Event Attendance Monitoring System)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 244,
+    "fields": {
+        "action_time": "2025-04-03T02:11:02.384Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "18",
+        "object_repr": "Mark Lua - Software Architect,Full-Stack Developer (Student Kiosk - Student Information Tracker System for Faculty)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 245,
+    "fields": {
+        "action_time": "2025-04-03T02:11:17.136Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "19",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager (Student Kiosk - Student Information Tracker System for Faculty)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 246,
+    "fields": {
+        "action_time": "2025-04-03T02:12:36.882Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "24",
+        "object_repr": "Ronald M. Marasigan, MSIT - Full-Stack Developer,QA Engineer / Tester (Student Kiosk - Student Information Tracker System for Faculty)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 247,
+    "fields": {
+        "action_time": "2025-04-03T02:12:46.769Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "25",
+        "object_repr": "Dezza Marie M. Magsino, MSIT - Project Manager (Student Kiosk - Student Information Tracker System for Faculty)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 248,
+    "fields": {
+        "action_time": "2025-04-03T02:13:10.702Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "8",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager,Full-Stack Developer (RoVote: Student Organization Voting System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 249,
+    "fields": {
+        "action_time": "2025-04-03T02:13:38.368Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "8",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager,Full-Stack Developer,Database Administrator (RoVote: Student Organization Voting System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 250,
+    "fields": {
+        "action_time": "2025-04-03T02:13:48.573Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "9",
+        "object_repr": "Noel Dimailig - Full-Stack Developer (RoVote: Student Organization Voting System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 251,
+    "fields": {
+        "action_time": "2025-04-03T02:14:23.165Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "12",
+        "object_repr": "Lileth V. Pine - Full-Stack Developer (RoVote: Student Organization Voting System)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 252,
+    "fields": {
+        "action_time": "2025-04-03T02:14:37.783Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "13",
+        "object_repr": "Edward Gatbonton - Full-Stack Developer (TeachTrack)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 253,
+    "fields": {
+        "action_time": "2025-04-03T02:14:58.767Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "11",
+        "object_repr": "Sonny Sarcia - Full-Stack Developer (TeachTrack)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 254,
+    "fields": {
+        "action_time": "2025-04-03T02:19:40.712Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "6",
+        "object_repr": "Wilfred V. Pine, MSIT - Project Manager,Full-Stack Developer (TeachTrack)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 255,
+    "fields": {
+        "action_time": "2025-04-03T02:20:14.460Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "26",
+        "object_repr": "Fidel C. Romasanta, MIT - Business Analyst,Software Architect (TeachTrack)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 256,
+    "fields": {
+        "action_time": "2025-04-03T02:22:04.830Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "27",
+        "object_repr": "Kristianne Aleza Marie L. Javier, MSIT - Project Manager,QA Engineer / Tester (TeachTrack)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 257,
+    "fields": {
+        "action_time": "2025-04-03T02:22:34.580Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "28",
+        "object_repr": "Malou B. Aday - QA Engineer / Tester (TeachTrack)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 258,
+    "fields": {
+        "action_time": "2025-04-03T02:23:08.615Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "25",
+        "object_repr": "Dezza Marie M. Magsino, MSIT - Project Manager,QA Engineer / Tester (Student Kiosk - Student Information Tracker System for Faculty)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"role\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 259,
+    "fields": {
+        "action_time": "2025-04-03T02:25:13.741Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "29",
+        "object_repr": "Elmer H. Festijo, MSIT - System Administrator (Event Attendance Monitoring System)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 260,
+    "fields": {
+        "action_time": "2025-04-03T02:25:38.061Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "projectdeveloper"
+        ],
+        "object_id": "30",
+        "object_repr": "Elmer H. Festijo, MSIT - System Administrator (TeachTrack)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 261,
+    "fields": {
+        "action_time": "2025-04-03T03:05:52.859Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "contact"
+        ],
+        "object_id": "1",
+        "object_repr": "dedicateditdevelopers@gmail.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Number\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 262,
+    "fields": {
+        "action_time": "2025-04-03T08:27:33.259Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "4",
+        "object_repr": "RoVote: Student Organization Voting System",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Project start\", \"Project end\", \"Status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 263,
+    "fields": {
+        "action_time": "2025-04-03T08:31:11.257Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "Event Attendance Monitoring System",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tech stack\", \"Features\", \"Project start\", \"Project end\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 264,
+    "fields": {
+        "action_time": "2025-04-03T08:33:31.364Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "5",
+        "object_repr": "Student Kiosk - Student Information Tracker System for Faculty",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Project start\", \"Project end\", \"Status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 265,
+    "fields": {
+        "action_time": "2025-04-03T08:36:19.644Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "1",
+        "object_repr": "DiD Official Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Project start\", \"Status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 266,
+    "fields": {
+        "action_time": "2025-04-03T08:37:46.970Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "3",
+        "object_repr": "TeachTrack",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Features\", \"Project start\", \"Status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 267,
+    "fields": {
+        "action_time": "2025-04-03T08:47:36.108Z",
+        "user": [
+            "didadmin"
+        ],
+        "content_type": [
+            "abouts",
+            "project"
+        ],
+        "object_id": "2",
+        "object_repr": "Student Org. Event Attendance Monitoring System using RFID",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Project name\"]}}]"
+    }
+}
+]
