@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        accent: '#e74c3c',
-                    }
-                }
-            }
+          darkMode: 'class',
+          theme: {
+              extend: {
+                  colors: {
+                      accent: '#e74c3c',
+                  }
+              }
+          }
         }
     </script>
     <!--style>
@@ -59,9 +60,14 @@
           text-orientation: mixed;
           transform: rotate(180deg);
         }
+
+        /* Smooth transition for theme changes */
+        * {
+          transition: background-color 0.3s, color 0.3s;
+        }
       </style>
 </head>
-<body class="bg-black text-white">
+<body class="dark:bg-black text-gray-800 dark:text-white">
 
   <div class="fixed left-8 top-1/2 z-50 -translate-y-1/2 hidden lg:block">
     <div class="flex flex-col gap-20 animate-fade-in">
@@ -77,6 +83,14 @@
   </div>
 
     <div class="container mx-auto px-4 py-8 max-w-6xl mt-5">
+
+        <!-- Theme Toggle Button -->
+        <div class="absolute top-4 right-4 md:top-8 md:right-8">
+          <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white">
+              <i id="theme-icon" class="fa-solid fa-moon"></i>
+          </button>
+      </div>
+      
         <!-- Mobile Header -->
         <div class="md:hidden flex flex-col items-center mb-8">
             <div class="rounded-full border-4 border-accent w-40 h-40 overflow-hidden mb-4">
@@ -87,7 +101,10 @@
               <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
               {{ profile.role|title }}
             </h2>
-            <h2 class="text-gray-300 mb-4">{{ profile.position }}</h2>
+            <h2 class="text-accent-2-300 mb-4  text-center">{{ profile.position }}</h2>
+            <p class="text-gray-400" style="text-align: justify;">
+              {{ profile.objectives }}
+            </p>
         </div>
 
         <div class="flex flex-col md:flex-row gap-8">
@@ -221,8 +238,8 @@
                       <span style="display: inline-block; transform: scaleX(-1)">D</span>iD
                       {{ profile.role|title }}
                     </h2>
-                    <p class="text-gray-300 mb-4">{{ profile.position }}</p>
-                    <p class="text-gray-400">
+                    <p class="text-accent-2 mb-4">{{ profile.position }}</p>
+                    <p class="text-gray-400" style="text-align: justify;">
                       {{ profile.objectives }}
                     </p>
                 </div>
@@ -249,10 +266,10 @@
                                   <h3 class="text-xl font-semibold">{{ exp.position }}</h3>
                                   <p class="text-red-500">{{ exp.company }}</p>
                                 </div>
-                                <span class="bg-gray-800 text-gray-300 px-2 py-1 rounded-md text-sm">{{ exp.start_date }} - {{ exp.end_date|default:"Present" }}</span>
+                                <span class="bg-gray-600 text-gray-200 px-2 py-1 rounded-md text-sm">{{ exp.start_date }} - {{ exp.end_date|default:"Present" }}</span>
                               </div>
-                              <ul class="list-disc pl-5 space-y-2 text-gray-300">
-                                <li>{{ exp.description }}</li>
+                              <ul class="list-disc pl-5 space-y-2 text-gray-400">
+                                <li  style="text-align: justify;">{{ exp.description }}</li>
                               </ul>
                             </div>
 
@@ -295,19 +312,19 @@
                                     {% endif %}
                                   </div>
                                 </div>
-                                <p class="text-gray-300">
+                                <p class="text-gray-400" style="text-align: justify;">
                                   {{ project.description }}
                                 </p>
                                 <div class="flex flex-wrap gap-2">
                                   Tech-stack: 
                                   {% for tech in project.tech_stack %}
-                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ tech }}</span>
+                                    <span class="bg-gray-600 text-gray-200 px-2 py-1 rounded-md text-sm">{{ tech }}</span>
                                   {% endfor %}
                                 </div>
                                 <div class="flex flex-wrap gap-2">
                                   Features: 
                                   {% for feature in project.features %}
-                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ feature }}</span>
+                                    <span class="bg-gray-600 text-gray-200 px-2 py-1 rounded-md text-sm">{{ feature }}</span>
                                   {% endfor %}
                                 </div>
 
@@ -317,14 +334,14 @@
                                   {% for dev in project.projectdeveloper_set.all %}
                                     <div class="border border-gray-700 rounded-lg p-2 w-40 text-center">
                                       <img src="{{ dev.team.get_photo_url }}" alt="{{ dev.team.name }}" class="w-auto h-12 rounded-full mx-auto">
-                                      <p class="text-white text-sm font-bold mt-2">{{ dev.team.name }}</p>
+                                      <p class="text-accent-1 text-sm font-bold mt-2">{{ dev.team.name }}</p>
                                       <p class="text-gray-400 text-xs">{{ dev.role }}</p>
                                     </div>
                                   {% endfor %}
 
                                   <div class="border border-gray-700 rounded-lg p-2 w-40 text-center">
                                     <img src="/media/images/did.png" alt="DiD" class="w-auto h-12 rounded-full mx-auto bg-white">
-                                    <p class="text-white text-sm font-bold">Founders, Experts, Members, & Alumni</p>
+                                    <p class="text-accent-1 text-sm font-bold">Founders, Experts, Members, & Alumni</p>
                                     <p class="text-gray-400 text-xs">for Implementation, Critic, Support, & Maintenance</p>
                                   </div>
 
@@ -359,20 +376,20 @@
                                     </a> {% endcomment %}
                                   </div>
                                 </div>
-                                <p class="text-gray-300">
+                                <p class="text-gray-400">
                                   {{ project.description }}
                                 </p>
 
                                 <div class="flex flex-wrap gap-2">
                                   Tech-stack: 
                                   {% for tech in project.tech_stack %}
-                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ tech }}</span>
+                                    <span class="bg-gray-600 text-gray-200 px-2 py-1 rounded-md text-sm">{{ tech }}</span>
                                   {% endfor %}
                                 </div>
                                 <div class="flex flex-wrap gap-2">
                                   Features: 
                                   {% for feature in project.features %}
-                                    <span class="bg-gray-800 px-2 py-1 rounded-md text-sm">{{ feature }}</span>
+                                    <span class="bg-gray-600 text-gray-200 px-2 py-1 rounded-md text-sm">{{ feature }}</span>
                                   {% endfor %}
                                 </div>
                                 
@@ -522,7 +539,52 @@
         </div>
     </div>
 
+    <!-- Theme Toggle Script -->
     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const themeToggle = document.getElementById('theme-toggle');
+          const themeIcon = document.getElementById('theme-icon');
+          const htmlElement = document.documentElement;
+          
+          // Check for saved theme preference, default to dark if none
+          const savedTheme = localStorage.getItem('theme');
+          
+          // Set initial theme - default to dark unless explicitly set to light
+          if (savedTheme === 'light') {
+              htmlElement.classList.remove('dark');
+              themeIcon.classList.remove('fa-sun');
+              themeIcon.classList.add('fa-moon');
+          } else {
+              // Default to dark mode
+              htmlElement.classList.add('dark');
+              themeIcon.classList.remove('fa-moon');
+              themeIcon.classList.add('fa-sun');
+              // If no theme was set before, save dark as the default
+              if (!savedTheme) {
+                  localStorage.setItem('theme', 'dark');
+              }
+          }
+          
+          // Toggle theme on button click
+          themeToggle.addEventListener('click', function() {
+              if (htmlElement.classList.contains('dark')) {
+                  // Switch to light mode
+                  htmlElement.classList.remove('dark');
+                  themeIcon.classList.remove('fa-sun');
+                  themeIcon.classList.add('fa-moon');
+                  localStorage.setItem('theme', 'light');
+              } else {
+                  // Switch to dark mode
+                  htmlElement.classList.add('dark');
+                  themeIcon.classList.remove('fa-moon');
+                  themeIcon.classList.add('fa-sun');
+                  localStorage.setItem('theme', 'dark');
+              }
+          });
+      });
+    </script>
+
+      <script>
         // Tab functionality
         document.addEventListener('DOMContentLoaded', function() {
           const tabTriggers = document.querySelectorAll('.tab-trigger');
