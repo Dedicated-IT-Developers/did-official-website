@@ -28,7 +28,7 @@ Sample:
 
 # Todos: (Note: Always make Pull request before Push updates)
 
-- Remove the Javascript/Ajax for fetching data (displaying data) into html, just used the Django Template Engine inside html 
+HIGH PRIORITY - Remove the Javascript/Ajax for fetching data (displaying data) into html, just used the Django Template Engine inside html 
     * Projects Page
     * View Projects Page
     * Teams Page

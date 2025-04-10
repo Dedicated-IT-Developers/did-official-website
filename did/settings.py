@@ -214,7 +214,7 @@ LOGOUT_REDIRECT_URL = '/'
 # File upload config
 # ----------------------
 MEDIA_URL = os.getenv('UPLOAD_DIR', default='media')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.getenv('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))  # Default to os.path.join(BASE_DIR, 'media') if MEDIA_ROOT is not set
 FILE_UPLOAD_PERMISSIONS = 0o640  # Read/write for owner, read-only for group
 FILE_UPLOAD_HANDLERS = [
     'django.core.files.uploadhandler.MemoryFileUploadHandler',

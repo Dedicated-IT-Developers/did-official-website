@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+import os
 
 class SliderPoster(models.Model):
     STATUS_CHOICES = [
@@ -56,6 +57,11 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.photo and os.path.exists(self.photo.path):
+            os.chmod(self.photo.path, 0o644)
     
     class Meta:
         verbose_name = "User Profile"  # Singular name
@@ -146,6 +152,12 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.project.project_name}" 
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # Ensure file exists before changing permissions
+        if self.image and os.path.exists(self.image.path):
+            os.chmod(self.image.path, 0o644)
 
 
 class ProjectRole(models.Model):
